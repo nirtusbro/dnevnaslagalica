@@ -1,0 +1,242 @@
+[
+  { "cols": [
+      { "f": ["ĆELIJA", "ZEMLJA", "ORAH", "CENTAR"], "s": "JEZGRO", "acc": ["JEZGRA"] },
+      { "f": ["NEGATIVAN", "ORBITA", "NAELEKTRISANJE", "ČESTICA"], "s": "ELEKTRON", "acc": ["ELEKTRONI"] },
+      { "f": ["HIROŠIMA", "EKSPLOZIJA", "FITILJ", "TEMPIRANA"], "s": "BOMBA", "acc": ["BOMBE"] },
+      { "f": ["VODA", "HEMIJA", "VEZA", "DNK"], "s": "MOLEKUL", "acc": ["MOLEKULI", "MOLEKULA"] }
+    ], "final": { "s": "ATOM", "acc": ["ATOMI"] }, "d": 2 },
+  { "cols": [
+      { "f": ["VLAGA", "CRVENA", "KOROZIJA", "STARO"], "s": "RĐA" },
+      { "f": ["KRV", "KISEONIK", "ANEMIJA", "ERITROCIT"], "s": "HEMOGLOBIN", "acc": ["HEMOGLOBINA"] },
+      { "f": ["POPAJ", "ZELENO", "PITA", "LIST"], "s": "SPANAĆ", "acc": ["SPANAĆA"] },
+      { "f": ["LEGURA", "ŽELEZARA", "SMEDEREVO", "TVRD"], "s": "ČELIK", "acc": ["ČELIKA"] }
+    ], "final": { "s": "GVOŽĐE", "acc": ["ŽELEZO"] }, "d": 2 },
+  { "cols": [
+      { "f": ["PLUĆA", "UDAH", "IZDAH", "VAZDUH"], "s": "DISANJE", "acc": ["DAH"] },
+      { "f": ["RUPA", "SLOJ", "ATMOSFERA", "UV"], "s": "OZON", "acc": ["OZONA"] },
+      { "f": ["RONILAC", "GAS", "FLAŠA", "PORUKA"], "s": "BOCA", "acc": ["BOCE"] },
+      { "f": ["VATRA", "GORIVO", "PLAMEN", "OKSIDACIJA"], "s": "SAGOREVANJE", "acc": ["GORENJE"] }
+    ], "final": { "s": "KISEONIK", "acc": ["KISEONIKA"] }, "d": 2 },
+  { "cols": [
+      { "f": ["TRKA", "MERAČ", "KILOMETRI", "OGRANIČENJE"], "s": "BRZINA", "acc": ["BRZINE"] },
+      { "f": ["EDISON", "VOLFRAM", "VAT", "IDEJA"], "s": "SIJALICA", "acc": ["SIJALICE"] },
+      { "f": ["NJUTN", "SPEKTAR", "STAKLO", "DUGA"], "s": "PRIZMA", "acc": ["PRIZME"] },
+      { "f": ["ČESTICA", "KVANT", "LASER", "TALAS"], "s": "FOTON", "acc": ["FOTONI"] }
+    ], "final": { "s": "SVETLOST", "acc": ["SVETLO"] }, "d": 2 },
+  { "cols": [
+      { "f": ["PEĆINA", "PONAVLJANJE", "PLANINA", "NIMFA"], "s": "EHO", "acc": ["ODJEK"] },
+      { "f": ["BUBNA OPNA", "SLUH", "MINĐUŠA", "ŠKOLJKA"], "s": "UHO", "acc": ["UVO", "UŠI"] },
+      { "f": ["JEDINICA", "GLASNOĆA", "BUKA", "MERENJE"], "s": "DECIBEL", "acc": ["DECIBELI"] },
+      { "f": ["BIBLIOTEKA", "MUK", "ĆUTANJE", "NOĆ"], "s": "TIŠINA", "acc": ["TIŠINE"] }
+    ], "final": { "s": "ZVUK", "acc": ["ZVUKOVI", "ZVUCI"] }, "d": 2 },
+  { "cols": [
+      { "f": ["SLIKAR", "KIST", "MEŠANJE", "PONUDA"], "s": "PALETA", "acc": ["PALETE"] },
+      { "f": ["PRIZMA", "TALASI", "ŠIROK", "RADIO"], "s": "SPEKTAR", "acc": ["SPEKTRI"] },
+      { "f": ["JARBOL", "DRŽAVA", "BELA", "GRB"], "s": "ZASTAVA", "acc": ["ZASTAVE"] },
+      { "f": ["ZID", "KIČICA", "LAK", "SPREJ"], "s": "FARBA", "acc": ["FARBE"] }
+    ], "final": { "s": "BOJA", "acc": ["BOJE"] }, "d": 1 },
+  { "cols": [
+      { "f": ["SALATA", "KEČAP", "SOK", "POVRĆE"], "s": "PARADAJZ", "acc": ["PARADAJZA"] },
+      { "f": ["ŠMRK", "CREVO", "MERDEVINE", "POŽAR"], "s": "VATROGASCI", "acc": ["VATROGASAC"] },
+      { "f": ["ŽUTI", "ISKLJUČENJE", "KUTIJA", "SUDIJA"], "s": "KARTON", "acc": ["KARTONI"] },
+      { "f": ["MARAKANA", "DELIJE", "FUDBAL", "PETOKRAKA"], "s": "ZVEZDA", "acc": ["ZVEZDE"] }
+    ], "final": { "s": "CRVENA", "acc": ["CRVENO", "CRVENI"] }, "d": 1 },
+  { "cols": [
+      { "f": ["LIVADA", "KOSILICA", "ROSA", "SENO"], "s": "TRAVA", "acc": ["TRAVE"] },
+      { "f": ["RASKRSNICA", "CRVENO", "ŽUTO", "PEŠACI"], "s": "SEMAFOR", "acc": ["SEMAFORI"] },
+      { "f": ["KREKETANJE", "BARA", "PUNOGLAVAC", "PRINC"], "s": "ŽABA", "acc": ["ŽABE"] },
+      { "f": ["KUPUS", "DRESING", "PREDJELO", "RUKOLA"], "s": "SALATA", "acc": ["SALATE"] }
+    ], "final": { "s": "ZELENA", "acc": ["ZELENO", "ZELENI"] }, "d": 1 },
+  { "cols": [
+      { "f": ["KAPA", "LOBANJA", "MOZAK", "KUPUS"], "s": "GLAVA", "acc": ["GLAVE"] },
+      { "f": ["VIOLINA", "STRUNE", "KONJSKA DLAKA", "VIOLA"], "s": "GUDALO", "acc": ["GUDALA"] },
+      { "f": ["STAROST", "NABOR", "MRŠTENJE", "BOTOKS"], "s": "BORA", "acc": ["BORE"] },
+      { "f": ["FRIZURA", "KOSA", "OBRVE", "RAVNE"], "s": "ŠIŠKE", "acc": ["ŠIŠKA"] }
+    ], "final": { "s": "ČELO", "acc": ["ČELA"] }, "d": 2 },
+  { "cols": [
+      { "f": ["PARFEM", "ČULO", "AROMA", "VONJ"], "s": "MIRIS", "acc": ["MIRISI"] },
+      { "f": ["LUTKA", "LAŽ", "ĐEPETO", "DRVENI"], "s": "PINOKIO", "acc": ["PINOKIJA"] },
+      { "f": ["PREHLADA", "ALERGIJA", "NAZDRAVLJE", "POLEN"], "s": "KIJANJE", "acc": ["KIJAVICA"] },
+      { "f": ["SLON", "MAMUT", "HVATANJE", "DUGA"], "s": "SURLA", "acc": ["SURLE"] }
+    ], "final": { "s": "NOS", "acc": ["NOSEVI"] }, "d": 1 },
+  { "cols": [
+      { "f": ["KAFA", "PATELA", "RAKIJA", "ŠOLJICA"], "s": "ČAŠICA", "acc": ["ČAŠICE"] },
+      { "f": ["PRSTEN", "VERIDBA", "PITANJE", "DA"], "s": "PROSIDBA", "acc": ["PROSIDBE"] },
+      { "f": ["MLADI", "STARI", "RAZMAK", "PREDAK"], "s": "GENERACIJA", "acc": ["GENERACIJE"] },
+      { "f": ["LAKAT", "RAME", "ARTRITIS", "UGANUĆE"], "s": "ZGLOB", "acc": ["ZGLOBOVI"] }
+    ], "final": { "s": "KOLENO", "acc": ["KOLENA"] }, "d": 2 },
+  { "cols": [
+      { "f": ["RUPA", "AMALGAM", "BUŠILICA", "OLOVO"], "s": "PLOMBA", "acc": ["PLOMBE"] },
+      { "f": ["BAJKA", "ČAROBNI ŠTAP", "KRILA", "NOVČIĆ"], "s": "VILA", "acc": ["VILE"] },
+      { "f": ["SOVA", "SOLOMON", "STAROST", "ISKUSTVO"], "s": "MUDROST", "acc": ["MUDROSTI"] },
+      { "f": ["EMAJL", "LONAC", "SJAJ", "KERAMIKA"], "s": "GLEĐ", "acc": ["GLEĐI"] }
+    ], "final": { "s": "ZUB", "acc": ["ZUBI"] }, "d": 3 },
+  { "cols": [
+      { "f": ["DRAKULA", "KOLAC", "BELI LUK", "TRANSILVANIJA"], "s": "VAMPIR", "acc": ["VAMPIRI"] },
+      { "f": ["TRANSFUZIJA", "HUMANOST", "ORGANI", "IGLA"], "s": "DONOR", "acc": ["DONORI", "DAVALAC"] },
+      { "f": ["VISOK", "NIZAK", "ATMOSFERA", "STRES"], "s": "PRITISAK", "acc": ["PRITISCI"] },
+      { "f": ["UBOD", "ZUJANJE", "MALARIJA", "LETO"], "s": "KOMARAC", "acc": ["KOMARCI"] }
+    ], "final": { "s": "KRV", "acc": ["KRVI"] }, "d": 1 },
+  { "cols": [
+      { "f": ["BELI", "KIŠNI", "KUĆNI", "OGRTAČ"], "s": "MANTIL", "acc": ["MANTILI"] },
+      { "f": ["KOLAČ", "LEK", "APOTEKA", "SASTOJCI"], "s": "RECEPT", "acc": ["RECEPTI"] },
+      { "f": ["KONTROLA", "SISTEMATSKI", "NALAZ", "VESTI"], "s": "PREGLED", "acc": ["PREGLEDI"] },
+      { "f": ["TITULA", "TEZA", "LABORATORIJA", "ISTRAŽIVANJE"], "s": "NAUKA", "acc": ["NAUKE"] }
+    ], "final": { "s": "DOKTOR", "acc": ["DOKTORI", "LEKAR"] }, "d": 1 },
+  { "cols": [
+      { "f": ["TABLETA", "SIRUP", "DOZA", "PENICILIN"], "s": "LEK", "acc": ["LEKOVI"] },
+      { "f": ["TERAZIJE", "ZNAK", "KILOGRAM", "TEG"], "s": "VAGA", "acc": ["VAGE"] },
+      { "f": ["ESKULAP", "ČAŠA", "SIMBOL", "OTROV"], "s": "ZMIJA", "acc": ["ZMIJE"] },
+      { "f": ["SLUŽBA", "NOĆ", "SMENA", "BOLNICA"], "s": "DEŽURNA", "acc": ["DEŽURSTVO"] }
+    ], "final": { "s": "APOTEKA", "acc": ["APOTEKE"] }, "d": 1 },
+  { "cols": [
+      { "f": ["POVEZ", "MAČ", "VAGA", "TEMIDA"], "s": "PRAVDA", "acc": ["PRAVDE"] },
+      { "f": ["DVANAEST", "GRAĐANI", "ODLUKA", "FILM"], "s": "POROTA", "acc": ["POROTE"] },
+      { "f": ["POKLOPAC", "LONAC", "SUPA", "KUHINJA"], "s": "ŠERPA", "acc": ["ŠERPE"] },
+      { "f": ["EKSER", "ALAT", "KOVAČ", "TOR"], "s": "ČEKIĆ", "acc": ["ČEKIĆI"] }
+    ], "final": { "s": "SUD", "acc": ["SUDOVI"] }, "d": 2 },
+  { "cols": [
+      { "f": ["KASICA", "PRASE", "KAMATA", "ULOG"], "s": "ŠTEDNJA", "acc": ["ŠTEDNJE"] },
+      { "f": ["RATA", "ZAJAM", "DUG", "STAMBENI"], "s": "KREDIT", "acc": ["KREDITI"] },
+      { "f": ["TREZOR", "ŠIFRA", "PLJAČKA", "HOTEL"], "s": "SEF", "acc": ["SEFOVI"] },
+      { "f": ["BAZA", "INFORMACIJA", "STATISTIKA", "UNOS"], "s": "PODATAK", "acc": ["PODACI"] }
+    ], "final": { "s": "BANKA", "acc": ["BANKE"] }, "d": 1 },
+  { "cols": [
+      { "f": ["DINAR", "METAL", "KOLEKCIJA", "FONTANA"], "s": "KOVANICA", "acc": ["KOVANICE"] },
+      { "f": ["POSAO", "MESEČNA", "MINIMALAC", "ZARADA"], "s": "PLATA", "acc": ["PLATE"] },
+      { "f": ["BLAGAJNA", "RAČUN", "PRODAVNICA", "FISKALNA"], "s": "KASA", "acc": ["KASE"] },
+      { "f": ["EVRO", "DOLAR", "KURS", "MENJAČNICA"], "s": "VALUTA", "acc": ["VALUTE"] }
+    ], "final": { "s": "NOVAC", "acc": ["NOVCI", "PARE"] }, "d": 1 },
+  { "cols": [
+      { "f": ["PRODAVAC", "ŠTAND", "ROBA", "HONORAR"], "s": "TEZGA", "acc": ["TEZGE"] },
+      { "f": ["POPUST", "TRGOVINA", "POGAĐANJE", "ORIJENT"], "s": "CENKANJE" },
+      { "f": ["VAGA", "MERENJE", "TEG", "MESAR"], "s": "KANTAR", "acc": ["KANTARI"] },
+      { "f": ["POLOVNO", "STARUDIJA", "ANTIKVITET", "NEDELJA"], "s": "BUVLJAK", "acc": ["BUVLJACI"] }
+    ], "final": { "s": "PIJACA", "acc": ["PIJACE"] }, "d": 1 },
+  { "cols": [
+      { "f": ["PIKNIK", "KOŠARKA", "PLETENA", "OTPAD"], "s": "KORPA", "acc": ["KORPE"] },
+      { "f": ["POLICA", "MAGACIN", "REGAL", "GARAŽA"], "s": "RAF", "acc": ["RAFOVI"] },
+      { "f": ["BANKA", "KASA", "PLAĆANJE", "FISKALNI"], "s": "RAČUN", "acc": ["RAČUNI"] },
+      { "f": ["KOLICA", "MARKET", "SUPER", "KUPOVINA"], "s": "SAMOPOSLUGA", "acc": ["SAMOUSLUGA"] }
+    ], "final": { "s": "PRODAVNICA", "acc": ["PRODAVNICE", "RADNJA"] }, "d": 1 },
+  { "cols": [
+      { "f": ["PORUDŽBINA", "TACNA", "NAPOJNICA", "KECELJA"], "s": "KONOBAR", "acc": ["KONOBARI", "KELNER"] },
+      { "f": ["LESKOVAC", "ROŠTILJ", "LEPINJA", "MLEVENO"], "s": "ĆEVAPI", "acc": ["ĆEVAP"] },
+      { "f": ["STO", "KARIRANI", "PLATNO", "MRLJA"], "s": "STOLNJAK", "acc": ["STOLNJACI"] },
+      { "f": ["SKADARLIJA", "UMETNICI", "NOĆNI ŽIVOT", "PESNICI"], "s": "BOEMI", "acc": ["BOEM"] }
+    ], "final": { "s": "KAFANA", "acc": ["KAFANE"] }, "d": 1 },
+  { "cols": [
+      { "f": ["HRAST", "GRANA", "VATRA", "VEČE"], "s": "BADNJAK", "acc": ["BADNJACI"] },
+      { "f": ["NOVČIĆ", "POGAČA", "LOMLJENJE", "SREĆA"], "s": "ČESNICA", "acc": ["ČESNICE"] },
+      { "f": ["PRASE", "RAŽANJ", "SVINJA", "KORA"], "s": "PEČENICA", "acc": ["PEČENICE", "PEČENJE"] },
+      { "f": ["SEDMI", "ZIMA", "PRVI MESEC", "NOVA GODINA"], "s": "JANUAR", "acc": ["JANUARA"] }
+    ], "final": { "s": "BOŽIĆ", "acc": ["BOŽIĆA"] }, "d": 1 },
+  { "cols": [
+      { "f": ["ČEPOVI", "PENUŠAVO", "ZDRAVICA", "FRANCUSKA"], "s": "ŠAMPANJAC", "acc": ["ŠAMPANJCA"] },
+      { "f": ["RAKETE", "NEBO", "PONOĆ", "BOJE"], "s": "VATROMET", "acc": ["VATROMETI"] },
+      { "f": ["UKRASI", "KUGLE", "ČETINAR", "LAMPICE"], "s": "JELKA", "acc": ["JELKE"] },
+      { "f": ["SUD", "REŠENOST", "ČVRSTA", "PRESUDA"], "s": "ODLUKA", "acc": ["ODLUKE"] }
+    ], "final": { "s": "NOVA GODINA", "acc": ["NOVAGODINA", "DOČEK"] }, "d": 1 },
+  { "cols": [
+      { "f": ["ROK", "SASTANAK", "ROĐENJE", "DAN"], "s": "DATUM", "acc": ["DATUMI"] },
+      { "f": ["CIVILIZACIJA", "PIRAMIDA", "MEKSIKO", "PROROČANSTVO"], "s": "MAJE", "acc": ["MAJA", "MAJI"] },
+      { "f": ["CRVENO SLOVO", "NERADNI DAN", "SLAVLJE", "DRŽAVNI"], "s": "PRAZNIK", "acc": ["PRAZNICI"] },
+      { "f": ["DECEMBAR", "ČOKOLADA", "PROZORČIĆI", "ODBROJAVANJE"], "s": "ADVENT", "acc": ["ADVENTSKI"] }
+    ], "final": { "s": "KALENDAR", "acc": ["KALENDARI"] }, "d": 2 },
+  { "cols": [
+      { "f": ["CIPELICA", "BUNDEVA", "BAL", "MAĆEHA"], "s": "PEPELJUGA", "acc": ["PEPELJUGE"] },
+      { "f": ["ŠAMPANJAC", "ODBROJAVANJE", "AERODROM", "NOVA GODINA"], "s": "DOČEK", "acc": ["DOČEKI"] },
+      { "f": ["TUCE", "APOSTOLI", "MESECI", "PODNE"], "s": "DVANAEST", "acc": ["DVANAESTICA"] },
+      { "f": ["METLA", "KOTAO", "ČINI", "SALEM"], "s": "VEŠTICA", "acc": ["VEŠTICE"] }
+    ], "final": { "s": "PONOĆ", "acc": ["PONOĆI"] }, "d": 2 },
+  { "cols": [
+      { "f": ["KUKURIKU", "KRESTA", "KOKOŠKA", "VETROKAZ"], "s": "PETAO", "acc": ["PETLOVI"] },
+      { "f": ["TRAVA", "KAPI", "LIVADA", "SVEŽINA"], "s": "ROSA", "acc": ["ROSE"] },
+      { "f": ["ISTOK", "RUMENILO", "PRVI ZRACI", "SUNCE"], "s": "SVITANJE", "acc": ["SVANUĆE"] },
+      { "f": ["DORUČAK", "KAFA", "BUĐENJE", "RANO"], "s": "JUTRO", "acc": ["JUTRA"] }
+    ], "final": { "s": "ZORA", "acc": ["ZORE"] }, "d": 2 },
+  { "cols": [
+      { "f": ["SUNCE", "ZAPAD", "VEČE", "ROMANTIKA"], "s": "ZALAZAK", "acc": ["ZALASCI"] },
+      { "f": ["EDVARD", "BELA", "SAGA", "KRV"], "s": "VAMPIR", "acc": ["VAMPIRI"] },
+      { "f": ["OLIMP", "MITOLOGIJA", "ZEVS", "VAGNER"], "s": "BOGOVI", "acc": ["BOG"] },
+      { "f": ["NOĆ", "MUDROST", "HUKANJE", "GRABLJIVICA"], "s": "SOVA", "acc": ["SOVE"] }
+    ], "final": { "s": "SUMRAK", "acc": ["SUTON"] }, "d": 3 },
+  { "cols": [
+      { "f": ["KAMPOVANJE", "KOLAC", "CIRADA", "NOMADI"], "s": "ŠATOR", "acc": ["ŠATORI"] },
+      { "f": ["TRAPEZ", "SALTO", "GIMNASTIKA", "MREŽA"], "s": "AKROBATA", "acc": ["AKROBATE"] },
+      { "f": ["LAV", "BIČ", "TIGAR", "OBRUČ"], "s": "KROTITELJ", "acc": ["KROTITELJI"] },
+      { "f": ["LOPTICE", "ČUNJEVI", "BACANJE", "HVATANJE"], "s": "ŽONGLER", "acc": ["ŽONGLERI"] }
+    ], "final": { "s": "CIRKUS", "acc": ["CIRKUSI"] }, "d": 1 },
+  { "cols": [
+      { "f": ["GRAŠAK", "KRUNA", "DVORAC", "KRALJEVA ĆERKA"], "s": "PRINCEZA", "acc": ["PRINCEZE"] },
+      { "f": ["DANSKA", "SIRENA", "RUŽNO PAČE", "KOPENHAGEN"], "s": "ANDERSEN", "acc": ["ANDERSENA"] },
+      { "f": ["BRAĆA", "NEMAČKA", "JAKOB", "VILHELM"], "s": "GRIM", "acc": ["BRAĆA GRIM", "GRIMOVI"] },
+      { "f": ["MAĐIONIČAR", "ŠTAPIĆ", "VILA", "MAGIJA"], "s": "ČAROLIJA", "acc": ["ČAROLIJE"] }
+    ], "final": { "s": "BAJKA", "acc": ["BAJKE"] }, "d": 1 },
+  { "cols": [
+      { "f": ["GLAS", "OF", "PRVO LICE", "PRIPOVEDANJE"], "s": "NARATOR", "acc": ["NARATORI", "PRIPOVEDAČ"] },
+      { "f": ["EZOP", "LISICA", "POUKA", "ŽIVOTINJE"], "s": "BASNA", "acc": ["BASNE"] },
+      { "f": ["PINOKIO", "NOS", "ISTINA", "BELA"], "s": "LAŽ", "acc": ["LAŽI"] },
+      { "f": ["HEPIEND", "ZAVRŠETAK", "FINIŠ", "SMAK"], "s": "KRAJ", "acc": ["KRAJEVI"] }
+    ], "final": { "s": "PRIČA", "acc": ["PRIČE"] }, "d": 1 },
+  { "cols": [
+      { "f": ["SROK", "SLIK", "KRAJ STIHA", "PAROVI"], "s": "RIMA", "acc": ["RIME"] },
+      { "f": ["ČETIRI STIHA", "KATREN", "TERCINA", "PESMA"], "s": "STROFA", "acc": ["STROFE"] },
+      { "f": ["LIRA", "OSEĆANJA", "EPIKA", "DRAMA"], "s": "LIRIKA", "acc": ["LIRIKE"] },
+      { "f": ["ČETRNAEST", "PETRARKA", "ŠEKSPIR", "LAURA"], "s": "SONET", "acc": ["SONETI"] }
+    ], "final": { "s": "POEZIJA", "acc": ["POEZIJE"] }, "d": 2 },
+  { "cols": [
+      { "f": ["KNJIGA", "ODELJAK", "PRVO", "NASLOV"], "s": "POGLAVLJE", "acc": ["POGLAVLJA"] },
+      { "f": ["HEROJ", "GLAVNI", "SUPER", "NACIONALNI"], "s": "JUNAK", "acc": ["JUNACI"] },
+      { "f": ["RADNJA", "INTRIGA", "ČVOR", "RASPLET"], "s": "ZAPLET", "acc": ["ZAPLETI"] },
+      { "f": ["ZLOČIN I KAZNA", "IDIOT", "BRAĆA", "KOCKAR"], "s": "DOSTOJEVSKI", "acc": ["DOSTOJEVSKOG"] }
+    ], "final": { "s": "ROMAN", "acc": ["ROMANI"] }, "d": 2 },
+  { "cols": [
+      { "f": ["POTPIS", "MONOGRAM", "SKRAĆENICA", "IME I PREZIME"], "s": "INICIJALI", "acc": ["INICIJAL"] },
+      { "f": ["LEPO PISANJE", "PERO", "TUŠ", "KINA"], "s": "KALIGRAFIJA", "acc": ["KALIGRAF"] },
+      { "f": ["PRAVO", "PARAGRAF", "USTAV", "NJUTN"], "s": "ZAKON", "acc": ["ZAKONI"] },
+      { "f": ["MALO", "POČETNO", "ŠTAMPANO", "IME"], "s": "VELIKO", "acc": ["VELIKA"] }
+    ], "final": { "s": "SLOVO", "acc": ["SLOVA"] }, "d": 2 },
+  { "cols": [
+      { "f": ["ZAKLETVA", "SESTRA", "MONAHINJA", "OBEĆANJE"], "s": "ČASNA", "acc": ["ČAST"] },
+      { "f": ["POLJA", "OPIS", "REŠAVANJE", "OLOVKA"], "s": "UKRŠTENICA", "acc": ["UKRŠTENICE"] },
+      { "f": ["KRAJ", "KLUPA", "STRANA", "VRATA"], "s": "ZADNJA", "acc": ["POSLEDNJA", "ZADNJI"] },
+      { "f": ["BESEDA", "ORATOR", "TELA", "SLOBODA"], "s": "GOVOR", "acc": ["GOVORI"] }
+    ], "final": { "s": "REČ", "acc": ["REČI"] }, "d": 3 },
+  { "cols": [
+      { "f": ["KATANAC", "ŠKOLA", "OCENE", "ANA FRANK"], "s": "DNEVNIK", "acc": ["DNEVNICI"] },
+      { "f": ["ŠPIJUN", "NEKRETNINE", "OSIGURANJE", "BOND"], "s": "AGENT", "acc": ["AGENTI"] },
+      { "f": ["POSLEDNJA", "LEONARDO", "APOSTOLI", "JUDA"], "s": "VEČERA", "acc": ["VEČERE"] },
+      { "f": ["RECEPT", "KOKA KOLA", "ZAČIN", "KOMPONENTA"], "s": "SASTOJAK", "acc": ["SASTOJCI"] }
+    ], "final": { "s": "TAJNA", "acc": ["TAJNE"] }, "d": 2 },
+  { "cols": [
+      { "f": ["POLIGRAF", "DIM", "METAL", "LAŽI"], "s": "DETEKTOR", "acc": ["DETEKTORI"] },
+      { "f": ["SUD", "HIPOKRAT", "BIBLIJA", "VERNOST"], "s": "ZAKLETVA", "acc": ["ZAKLETVE"] },
+      { "f": ["GROŽĐE", "ČAŠA", "CRNO", "BELO"], "s": "VINO", "acc": ["VINA"] },
+      { "f": ["DEO", "LITAR", "KILO", "SAT"], "s": "POLA", "acc": ["POLOVINA"] }
+    ], "final": { "s": "ISTINA", "acc": ["ISTINE"] }, "d": 2 },
+  { "cols": [
+      { "f": ["STATUA", "NJUJORK", "BAKLJA", "SKULPTURA"], "s": "KIP", "acc": ["KIPOVI"] },
+      { "f": ["ŽELJA", "ODLUČNOST", "SNAGA", "BOŽJA"], "s": "VOLJA", "acc": ["VOLJE"] },
+      { "f": ["REŠETKE", "ĆELIJA", "KAZNA", "ROBIJA"], "s": "ZATVOR", "acc": ["ZATVORI"] },
+      { "f": ["DRŽAVA", "DEKLARACIJA", "SAMOSTALNOST", "ČETVRTI JUL"], "s": "NEZAVISNOST", "acc": ["NEZAVISNOSTI"] }
+    ], "final": { "s": "SLOBODA", "acc": ["SLOBODE"] }, "d": 2 },
+  { "cols": [
+      { "f": ["GRANČICA", "PIKASO", "BELI", "GUGUTANJE"], "s": "GOLUB", "acc": ["GOLUBOVI"] },
+      { "f": ["JOGA", "MEDITACIJA", "OPUŠTENOST", "TIŠINA"], "s": "SPOKOJ", "acc": ["SPOKOJSTVO"] },
+      { "f": ["POTPIS", "PARAGRAF", "OBAVEZA", "KLAUZULA"], "s": "UGOVOR", "acc": ["UGOVORI"] },
+      { "f": ["VOJSKA", "ORUŽJE", "SUKOB", "TOLSTOJ"], "s": "RAT", "acc": ["RATOVI"] }
+    ], "final": { "s": "MIR", "acc": ["MIRA"] }, "d": 2 },
+  { "cols": [
+      { "f": ["RUŽ", "KARMIN", "OSMEH", "GORNJA"], "s": "USNE", "acc": ["USNA"] },
+      { "f": ["IZDAJA", "APOSTOL", "SREBRNJACI", "TAJNA VEČERA"], "s": "JUDA", "acc": ["JUDE"] },
+      { "f": ["JULIJA", "VERONA", "BALKON", "ŠEKSPIR"], "s": "ROMEO" },
+      { "f": ["IGLU", "GRENLAND", "INUIT", "FOKA"], "s": "ESKIM", "acc": ["ESKIMI"] }
+    ], "final": { "s": "POLJUBAC", "acc": ["POLJUPCI"] }, "d": 2 },
+  { "cols": [
+      { "f": ["BEBA", "JECAJ", "TUGA", "MARAMICA"], "s": "PLAČ", "acc": ["PLAKANJE"] },
+      { "f": ["NIL", "ALIGATOR", "ZUBI", "KOŽA"], "s": "KROKODIL", "acc": ["KROKODILI"] },
+      { "f": ["SEČENJE", "GLAVICA", "LJUSKA", "ĆEVAPI"], "s": "CRNI LUK", "acc": ["LUK", "CRNILUK"] },
+      { "f": ["SREĆA", "VESELJE", "OSMEH", "USKLIK"], "s": "RADOST", "acc": ["RADOSTI"] }
+    ], "final": { "s": "SUZA", "acc": ["SUZE"] }, "d": 1 }
+]

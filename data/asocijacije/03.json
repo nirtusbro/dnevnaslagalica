@@ -1,0 +1,242 @@
+[
+  { "cols": [
+      { "f": ["TVRĐAVA", "POBEDNIK", "UŠĆE", "ZOO VRT"], "s": "KALEMEGDAN", "acc": ["KALEMEGDANA"] },
+      { "f": ["REKA", "SVETITELJ", "HRAM", "ŠKOLSKA SLAVA"], "s": "SAVA", "acc": ["SAVE"] },
+      { "f": ["BOEMI", "KALDRMA", "TAMBURAŠI", "KAFANA"], "s": "SKADARLIJA", "acc": ["SKADARLIJE"] },
+      { "f": ["GLAVNI GRAD", "VLADA", "METROPOLA", "SEDIŠTE"], "s": "PRESTONICA", "acc": ["PRESTONICE"] }
+    ], "final": { "s": "BEOGRAD", "acc": ["BEOGRADA"] }, "d": 1 },
+  { "cols": [
+      { "f": ["TVRĐAVA", "EXIT", "SAT", "KATAKOMBE"], "s": "PETROVARADIN", "acc": ["PETROVARADINA"] },
+      { "f": ["RAVNICA", "BANAT", "BAČKA", "SREM"], "s": "VOJVODINA", "acc": ["VOJVODINE"] },
+      { "f": ["SRPSKA", "PČELA", "REKA", "KOŠNICA"], "s": "MATICA", "acc": ["MATICE"] },
+      { "f": ["GRČKA", "AKROPOLJ", "PARTENON", "OLIMPIJADA"], "s": "ATINA", "acc": ["ATINE"] }
+    ], "final": { "s": "NOVI SAD", "acc": ["NOVISAD"] }, "d": 2 },
+  { "cols": [
+      { "f": ["LOBANJE", "ČEGAR", "SINĐELIĆ", "SPOMENIK"], "s": "ĆELE KULA", "acc": ["ĆELEKULA"] },
+      { "f": ["CAR", "MILANSKI EDIKT", "RIM", "VELIKI"], "s": "KONSTANTIN", "acc": ["KONSTANTINA"] },
+      { "f": ["SEVER", "STRANA SVETA", "SRBIJA", "TOPLO"], "s": "JUG", "acc": ["JUGA"] },
+      { "f": ["PEKARA", "SIR", "JUFKA", "JOGURT"], "s": "BUREK", "acc": ["BUREKA"] }
+    ], "final": { "s": "NIŠ", "acc": ["NIŠA"] }, "d": 2 },
+  { "cols": [
+      { "f": ["KLISURA", "HIDROELEKTRANA", "LEPENSKI VIR", "GOLUBAC"], "s": "ĐERDAP", "acc": ["ĐERDAPA"] },
+      { "f": ["VALCER", "BEČ", "JOHAN", "PLAVI"], "s": "ŠTRAUS", "acc": ["JOHAN ŠTRAUS"] },
+      { "f": ["ODESA", "KRIM", "BOSFOR", "BUGARSKA"], "s": "CRNO MORE", "acc": ["CRNOMORE"] },
+      { "f": ["MAĐARSKA", "PARLAMENT", "BANJE", "GULAŠ"], "s": "BUDIMPEŠTA", "acc": ["BUDIMPEŠTE", "PEŠTA"] }
+    ], "final": { "s": "DUNAV", "acc": ["DUNAVA"] }, "d": 2 },
+  { "cols": [
+      { "f": ["RAKIJA", "PEKMEZ", "KOŠTICA", "ČAČAK"], "s": "ŠLJIVA", "acc": ["ŠLJIVE", "ŠLJIVOVICA"] },
+      { "f": ["DESETERAC", "EPIKA", "KONJSKA DLAKA", "JAVOR"], "s": "GUSLE", "acc": ["GUSLAR"] },
+      { "f": ["REKA", "ZAPADNA", "JUŽNA", "VELIKA"], "s": "MORAVA", "acc": ["MORAVE"] },
+      { "f": ["GRB", "BELI", "DVOGLAVI", "KANDŽE"], "s": "ORAO", "acc": ["ORLOVI"] }
+    ], "final": { "s": "SRBIJA", "acc": ["SRBIJE"] }, "d": 1 },
+  { "cols": [
+      { "f": ["ZASTAVA", "FIJAT", "ŠUMARICE", "PRVA GIMNAZIJA"], "s": "KRAGUJEVAC", "acc": ["KRAGUJEVCA"] },
+      { "f": ["KAPA", "VOJNIK", "VUNENA", "SELJAK"], "s": "ŠAJKAČA", "acc": ["ŠAJKAČE"] },
+      { "f": ["VOŽD", "USTANAK", "TOPOLA", "OPLENAC"], "s": "KARAĐORĐE", "acc": ["KARAĐORĐA"] },
+      { "f": ["RAKIJA", "PREPEČENICA", "KAZAN", "ČOKANJ"], "s": "ŠLJIVOVICA", "acc": ["ŠLJIVOVICE"] }
+    ], "final": { "s": "ŠUMADIJA", "acc": ["ŠUMADIJE"] }, "d": 2 },
+  { "cols": [
+      { "f": ["SKIJANJE", "VRH", "STAZA", "ŽIČARA"], "s": "TORNIK" },
+      { "f": ["SUŠENJE", "DIM", "SVINJSKA", "GOVEĐA"], "s": "PRŠUTA", "acc": ["PRŠUT"] },
+      { "f": ["ČETINAR", "ŠIŠARKA", "RUDNIK", "BAKAR"], "s": "BOR", "acc": ["BOROVI"] },
+      { "f": ["ŠARGAN", "OSMICA", "DRVENGRAD", "KUSTURICA"], "s": "MOKRA GORA", "acc": ["MOKRAGORA"] }
+    ], "final": { "s": "ZLATIBOR", "acc": ["ZLATIBORA"] }, "d": 2 },
+  { "cols": [
+      { "f": ["ĆUPRIJA", "ANDRIĆ", "VIŠEGRAD", "SPLAVARENJE"], "s": "DRINA", "acc": ["DRINE"] },
+      { "f": ["OMORIKA", "BOTANIČAR", "VRH", "KOPAONIK"], "s": "PANČIĆ", "acc": ["PANČIĆA"] },
+      { "f": ["PROHUJALO", "OHARA", "VIHOR", "RET BATLER"], "s": "SKARLET", "acc": ["SKARLET OHARA"] },
+      { "f": ["MRKI", "BRLOG", "ZIMSKI SAN", "MED"], "s": "MEDVED", "acc": ["MEDVEDI"] }
+    ], "final": { "s": "TARA", "acc": ["TARE"] }, "d": 3 },
+  { "cols": [
+      { "f": ["BRISEL", "EVRO", "ZVEZDICE", "ČLANICA"], "s": "UNIJA", "acc": ["UNIJE"] },
+      { "f": ["AFRIKA", "AZIJA", "PLOČA", "STARI"], "s": "KONTINENT", "acc": ["KONTINENTI"] },
+      { "f": ["OLIMP", "GROM", "HERA", "BIK"], "s": "ZEVS", "acc": ["ZEVSA"] },
+      { "f": ["LIGA", "PEHAR", "PRVAK", "TITULA"], "s": "ŠAMPION", "acc": ["ŠAMPIONI"] }
+    ], "final": { "s": "EVROPA", "acc": ["EVROPE"] }, "d": 2 },
+  { "cols": [
+      { "f": ["KULA", "GVOŽĐE", "INŽENJER", "SIMBOL"], "s": "AJFEL", "acc": ["AJFELOVA KULA", "AJFELOVA"] },
+      { "f": ["PIRAMIDA", "MUZEJ", "MONA LIZA", "GALERIJA"], "s": "LUVR", "acc": ["LUVRA"] },
+      { "f": ["REKA", "MOSTOVI", "OBALA", "LEVA"], "s": "SENA", "acc": ["SENE"] },
+      { "f": ["REVIJA", "ŠANEL", "DIZAJNER", "TREND"], "s": "MODA", "acc": ["MODE"] }
+    ], "final": { "s": "PARIZ", "acc": ["PARIZA"] }, "d": 1 },
+  { "cols": [
+      { "f": ["GLADIJATOR", "ARENA", "AMFITEATAR", "RUŠEVINA"], "s": "KOLOSEUM", "acc": ["KOLOSEUMA"] },
+      { "f": ["PAPA", "NAJMANJA", "SIKSTINSKA", "DRŽAVA"], "s": "VATIKAN", "acc": ["VATIKANA"] },
+      { "f": ["JULIJE", "BRUT", "SALATA", "MARTOVSKE IDE"], "s": "CEZAR", "acc": ["CEZARA"] },
+      { "f": ["ROMUL", "REM", "ČOPOR", "DOJENJE"], "s": "VUČICA", "acc": ["VUČICE"] }
+    ], "final": { "s": "RIM", "acc": ["RIMA"] }, "d": 1 },
+  { "cols": [
+      { "f": ["SAT", "KULA", "ZVONO", "PARLAMENT"], "s": "BIG BEN", "acc": ["BIGBEN"] },
+      { "f": ["REKA", "MOST", "OBALA", "ESTUAR"], "s": "TEMZA", "acc": ["TEMZE"] },
+      { "f": ["VIDLJIVOST", "SIVO", "JUTRO", "OBLAK"], "s": "MAGLA", "acc": ["MAGLE"] },
+      { "f": ["DETEKTIV", "LULA", "VOTSON", "BEJKER STRIT"], "s": "ŠERLOK", "acc": ["ŠERLOK HOLMS", "HOLMS"] }
+    ], "final": { "s": "LONDON", "acc": ["LONDONA"] }, "d": 1 },
+  { "cols": [
+      { "f": ["ZIDINE", "CRVENI TRG", "PREDSEDNIK", "KULA"], "s": "KREMLJ", "acc": ["KREMLJA"] },
+      { "f": ["BALET", "TEATAR", "LABUDOVO", "OPERA"], "s": "BOLJŠOJ", "acc": ["BOLJŠOJ TEATAR"] },
+      { "f": ["PODZEMNA", "STANICA", "VOZ", "ESKALATOR"], "s": "METRO", "acc": ["METROA"] },
+      { "f": ["RAKIJA", "KROMPIR", "ŽESTOKO", "SMIRNOF"], "s": "VOTKA", "acc": ["VOTKE"] }
+    ], "final": { "s": "MOSKVA", "acc": ["MOSKVE"] }, "d": 1 },
+  { "cols": [
+      { "f": ["KEOPS", "GIZA", "GROBNICA", "TROUGAO"], "s": "PIRAMIDA", "acc": ["PIRAMIDE"] },
+      { "f": ["TUTANKAMON", "RAMZES", "VLADAR", "MUMIJA"], "s": "FARAON", "acc": ["FARAONI"] },
+      { "f": ["NAJDUŽA REKA", "DELTA", "KROKODIL", "PLAVI"], "s": "NIL", "acc": ["NILA"] },
+      { "f": ["ZAGONETKA", "LAV", "GLAVA", "EDIP"], "s": "SFINGA", "acc": ["SFINGE"] }
+    ], "final": { "s": "EGIPAT", "acc": ["EGIPTA"] }, "d": 1 },
+  { "cols": [
+      { "f": ["BOGOVI", "PLANINA", "ZEVS", "DVANAEST"], "s": "OLIMP", "acc": ["OLIMPA"] },
+      { "f": ["ULJE", "GRANČICA", "MIR", "KOŠTICA"], "s": "MASLINA", "acc": ["MASLINE"] },
+      { "f": ["ILIJADA", "ODISEJA", "SLEP", "SIMPSON"], "s": "HOMER", "acc": ["HOMERA"] },
+      { "f": ["ZORBA", "PLES", "BUZUKI", "KRUG"], "s": "SIRTAKI" }
+    ], "final": { "s": "GRČKA", "acc": ["GRČKE"] }, "d": 1 },
+  { "cols": [
+      { "f": ["MARGARITA", "NAPULJ", "PEĆ", "TESTO"], "s": "PICA", "acc": ["PICE"] },
+      { "f": ["KOŽA", "ŠTIKLA", "GUMENA", "JAHANJE"], "s": "ČIZMA", "acc": ["ČIZME"] },
+      { "f": ["GONDOLA", "KANAL", "KARNEVAL", "MASKA"], "s": "VENECIJA", "acc": ["VENECIJE"] },
+      { "f": ["ARIJA", "VERDI", "SKALA", "SOPRAN"], "s": "OPERA", "acc": ["OPERE"] }
+    ], "final": { "s": "ITALIJA", "acc": ["ITALIJE"] }, "d": 1 },
+  { "cols": [
+      { "f": ["TOREADOR", "BIK", "ARENA", "CRVENA"], "s": "KORIDA", "acc": ["KORIDE"] },
+      { "f": ["PLES", "KASTANJETE", "GITARA", "ANDALUZIJA"], "s": "FLAMENKO" },
+      { "f": ["PIRINAČ", "ŠAFRAN", "VALENSIJA", "PLODOVI MORA"], "s": "PAELJA", "acc": ["PAELA"] },
+      { "f": ["REAL", "PRADO", "BERNABEU", "GLAVNI GRAD"], "s": "MADRID", "acc": ["MADRIDA"] }
+    ], "final": { "s": "ŠPANIJA", "acc": ["ŠPANIJE"] }, "d": 1 },
+  { "cols": [
+      { "f": ["PIRINAČ", "RIBA", "ALGE", "ŠTAPIĆI"], "s": "SUŠI" },
+      { "f": ["KATANA", "MAČ", "ŠOGUN", "ČAST"], "s": "SAMURAJ", "acc": ["SAMURAJI"] },
+      { "f": ["VULKAN", "PLANINA", "SVETA", "SNEŽNI VRH"], "s": "FUDŽI", "acc": ["FUDŽIJAMA"] },
+      { "f": ["PRESTONICA", "METROPOLA", "OLIMPIJADA", "CAR"], "s": "TOKIO", "acc": ["TOKIJA"] }
+    ], "final": { "s": "JAPAN", "acc": ["JAPANA"] }, "d": 1 },
+  { "cols": [
+      { "f": ["TORBA", "SKAKANJE", "TORBAR", "BOKS"], "s": "KENGUR", "acc": ["KENGURI"] },
+      { "f": ["EUKALIPTUS", "SPAVANJE", "MEDA", "DRVO"], "s": "KOALA", "acc": ["KOALE"] },
+      { "f": ["BACANJE", "VRAĆA SE", "ABORIDŽINI", "ZAKRIVLJEN"], "s": "BUMERANG", "acc": ["BUMERANZI"] },
+      { "f": ["OPERA", "LUKA", "MOST", "OLIMPIJADA"], "s": "SIDNEJ", "acc": ["SIDNEJA"] }
+    ], "final": { "s": "AUSTRALIJA", "acc": ["AUSTRALIJE"] }, "d": 1 },
+  { "cols": [
+      { "f": ["LIKA", "RODNO MESTO", "SELO", "CRKVA"], "s": "SMILJAN", "acc": ["SMILJANA"] },
+      { "f": ["STRUJA", "JEDNOSMERNA", "AC", "TRANSFORMATOR"], "s": "NAIZMENIČNA" },
+      { "f": ["NAMOTAJ", "KONAC", "ŽICA", "ŠIVENJE"], "s": "KALEM", "acc": ["KALEMOVI"] },
+      { "f": ["PISMONOŠA", "GUGUTANJE", "MIR", "TRG"], "s": "GOLUB", "acc": ["GOLUBOVI"] }
+    ], "final": { "s": "TESLA", "acc": ["NIKOLA TESLA"] }, "d": 2 },
+  { "cols": [
+      { "f": ["ĆIRILICA", "TRIDESET SLOVA", "ABECEDA", "BUKVAR"], "s": "AZBUKA", "acc": ["AZBUKE"] },
+      { "f": ["LEKSIKON", "PREVOD", "ODREDNICA", "PRAVOPISNI"], "s": "REČNIK", "acc": ["REČNICI"] },
+      { "f": ["LOZNICA", "RODNA KUĆA", "SABOR", "SELO"], "s": "TRŠIĆ", "acc": ["TRŠIĆA"] },
+      { "f": ["HAJKA", "ZAVIJANJE", "ŠUMA", "PSI"], "s": "ČOPOR", "acc": ["ČOPORI"] }
+    ], "final": { "s": "VUK", "acc": ["VUK KARADŽIĆ", "KARADŽIĆ"] }, "d": 2 },
+  { "cols": [
+      { "f": ["DINAMIT", "ŠVEDSKA", "NAGRADA", "OSLO"], "s": "NOBEL", "acc": ["NOBELOVA"] },
+      { "f": ["DRINA", "MOST", "VIŠEGRAD", "KAMENA"], "s": "ĆUPRIJA", "acc": ["ĆUPRIJE"] },
+      { "f": ["HRONIKA", "VEZIR", "BOSNA", "KONZUL"], "s": "TRAVNIK", "acc": ["TRAVNIKA"] },
+      { "f": ["AMBASADA", "PASOŠ", "IMUNITET", "PREGOVORI"], "s": "DIPLOMATA", "acc": ["DIPLOMATE"] }
+    ], "final": { "s": "ANDRIĆ", "acc": ["IVO ANDRIĆ"] }, "d": 2 },
+  { "cols": [
+      { "f": ["MAUZOLEJ", "STEPENICE", "PLANINA", "CRNA GORA"], "s": "LOVĆEN", "acc": ["LOVĆENA"] },
+      { "f": ["EPISKOP", "MITROPOLIT", "CRKVA", "MANTIJA"], "s": "VLADIKA", "acc": ["VLADIKE"] },
+      { "f": ["GORSKI", "LOVOROV", "KRUNA", "POBEDNIK"], "s": "VIJENAC", "acc": ["VENAC"] },
+      { "f": ["PRESTONICA", "MANASTIR", "KRALJ NIKOLA", "MUZEJ"], "s": "CETINJE", "acc": ["CETINJA"] }
+    ], "final": { "s": "NJEGOŠ", "acc": ["NJEGOŠA"] }, "d": 2 },
+  { "cols": [
+      { "f": ["VESELINOVIĆ", "ROMAN", "MAČVA", "OSVETA"], "s": "STANKO" },
+      { "f": ["NEGOTIN", "KRAJINA", "USTANAK", "JUNAK"], "s": "VELJKO", "acc": ["VELJKA"] },
+      { "f": ["DALMACIJA", "POLJUD", "DIOKLECIJAN", "RIVA"], "s": "SPLIT", "acc": ["SPLITA"] },
+      { "f": ["ČETA", "PETAR PAN", "PRSTEN", "BANDA"], "s": "DRUŽINA", "acc": ["DRUŽINE"] }
+    ], "final": { "s": "HAJDUK", "acc": ["HAJDUCI"] }, "d": 2 },
+  { "cols": [
+      { "f": ["GOLF", "NEMAČKA", "NARODNI AUTO", "VOLFSBURG"], "s": "FOLKSVAGEN", "acc": ["VW", "FOLCVAGEN"] },
+      { "f": ["ŠEST NOGU", "PIPCI", "MRAV", "KRILA"], "s": "INSEKT", "acc": ["INSEKTI"] },
+      { "f": ["LEPTIR", "GUSENICA", "SVILA", "KOKON"], "s": "ČAURA", "acc": ["ČAURE"] },
+      { "f": ["AGENT", "TAJNA", "MIKROFON", "BOND"], "s": "ŠPIJUN", "acc": ["ŠPIJUNI"] }
+    ], "final": { "s": "BUBA", "acc": ["BUBE"] }, "d": 2 },
+  { "cols": [
+      { "f": ["POSAO", "TRUD", "NAPOR", "PRVI MAJ"], "s": "RAD", "acc": ["RADA"] },
+      { "f": ["KRALJICA", "NASELJE", "OSVAJANJE", "ZAJEDNICA"], "s": "KOLONIJA", "acc": ["KOLONIJE"] },
+      { "f": ["BASNA", "LETO", "PESMA", "LAZAREVIĆ"], "s": "CVRČAK", "acc": ["CVRČCI"] },
+      { "f": ["REGRUT", "KASARNA", "ČIN", "PUŠKA"], "s": "VOJNIK", "acc": ["VOJNICI"] }
+    ], "final": { "s": "MRAV", "acc": ["MRAVI"] }, "d": 2 },
+  { "cols": [
+      { "f": ["NARANDŽASTA", "KOREN", "VITAMIN A", "VID"], "s": "ŠARGAREPA", "acc": ["MRKVA", "ŠARGAREPE"] },
+      { "f": ["PTICA", "SAT", "STRAH", "PLAŠLJIVAC"], "s": "KUKAVICA", "acc": ["KUKAVICE"] },
+      { "f": ["MAĐIONIČAR", "OBOD", "CILINDAR", "SLAMNATI"], "s": "ŠEŠIR", "acc": ["ŠEŠIRI"] },
+      { "f": ["ZEMLJA ČUDA", "KEROL", "ŠEŠIRDŽIJA", "OGLEDALO"], "s": "ALISA", "acc": ["ALISE"] }
+    ], "final": { "s": "ZEC", "acc": ["ZEČEVI", "ZEKA"] }, "d": 2 },
+  { "cols": [
+      { "f": ["NAKOVANJ", "ČEKIĆ", "MEH", "VATRA"], "s": "KOVAČ", "acc": ["KOVAČI"] },
+      { "f": ["KONJ", "KRAVA", "PAPAK", "ROG"], "s": "KOPITO", "acc": ["KOPITA"] },
+      { "f": ["SEVER", "JUG", "PRIVLAČENJE", "FRIŽIDER"], "s": "MAGNET", "acc": ["MAGNETI"] },
+      { "f": ["SREĆA", "DETELINA", "ZEČJA ŠAPA", "KAMEN"], "s": "TALISMAN", "acc": ["TALISMANI"] }
+    ], "final": { "s": "POTKOVICA", "acc": ["POTKOVICE"] }, "d": 2 },
+  { "cols": [
+      { "f": ["JAGNJE", "OVAN", "STADO", "DOLI"], "s": "OVCA", "acc": ["OVCE"] },
+      { "f": ["ROLKA", "PLETENJE", "ZIMA", "PULOVER"], "s": "DŽEMPER", "acc": ["DŽEMPERI"] },
+      { "f": ["MAČKA", "IGLE", "NIT", "ARIJADNA"], "s": "KLUPKO", "acc": ["KLUPKA"] },
+      { "f": ["PIROT", "TKANJE", "TEPIH", "RAZBOJ"], "s": "ĆILIM", "acc": ["ĆILIMI"] }
+    ], "final": { "s": "VUNA", "acc": ["VUNE"] }, "d": 1 },
+  { "cols": [
+      { "f": ["BAJKER", "ZIMA", "PERJE", "RAJSFERŠLUS"], "s": "JAKNA", "acc": ["JAKNE"] },
+      { "f": ["PLAŽA", "KREMA", "OPEKOTINE", "TEN"], "s": "SUNČANJE", "acc": ["SUNČANJA"] },
+      { "f": ["IGLA", "MASTILO", "MORNAR", "ZMAJ"], "s": "TETOVAŽA", "acc": ["TETOVAŽE"] },
+      { "f": ["PRESVLAČENJE", "OTROV", "SIKTANJE", "UDAV"], "s": "ZMIJA", "acc": ["ZMIJE"] }
+    ], "final": { "s": "KOŽA", "acc": ["KOŽE"] }, "d": 1 },
+  { "cols": [
+      { "f": ["ABAŽUR", "ALADIN", "SIJALICA", "STONA"], "s": "LAMPA", "acc": ["LAMPE"] },
+      { "f": ["KUKA", "ZVONČICA", "VENDI", "LETENJE"], "s": "PETAR PAN", "acc": ["PETARPAN"] },
+      { "f": ["DRVO", "LETO", "OSVEŽENJE", "SUNCOBRAN"], "s": "HLAD", "acc": ["HLADOVINA"] },
+      { "f": ["TELOHRANITELJ", "SATELIT", "MESEC", "PAS"], "s": "PRATILAC", "acc": ["PRATIOCI"] }
+    ], "final": { "s": "SENKA", "acc": ["SENKE", "SEN"] }, "d": 2 },
+  { "cols": [
+      { "f": ["PTICA", "AVION", "LEPTIR", "ŠIŠMIŠ"], "s": "KRILA", "acc": ["KRILO"] },
+      { "f": ["SVETAC", "IKONA", "ZLATNI KRUG", "SLAVA"], "s": "OREOL", "acc": ["OREOLI"] },
+      { "f": ["STRAŽAR", "PORTIR", "LAVLJI", "GOLMAN"], "s": "ČUVAR", "acc": ["ČUVARI"] },
+      { "f": ["ŽICE", "INSTRUMENT", "ORKESTAR", "IRSKA"], "s": "HARFA", "acc": ["HARFE"] }
+    ], "final": { "s": "ANĐEO", "acc": ["ANĐELI"] }, "d": 2 },
+  { "cols": [
+      { "f": ["JELEN", "BIK", "OVAN", "KOZA"], "s": "ROGOVI", "acc": ["ROG"] },
+      { "f": ["DANTE", "INFERNO", "VATRA", "GREŠNICI"], "s": "PAKAO", "acc": ["PAKLA"] },
+      { "f": ["SENO", "TROZUBAC", "ALAT", "BAJKA"], "s": "VILE", "acc": ["VILA"] },
+      { "f": ["BRANILAC", "SUD", "TOGA", "ODBRANA"], "s": "ADVOKAT", "acc": ["ADVOKATI"] }
+    ], "final": { "s": "ĐAVO", "acc": ["ĐAVOLI", "VRAG"] }, "d": 2 },
+  { "cols": [
+      { "f": ["TEPIH", "KARTON", "SEMAFOR", "KRV"], "s": "CRVENI", "acc": ["CRVENO", "CRVENA"] },
+      { "f": ["ZLATO", "VRAT", "PRIVEZAK", "KOPČA"], "s": "LANČIĆ", "acc": ["LANČIĆI"] },
+      { "f": ["SPOMENIK", "SVEĆA", "RAKA", "SAHRANA"], "s": "GROB", "acc": ["GROBOVI"] },
+      { "f": ["SAOBRAĆAJNI", "HOROSKOP", "SIMBOL", "PLUS"], "s": "ZNAK", "acc": ["ZNAKOVI"] }
+    ], "final": { "s": "KRST", "acc": ["KRSTOVI"] }, "d": 2 },
+  { "cols": [
+      { "f": ["VRAČAR", "ŠKOLSKA SLAVA", "RASTKO", "SVETITELJ"], "s": "SVETI SAVA", "acc": ["SVETISAVA"] },
+      { "f": ["SVEŠTENIK", "IKONOSTAS", "ŽRTVA", "LITURGIJA"], "s": "OLTAR", "acc": ["OLTARI"] },
+      { "f": ["KROV", "POLULOPTA", "AJA SOFIJA", "KATEDRALA"], "s": "KUPOLA", "acc": ["KUPOLE"] },
+      { "f": ["BIČ", "ŠEŠIR", "ARHEOLOG", "UKLETI"], "s": "INDIJANA", "acc": ["INDIJANA DŽONS", "INDI"] }
+    ], "final": { "s": "HRAM", "acc": ["HRAMOVI"] }, "d": 2 },
+  { "cols": [
+      { "f": ["PČELA", "DEPILACIJA", "UHO", "PEČAT"], "s": "VOSAK", "acc": ["VOSKA"] },
+      { "f": ["BOMBA", "PETARDA", "KANAP", "PALJENJE"], "s": "FITILJ", "acc": ["FITILJI"] },
+      { "f": ["VEČERA", "RUŽE", "POLJUBAC", "ŠAPAT"], "s": "ROMANTIKA", "acc": ["ROMANTIKE"] },
+      { "f": ["STRUJA", "ISKLJUČENJE", "MRAK", "OSOBA"], "s": "NESTANAK", "acc": ["NESTANCI"] }
+    ], "final": { "s": "SVEĆA", "acc": ["SVEĆE"] }, "d": 2 },
+  { "cols": [
+      { "f": ["JEZERO", "NARCIS", "SLIKA", "LIK"], "s": "ODRAZ", "acc": ["ODRAZI"] },
+      { "f": ["AUTOMOBIL", "POGLED NAZAD", "VOZAČ", "BOČNI"], "s": "RETROVIZOR", "acc": ["RETROVIZORI"] },
+      { "f": ["PEPELJUGA", "SNEŽANA", "OČUH", "ZLA"], "s": "MAĆEHA", "acc": ["MAĆEHE"] },
+      { "f": ["MAKAZE", "ŠIŠANJE", "FEN", "SALON"], "s": "FRIZER", "acc": ["FRIZERI", "FRIZERKA"] }
+    ], "final": { "s": "OGLEDALO", "acc": ["OGLEDALA"] }, "d": 1 },
+  { "cols": [
+      { "f": ["PASTA", "KARIJES", "ZUBAR", "OSMEH"], "s": "ZUBI", "acc": ["ZUB"] },
+      { "f": ["ŠTAFELAJ", "PALETA", "PLATNO", "BOJE"], "s": "SLIKAR", "acc": ["SLIKARI"] },
+      { "f": ["FRIZURA", "PLETENICA", "PERIKA", "VLASI"], "s": "KOSA", "acc": ["KOSE"] },
+      { "f": ["VALJAK", "MERDEVINE", "ZID", "BELO"], "s": "KREČENJE" }
+    ], "final": { "s": "ČETKA", "acc": ["ČETKE", "ČETKICA"] }, "d": 1 },
+  { "cols": [
+      { "f": ["KADA", "TUŠ", "PLOČICE", "LAVABO"], "s": "KUPATILO", "acc": ["KUPATILA"] },
+      { "f": ["BALON", "ŽUČNI", "PLIK", "PUCANJE"], "s": "MEHUR", "acc": ["MEHURIĆ", "MEHURI"] },
+      { "f": ["RUKE", "VEŠ", "SUĐE", "MOZAK"], "s": "PRANJE" },
+      { "f": ["NITRO", "EKSPLOZIV", "VLAŽENJE", "SLADAK"], "s": "GLICERIN", "acc": ["GLICERINA"] }
+    ], "final": { "s": "SAPUN", "acc": ["SAPUNI"] }, "d": 1 },
+  { "cols": [
+      { "f": ["KRAGNA", "MANŽETNA", "DUGMAD", "KRAVATA"], "s": "KOŠULJA", "acc": ["KOŠULJE"] },
+      { "f": ["KLJUČANJE", "LOKOMOTIVA", "SAUNA", "MAGLA"], "s": "PARA", "acc": ["PARE"] },
+      { "f": ["SAOBRAĆAJ", "RED", "ŠPIC", "NABOR"], "s": "GUŽVA", "acc": ["GUŽVE"] },
+      { "f": ["SURF", "SKOK U VODU", "DRVO", "ŠAH"], "s": "DASKA", "acc": ["DASKE"] }
+    ], "final": { "s": "PEGLA", "acc": ["PEGLE"] }, "d": 1 }
+]
