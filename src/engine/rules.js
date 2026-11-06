@@ -1,6 +1,8 @@
 // Game catalogue: names, time limits, maximum points and the rule text shown in "Kako se igra".
 // Scoring follows the TV Slagalica rules (RTS): see README.md "Bodovanje".
 
+import { letterCount } from './letters.js';
+
 export const GAMES = [
   { id: 'slagalica', name: 'Slagalica', desc: 'Najduža reč od 12 slova', time: 60, timeL: '60 s', max: 17,
     rule: 'Od 12 ponuđenih slova složi najdužu reč koju znaš. Svako slovo vredi 1 poen. Ako je tvoja reč baš ona koju je računar zadao, dobijaš još 5 poena; za drugu reč iste dužine 10, a za dužu reč 15 poena. Na računaru možeš i da kucaš.' },
@@ -11,7 +13,7 @@ export const GAMES = [
   { id: 'koZnaZna', name: 'Ko zna zna', desc: 'Deset brzih pitanja', time: 10, timeL: '10 × 10 s', max: 100,
     rule: 'Deset pitanja, po 10 sekundi i tri ponuđena odgovora. Tačno +10, netačno −5. Ako nisi siguran, izaberi „Ne znam“.' },
   { id: 'asocijacije', name: 'Asocijacije', desc: 'Četiri kolone, jedno rešenje', time: 120, timeL: '120 s', max: 34,
-    rule: 'Otvaraj polja u četiri kolone i pogađaj. Kolona vredi 3 p + 1 p za svako neotvoreno polje u njoj. Konačno rešenje vredi 7 p + vrednost svih kolona koje još nisu rešene. Najviše 34 poena.' },
+    rule: 'Otvaraj polja u četiri kolone i pogađaj. Rešenje upisuješ u samo polje: klikni na kolonu ili na konačno, upiši i potvrdi. Proverava se samo to polje. Posle pogrešnog pokušaja moraš otvoriti novo polje pre sledećeg (osim kad su sva polja otvorena). Kolona vredi 3 p + 1 p za svako neotvoreno polje u njoj. Konačno rešenje vredi 7 p + vrednost svih kolona koje još nisu rešene. Najviše 34 poena.' },
 ];
 
 /** Theoretical ceiling over all games (Slagalica counted as a 12-letter set word). */
@@ -28,8 +30,8 @@ export const SLAGALICA_SET_BONUS = 5;
 export function gameMax(gi, puzzle) {
   if (gi === 0 && puzzle && puzzle.slagalica) {
     const sl = puzzle.slagalica;
-    const best = sl.best || (sl.words || []).reduce((a, w) => (w.length > a.length ? w : a), '');
-    if (best) return best.length + SLAGALICA_SET_BONUS;
+    const best = sl.best || (sl.words || []).reduce((a, w) => (letterCount(w) > letterCount(a) ? w : a), '');
+    if (best) return letterCount(best) + SLAGALICA_SET_BONUS;
   }
   return GAMES[gi].max;
 }

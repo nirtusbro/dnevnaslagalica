@@ -1,0 +1,40 @@
+<!doctype html>
+<!--
+  Social share card (Open Graph / Twitter), 1200x630.
+  Same TV background and DNEVNA / SLAGALICA logo as the home screen.
+  Render to public/og-image.png with:  npm run og
+-->
+<html lang="sr-Latn">
+<head>
+  <meta charset="utf-8" />
+  <title>Dnevna Slagalica — share card</title>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,400..900;1,62..125,400..900&display=block&subset=latin-ext" rel="stylesheet" />
+  <link rel="stylesheet" href="../src/styles.css" />
+  <style>
+    html, body { width: 1200px; height: 630px; overflow: hidden; background: #3352d8; }
+    .tv-screen { width: 1200px; height: 630px; min-height: 0; padding: 0; display: grid; place-items: center; }
+    .ov { position: absolute; }
+    .card-logo { position: relative; z-index: 1; gap: 22px; }
+    .card-logo .logo-top { font-size: 84px; -webkit-text-stroke: 4px oklch(0.15 0.08 270); text-shadow: 5px 6px 0 oklch(0.1 0.06 272); }
+    .card-logo .logo-tiles { gap: 11px; }
+    .card-logo .logo-tiles .tile {
+      width: 104px; height: 124px; font-size: 88px; border-radius: 10px;
+      -webkit-text-stroke: 3px oklch(0.12 0.06 270);
+      text-shadow: 4px 4px 0 oklch(0.1 0.06 272), 0 0 14px oklch(0.85 0.1 240 / .35);
+      box-shadow: inset 0 0 0 4px #d0dcfa, inset 0 0 0 6px oklch(0.45 0.17 266), inset 0 9px 12px oklch(1 0 0 / .28), 0 0 0 3px var(--edge), 6px 7px 0 var(--drop);
+    }
+  </style>
+</head>
+<body>
+  <div class="tv-screen">
+    <div aria-hidden="true" class="ov ov-scan"></div>
+    <div aria-hidden="true" class="ov ov-glow"></div>
+    <div class="logo card-logo">
+      <span class="logo-top">DNEVNA</span>
+      <span class="logo-tiles">
+        <span class="tile">S</span><span class="tile">L</span><span class="tile">A</span><span class="tile">G</span><span class="tile">A</span><span class="tile">L</span><span class="tile">I</span><span class="tile">C</span><span class="tile">A</span>
+      </span>
+    </div>
+  </div>
+</body>
+</html>

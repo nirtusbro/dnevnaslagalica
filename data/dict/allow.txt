@@ -1,0 +1,26 @@
+# Reči koje se uvek dodaju u core: one koje srLex vodi pod drugom lemom, a Rečnik Matice srpske ima
+# kao zasebne odrednice (zbirne imenice i množine), i srpske reči koje ijekavski filter u
+# build-dict.mjs pogrešno izbacuje jer postoji i oblik bez "j". Jedna reč po redu, mala slova.
+ljudi
+deca
+braća
+gospoda
+# obične reči kojih nema u srLex-u kao odrednica
+injekcija
+odžak
+# ijekavski filter: lažno pozitivne
+hijena
+premijera
+sijelo
+opijelo
+odeljenje
+tegljenje
+knjeginja
+isceljenje
+objedovati
+gnjev
+mačje
+ptičje
+ptičije
+guščje
+pačje

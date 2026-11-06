@@ -52,12 +52,12 @@ test('full day: five games, reveal, results', () => {
 
   // Asocijacije: open A1, solve column A (worth 3+3=6), open B1,B2, then final
   s = run(s, 'NEXT'); assert.equal(s.gi, 4); assert.equal(s.t, 120);
-  s = run(s, { type: 'A_INPUT', value: 'noć' }, 'A_GUESS');
-  assert.equal(s.game.a.shake, 1, 'must open a field first');
-  s = run(s, { type: 'A_OPEN', c: 0, k: 0 }, { type: 'A_INPUT', value: 'noć' }, 'A_GUESS');
+  s = run(s, { type: 'A_EDIT', kind: 'col', c: 0 });
+  assert.equal(s.game.a.shake, 1, 'must open a field first'); assert.equal(s.game.a.target, null);
+  s = run(s, { type: 'A_OPEN', c: 0, k: 0 }, { type: 'A_EDIT', kind: 'col', c: 0 }, { type: 'A_INPUT', value: 'noć' }, 'A_GUESS');
   assert.equal(s.game.a.sol[0], 1); assert.equal(s.game.a.earn, 6);
   s = run(s, { type: 'A_OPEN', c: 1, k: 0 }, { type: 'A_OPEN', c: 1, k: 1 });
-  s = run(s, { type: 'A_INPUT', value: 'zvezda' }, 'A_GUESS');
+  s = run(s, { type: 'A_EDIT', kind: 'final' }, { type: 'A_INPUT', value: 'zvezda' }, 'A_GUESS');
   // final = 7 + B(3+2) + C(7) + D(7) = 26, plus 6 earned = 32
   assert.equal(s.pending.pts, 32); s = commitPending(s);
 
@@ -77,8 +77,56 @@ test('timeouts: slagalica empty, moj broj incomplete, skocko, asocijacije', () =
   assert.equal(s.pending.reveal.won, false); s = commitPending(s);
   s = run(s, 'NEXT'); for (let i = 0; i < 10; i++) { s = run(s, { type: 'TICK', dt: 10 }); s = fireLater(s); }
   assert.equal(s.pending.pts, 0); s = commitPending(s);
-  s = run(s, 'NEXT', { type: 'A_OPEN', c: 2, k: 3 }, { type: 'A_INPUT', value: 'more' }, 'A_GUESS', { type: 'TICK', dt: 120 });
+  s = run(s, 'NEXT', { type: 'A_OPEN', c: 2, k: 3 }, { type: 'A_EDIT', kind: 'col', c: 2 }, { type: 'A_INPUT', value: 'more' }, 'A_GUESS', { type: 'TICK', dt: 120 });
   assert.equal(s.pending.pts, 6, 'keeps column points on timeout'); assert.equal(s.pending.reveal.fin, 2);
+});
+
+/** Time out the first four games to land in Asocijacije. */
+function toAsocijacije() {
+  let s = run(boot(), 'PRIMARY', { type: 'TICK', dt: 61 }); s = commitPending(s);
+  s = run(s, 'NEXT', { type: 'TICK', dt: 60 }); s = commitPending(s);
+  s = run(s, 'NEXT', { type: 'TICK', dt: 60 }); s = commitPending(s);
+  s = run(s, 'NEXT'); for (let i = 0; i < 10; i++) { s = run(s, { type: 'TICK', dt: 10 }); s = fireLater(s); }
+  s = commitPending(s);
+  s = run(s, 'NEXT'); assert.equal(s.gi, 4);
+  return s;
+}
+
+test('asocijacije: only the typed field is checked, a miss locks until a new field opens', () => {
+  let s = toAsocijacije();
+  s = run(s, { type: 'A_OPEN', c: 0, k: 0 });
+  // the final answer typed into column A is a miss, and it costs the turn
+  s = run(s, { type: 'A_EDIT', kind: 'col', c: 0 });
+  assert.deepEqual(s.game.a.target, { kind: 'col', c: 0 });
+  s = run(s, { type: 'A_INPUT', value: 'zvezda' }, 'A_GUESS');
+  assert.equal(s.game.a.fin, 0); assert.equal(s.game.a.sol[0], 0);
+  assert.equal(s.game.a.tried, true); assert.equal(s.game.a.target, null); assert.equal(s.game.a.input, '');
+  // locked: no new attempt until another field opens
+  s = run(s, { type: 'A_EDIT', kind: 'col', c: 0 });
+  assert.equal(s.game.a.target, null); assert.match(s.game.a.msg, /novo polje/);
+  s = run(s, { type: 'A_EDIT', kind: 'final' });
+  assert.equal(s.game.a.target, null);
+  s = run(s, { type: 'A_OPEN', c: 0, k: 1 });
+  assert.equal(s.game.a.tried, false);
+  // column A solved: 3 + 2 unopened = 5; a correct answer keeps the turn
+  s = run(s, { type: 'A_EDIT', kind: 'col', c: 0 }, { type: 'A_INPUT', value: 'noć' }, 'A_GUESS');
+  assert.equal(s.game.a.sol[0], 1); assert.equal(s.game.a.earn, 5); assert.equal(s.game.a.tried, false);
+  assert.equal(s.game.a.target, null);
+  // a column answer typed into the final is a miss
+  s = run(s, { type: 'A_EDIT', kind: 'final' }, { type: 'A_INPUT', value: 'film' }, 'A_GUESS');
+  assert.equal(s.game.a.fin, 0); assert.equal(s.game.a.sol[1], 0); assert.equal(s.game.a.tried, true);
+  // Escape cancels an edit without using the attempt
+  s = run(s, { type: 'A_OPEN', c: 1, k: 0 }, { type: 'A_EDIT', kind: 'final' }, { type: 'A_INPUT', value: 'x' }, 'A_CANCEL');
+  assert.equal(s.game.a.target, null); assert.equal(s.game.a.tried, false);
+  // once every field is open, attempts are no longer rationed
+  for (let c = 1; c < 4; c++) for (let k = 0; k < 4; k++) s = run(s, { type: 'A_OPEN', c, k });
+  s = run(s, { type: 'A_EDIT', kind: 'final' }, { type: 'A_INPUT', value: 'pogrešno' }, 'A_GUESS');
+  assert.equal(s.game.a.tried, true); assert.match(s.game.a.msg, /pokušaj ponovo/);
+  s = run(s, { type: 'A_EDIT', kind: 'final' });
+  assert.deepEqual(s.game.a.target, { kind: 'final' }, 'all fields open: may try again');
+  s = run(s, { type: 'A_INPUT', value: 'zvezda' }, 'A_GUESS');
+  // final = 7 + B(3) + C(3) + D(3) = 16, plus 5 earned = 21
+  assert.equal(s.pending.pts, 21);
 });
 
 test('pause and resume through home, persisted snapshot restores paused', () => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import * as mb from '../../engine/mojbroj.js';
-import { AV, UN, OPEN, N, Y, W, I2, shakeAnim } from '../../theme.js';
+import { AV, UN, OPEN, N, Y, I2, shakeAnim } from '../../theme.js';
 import { Btn, Gold, Panel, Kicker } from '../../components/ui.jsx';
 
 const OP_ARIA = { '+': 'plus', '−': 'minus', '×': 'puta', '÷': 'podeljeno', '(': 'otvori zagradu', ')': 'zatvori zagradu' };
@@ -8,16 +8,15 @@ const OP_ARIA = { '+': 'plus', '−': 'minus', '×': 'puta', '÷': 'podeljeno', 
 export default function MojBroj({ s, act }) {
   const P = s.puzzle.mojBroj;
   const g = s.game.mb;
-  const v = mb.evaluate(g.tok, P.numbers);
   const isVal = mb.endsWithValue(g.tok);
   const openN = mb.openBrackets(g.tok);
   const toks = g.tok.map((t) => (t.n != null ? { t: String(P.numbers[t.n]), bg: OPEN.bg, fg: N } : { t: t.o, bg: 'transparent', fg: Y }))
     .concat(Array.from({ length: Math.max(0, openN) }, () => ({ t: ')', bg: 'transparent', fg: 'oklch(0.52 0.1 258)' })));
   const nT = toks.length;
   const fs = nT <= 9 ? 22 : nT <= 13 ? 19 : 16, th = nT <= 9 ? 36 : nT <= 13 ? 32 : 28;
-  const msgDef = v == null ? '' : !Number.isInteger(v) ? 'Rezultat nije ceo broj' : v === P.target ? 'Pogođeno! Potvrdi.' : 'Razlika ' + Math.abs(P.target - v) + ' · vredi samo tačan broj';
-  const msg = g.msg || msgDef;
-  const msgC = g.msg ? g.msgC : v === P.target ? Y : I2;
+  // The running value of the expression is deliberately hidden: the player has to work it out.
+  const msg = g.msg || '';
+  const msgC = g.msg ? g.msgC : I2;
 
   return (
     <div className="col" style={{ gap: 14, animation: 'rise .35s both' }}>
@@ -38,10 +37,7 @@ export default function MojBroj({ s, act }) {
             {!g.tok.length && <span style={{ fontSize: 15, color: I2 }}>Sastavi izraz od brojeva ispod</span>}
             {toks.map((k, i) => <span key={i} style={{ height: th, minWidth: 18, padding: '0 6px', borderRadius: 3, display: 'grid', placeItems: 'center', fontWeight: 800, fontStyle: 'italic', fontSize: fs, background: k.bg, color: k.fg, animation: 'pop .2s cubic-bezier(.3,1.6,.5,1) both', textShadow: k.bg === 'transparent' ? undefined : 'none' }}>{k.t}</span>)}
           </div>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', gap: 10 }}>
-            <span style={{ fontSize: 14, fontWeight: 800, color: msgC }}>{msg}</span>
-            <span className="mono" style={{ fontWeight: 800, fontStyle: 'italic', fontSize: 'clamp(24px,6cqw,32px)', whiteSpace: 'nowrap', color: v === P.target ? Y : W }}>{v == null ? '' : '= ' + (Number.isInteger(v) ? v : v.toFixed(2))}</span>
-          </div>
+          {msg && <span style={{ fontSize: 14, fontWeight: 800, color: msgC }}>{msg}</span>}
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(6,minmax(0,1fr))', gap: 'clamp(5px,1.4cqw,10px)' }}>
           {P.numbers.map((n, i) => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { GAMES, grade, gameMax, percent } from '../engine/rules.js';
-import { bestWord, bonusFor, BONUS_SAME_WORD, BONUS_SAME_LENGTH, BONUS_LONGER } from '../engine/slagalica.js';
+import { bestWord, bonusFor, letterCount, BONUS_SAME_WORD, BONUS_SAME_LENGTH, BONUS_LONGER } from '../engine/slagalica.js';
 import { solve } from '../engine/mojbroj.js';
 import { QUESTIONS } from '../engine/kozna.js';
 import { GRADE_COLORS, MUTE, YS, UN, OPEN, N, Y, R, I2, SKIPC } from '../theme.js';
@@ -18,7 +18,7 @@ export function revealOf(s, gi) {
     const best = bestWord(P.slagalica);
     const bonus = rd.ok ? bonusFor(w, best) : 0;
     const bonusTxt = bonus === BONUS_SAME_WORD ? 'To je zadata reč: +5 bonus.' : bonus === BONUS_SAME_LENGTH ? 'Iste dužine kao zadata reč: +10 bonus.' : bonus === BONUS_LONGER ? 'Duža od zadate reči: +15 bonus!' : '';
-    const note = rd.ok ? (bonus ? w.length + ' slova · ' + bonusTxt : 'Tvoja reč ima ' + w.length + ' slova. Zadata reč ima ' + best.length + '.') : w ? 'Reč „' + w + '“ nije u rečniku.' : 'Vreme je isteklo pre nego što si potvrdio reč.';
+    const note = rd.ok ? (bonus ? letterCount(w) + ' slova · ' + bonusTxt : 'Tvoja reč ima ' + letterCount(w) + ' slova. Zadata reč ima ' + letterCount(best) + '.') : w ? 'Reč „' + w + '“ nije u rečniku.' : 'Vreme je isteklo pre nego što si potvrdio reč.';
     const verdict = bonus ? 'Savršeno!' : pts >= Math.max(6, max - 8) ? 'Odlična reč!' : pts > 0 ? 'Tačno!' : 'Bez poena';
     return { verdict, note, body: <SlBody w={w} ok={rd.ok} best={best} /> };
   }

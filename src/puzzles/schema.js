@@ -1,5 +1,6 @@
 // Shape of one day's puzzle. The daily pipeline (to be built) produces objects of
 // this shape; `validatePuzzle` is the contract it must satisfy.
+import { isLetter } from '../engine/letters.js';
 //
 // {
 //   day?: number,                       // challenge number; optional, informational
@@ -29,6 +30,7 @@ export function validatePuzzle(p) {
 
   const sl = p.slagalica;
   need(sl && Array.isArray(sl.letters) && sl.letters.length === 12, 'slagalica.letters must have 12 letters');
+  need(sl && Array.isArray(sl.letters) && sl.letters.every(isLetter), 'slagalica.letters must be upper-case letters of the Serbian Latin alphabet (LJ, NJ, DŽ as one letter)');
   need(sl && Array.isArray(sl.words) && sl.words.length > 0, 'slagalica.words must be a non-empty list');
 
   const mb = p.mojBroj;

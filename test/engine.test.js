@@ -44,6 +44,26 @@ test('slagalica: spelling, dictionary and scoring', () => {
   assert.equal(sl.makeChecker({ letters: P.slagalica.letters, words: [] }, dict)('SAKO'), true);
 });
 
+test('slagalica: LJ, NJ and DŽ are single letters', () => {
+  const tiles = ['K', 'O', 'NJ', 'A', 'L', 'J', 'U', 'B', 'DŽ', 'E', 'P', 'I'];
+  const pz = { letters: tiles, words: ['KONJ', 'LJUBAK', 'DŽEP', 'KONJUBE', 'INJEKCIJA'], best: 'KONJ' };
+  const ok = sl.makeChecker(pz);
+  assert.equal(sl.canSpell('KONJ', tiles), true, 'needs the NJ tile');
+  assert.equal(sl.canSpell('KONJ', ['K', 'O', 'N', 'J']), false, 'N + J is not NJ');
+  assert.equal(sl.canSpell('LJUBAK', tiles), false, 'no LJ tile; L + J does not make LJ');
+  assert.equal(sl.canSpell('DŽEP', tiles), true);
+  assert.equal(sl.canSpell('INJEKCIJA', ['I', 'N', 'J', 'E', 'K', 'C', 'I', 'J', 'A']), true, 'in-jekcija is N + J');
+  assert.equal(sl.basePoints('KONJ'), 3, 'one point per letter, NJ counts once');
+  assert.equal(sl.scoreWord('KONJ', 'KONJ'), 3 + sl.BONUS_SAME_WORD);
+  assert.equal(sl.bonusFor('DŽEP', 'KONJ'), sl.BONUS_SAME_LENGTH, 'both are 3 letters');
+  assert.equal(sl.bonusFor('KONJUBE', 'KONJ'), sl.BONUS_LONGER);
+  const r = sl.evaluate(pz, ['K', 'O', 'NJ'], ok);
+  assert.deepEqual([r.ok, r.points, r.word], [true, 8, 'KONJ']);
+  assert.equal(sl.evaluate(pz, ['K', 'O', 'N', 'J'], () => true).reason, 'unknown', 'picking N then J is not the word KONJ');
+  assert.deepEqual(sl.splitLetters('nadživeti'), ['n', 'a', 'd', 'ž', 'i', 'v', 'e', 't', 'i']);
+  assert.deepEqual(sl.splitLetters('odžak'), ['o', 'dž', 'a', 'k']);
+});
+
 test('moj broj: token grammar', () => {
   let t = [];
   const N = P.mojBroj.numbers; // [3,8,2,7,15,75]

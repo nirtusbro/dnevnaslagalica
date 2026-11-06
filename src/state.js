@@ -16,7 +16,9 @@ export function freshGame() {
     mb: { tok: [], msg: '', msgC: O, shake: 0 },
     sk: { rows: [], cur: [], done: false, shake: 0, msg: '', msgC: I2 },
     kz: { q: 0, pick: null, res: [], score: 0, to: false },
-    a: { open: [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]], sol: [0, 0, 0, 0], fin: 0, earn: 0, act: 0, input: '', msg: '', msgC: I2, shake: 0, newKey: '' },
+    // target: the field being typed into ({kind:'col', c} | {kind:'final'} | null); tried: a guess was
+    // made since the last field was opened, so no more guessing until another field opens.
+    a: { open: [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]], sol: [0, 0, 0, 0], fin: 0, earn: 0, act: 0, target: null, tried: false, input: '', msg: '', msgC: I2, shake: 0, newKey: '' },
   };
 }
 
@@ -90,7 +92,7 @@ function slSubmit(s, timeout = false) {
     const s2 = { ...s, game: { ...g, sl: sl2 } };
     return timeout ? finish(s2, 0, { word: r.word, ok: false, timeout: true }, 900) : s2;
   }
-  const sl2 = { ...g.sl, msg: 'Tačno! ' + r.word.length + ' slova' + (r.bonus ? ' + bonus ' + r.bonus : '') + ' · +' + r.points, msgC: Y };
+  const sl2 = { ...g.sl, msg: 'Tačno! ' + sl.letterCount(r.word) + ' slova' + (r.bonus ? ' + bonus ' + r.bonus : '') + ' · +' + r.points, msgC: Y };
   return finish({ ...s, game: { ...g, sl: sl2 } }, r.points, { word: r.word, ok: true, bonus: r.bonus, timeout }, 900);
 }
 
@@ -158,27 +160,56 @@ function kzNext(s) {
 }
 
 // ---------- Asocijacije ----------
+const A_OPEN_FIRST = 'Prvo otvori bar jedno polje';
+const A_LOCKED = 'Otvori novo polje pre sledećeg pokušaja';
+
+/** Can the player start a guess now? Returns an error message or null. */
+function aBlocked(A) {
+  if (!A.open.some((r) => r.some(Boolean))) return A_OPEN_FIRST;
+  if (A.tried && !as.allOpen(A.open)) return A_LOCKED;
+  return null;
+}
+
+/** Start typing into a column's solution field or the final field. */
+function aEdit(s, action) {
+  const g = s.game; const A = g.a;
+  if (A.fin) return s;
+  const t = action.kind === 'final' ? { kind: 'final' } : { kind: 'col', c: action.c };
+  if (t.kind === 'col' && A.sol[t.c]) return s;
+  const act = t.kind === 'col' ? t.c : A.act;
+  const why = aBlocked(A);
+  if (why) return { ...s, game: { ...g, a: { ...A, act, target: null, msg: why, msgC: O, shake: A.shake + 1 } } };
+  return { ...s, game: { ...g, a: { ...A, act, target: t, input: '', msg: '' } } };
+}
+
+/**
+ * Submit what was typed into the target field. Only that field is checked: the final answer
+ * typed into a column is a miss. A miss ends guessing until a new field is opened (unless every
+ * field is already open); a solved column keeps the turn, so the final can follow at once.
+ */
 function aGuess(s) {
   const g = s.game; const A = g.a;
-  if (s.locked || A.fin) return s;
+  if (s.locked || A.fin || !A.target) return s;
   const P = s.puzzle.asocijacije;
-  const m = as.matchGuess(P, A.input, A.sol);
-  if (m.kind === 'empty') return s;
-  if (!A.open.some((r) => r.some(Boolean))) return { ...s, game: { ...g, a: { ...A, msg: 'Prvo otvori bar jedno polje', msgC: O, shake: A.shake + 1 } } };
-  if (m.kind === 'final') {
+  const r = as.matchTarget(P, A.target, A.input);
+  if (r === 'empty') return s;
+  const why = aBlocked(A);
+  if (why) return { ...s, game: { ...g, a: { ...A, target: null, msg: why, msgC: O, shake: A.shake + 1 } } };
+  if (r === 'miss') {
+    const again = as.allOpen(A.open);
+    return { ...s, game: { ...g, a: { ...A, target: null, tried: true, input: '', msg: again ? 'Netačno, pokušaj ponovo' : 'Netačno. ' + A_LOCKED, msgC: R, shake: A.shake + 1 } } };
+  }
+  if (A.target.kind === 'final') {
     const w = as.finalWorth(A.open, A.sol);
     const pts = A.earn + w;
     const sol = A.sol.map((x) => x || 2);
-    const a2 = { ...A, fin: 1, sol, open: A.open.map((r) => r.map(() => 1)), input: '', msg: 'Konačno rešenje! +' + w, msgC: Y };
+    const a2 = { ...A, fin: 1, sol, open: A.open.map((row) => row.map(() => 1)), target: null, input: '', msg: 'Konačno rešenje! +' + w, msgC: Y };
     return finish({ ...s, game: { ...g, a: a2 } }, pts, { sol, fin: 1, earn: pts }, 1800);
   }
-  if (m.kind === 'column') {
-    const c = m.col; const v = as.columnValue(A.open[c]);
-    const sol = [...A.sol]; sol[c] = 1;
-    const open = A.open.map((r) => [...r]); open[c] = [1, 1, 1, 1];
-    return { ...s, game: { ...g, a: { ...A, sol, open, earn: A.earn + v, input: '', act: c, msg: 'Kolona ' + P.cols[c].L + ' rešena · +' + v, msgC: Y } } };
-  }
-  return { ...s, game: { ...g, a: { ...A, msg: 'Netačno, pokušaj ponovo', msgC: R, shake: A.shake + 1, input: '' } } };
+  const c = A.target.c; const v = as.columnValue(A.open[c]);
+  const sol = [...A.sol]; sol[c] = 1;
+  const open = A.open.map((row) => [...row]); open[c] = [1, 1, 1, 1];
+  return { ...s, game: { ...g, a: { ...A, sol, open, earn: A.earn + v, target: null, tried: false, input: '', act: c, msg: 'Kolona ' + P.cols[c].L + ' rešena · +' + v, msgC: Y } } };
 }
 
 function aGiveUp(s, timeout = false) {
@@ -246,7 +277,10 @@ export function reducer(s, action) {
 
     // Slagalica
     case 'SL_ADD': {
-      if (!inGame || g.sl.pick.includes(action.i) || g.sl.pick.length >= 12) return s;
+      if (!inGame) return s;
+      // Tapping the most recently placed letter again takes it back out.
+      if (g.sl.pick[g.sl.pick.length - 1] === action.i) return reducer(s, { type: 'SL_BACK' });
+      if (g.sl.pick.includes(action.i) || g.sl.pick.length >= 12) return s;
       return { ...s, game: { ...g, sl: { ...g.sl, pick: [...g.sl.pick, action.i], msg: '' } } };
     }
     case 'SL_TYPE': {
@@ -290,9 +324,11 @@ export function reducer(s, action) {
       const { c, k } = action;
       if (g.a.sol[c] || g.a.open[c][k]) return { ...s, game: { ...g, a: { ...g.a, act: c } } };
       const open = g.a.open.map((r) => [...r]); open[c][k] = 1;
-      return { ...s, game: { ...g, a: { ...g.a, open, act: c, msg: '', newKey: c + '-' + k } } };
+      return { ...s, game: { ...g, a: { ...g.a, open, act: c, tried: false, msg: '', newKey: c + '-' + k } } };
     }
     case 'A_ACT': return { ...s, game: { ...g, a: { ...g.a, act: action.c } } };
+    case 'A_EDIT': return !inGame ? s : aEdit(s, action);
+    case 'A_CANCEL': return { ...s, game: { ...g, a: { ...g.a, target: null, input: '' } } };
     case 'A_INPUT': return { ...s, game: { ...g, a: { ...g.a, input: action.value, msg: '' } } };
     case 'A_GUESS': return !inGame ? s : aGuess(s);
     case 'A_GIVEUP': return !inGame ? s : aGiveUp(s);

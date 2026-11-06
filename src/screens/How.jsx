@@ -21,7 +21,7 @@ export default function How({ nav }) {
           </div>
         ))}
       </Panel>
-      <span className="soft" style={{ fontSize: 13, lineHeight: 1.5 }}>Na tastaturi: slova i Enter u Slagalici · brojevi 1–6 i + − * / ( ) u Mom broju · 1–6 u Skočku · A/B/C ili 1/2/3 i N (ne znam) u Ko zna zna.</span>
+      <span className="soft" style={{ fontSize: 13, lineHeight: 1.5 }}>Na tastaturi: slova i Enter u Slagalici (LJ, NJ i DŽ su jedno slovo i biraju se klikom) · brojevi 1–6 i + − * / ( ) u Mom broju · 1–6 u Skočku · A/B/C ili 1/2/3 i N (ne znam) u Ko zna zna.</span>
     </div>
   );
 }

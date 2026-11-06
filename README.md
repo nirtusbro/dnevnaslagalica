@@ -53,12 +53,17 @@ npm run gen -- 1 366      # generate/update days 1..366 (deterministic per day; 
 
 ### Slagalica (done)
 
-`tools/slagalica-gen.mjs` builds each day from a "spine" word of 9–11 letters from the curated core
+`tools/slagalica-gen.mjs` builds each day from a "spine" word of 9–11 letters from the core
 dictionary, tops up to 12 tiles with frequency-weighted letters (no letter more than twice, rare
-letters once, 4–6 vowels), then lists every dictionary word spellable from the tiles (`words`) and the
+letters once, 4–6 vowels). Tiles are letters of the 30-letter alphabet: LJ, NJ and DŽ are one tile
+and one point each, and L + J tiles never count as LJ (`src/engine/letters.js` splits words; a few
+prefixes such as nad-živeti and in-jekcija are listed there as real two-letter sequences). It then
+lists every dictionary word spellable from the tiles (`words`) and the
 longest core word (`best`). The day's maximum is `best.length × 2`, so finding the best word is always
-100%. Word acceptance uses two tiers (curated Hunspell core + CC0 extended, see `data/README.md`);
-a day file is ~10–25 KB.
+100%. The dictionary follows the TV rules: only head-words (nominative singular, infinitive, masculine
+singular positive adjective, invariable words), built from srLex with a Croatian filter, in two tiers
+(core + rare extended, see `data/README.md`). A day file is ~3–10 KB. After rebuilding the dictionary
+run `npm run gen -- 1 366 --force --only=slagalica` (every day's puzzle changes).
 
 ### Moj broj (done)
 

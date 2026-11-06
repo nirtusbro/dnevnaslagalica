@@ -11,6 +11,7 @@ import { matchGuess } from '../src/engine/asocijacije.js';
 import { normalize } from '../src/engine/text.js';
 import { SYMBOLS } from '../src/engine/skocko.js';
 import { canSpell } from '../src/engine/slagalica.js';
+import { splitLetters, letterCount } from '../src/engine/letters.js';
 import { validatePuzzle } from '../src/puzzles/schema.js';
 import { SAMPLE_PUZZLE } from '../src/puzzles/sample.js';
 import { mergeWithSample } from './helpers.mjs';
@@ -29,9 +30,18 @@ test('rng is deterministic', () => {
 });
 
 test('spellable matches the engine check', () => {
-  const letters = 'planinarenje'.split('');
+  const letters = splitLetters('planinarenje');
+  assert.deepEqual(letters, ['p', 'l', 'a', 'n', 'i', 'n', 'a', 'r', 'e', 'nj', 'e'], 'nj is one tile');
   const got = spellable(DICT, letters);
   for (const w of DICT) assert.equal(got.includes(w), canSpell(w, letters), w);
+  assert.ok(got.includes('planinarenje'));
+  assert.ok(got.includes('ranjen'), 'ra-nj-e-n uses the nj tile');
+  // with n, j tiles instead of nj the digraph words are not spellable
+  const plain = 'planinarenje'.split('');
+  assert.ok(!spellable(DICT, plain).includes('planinarenje'));
+  assert.ok(!spellable(DICT, plain).includes('ranjen'), 'n + j tiles do not spell nj');
+  assert.ok(spellable(['konj', 'injekcija'], splitLetters('injekcija')).includes('injekcija'), 'in-jekcija is n + j');
+  assert.ok(!spellable(['konj'], splitLetters('injekcija')).includes('konj'));
 });
 
 test('generator is deterministic and produces a valid puzzle', () => {
@@ -41,7 +51,7 @@ test('generator is deterministic and produces a valid puzzle', () => {
   assert.deepEqual(g1, g2);
   assert.equal(g1.letters.length, 12);
   assert.ok(g1.words.length >= 3);
-  assert.ok(g1.best.length >= 9);
+  assert.ok(letterCount(g1.best) >= 9);
   for (const w of g1.words) assert.ok(canSpell(w, g1.letters), w);
   assert.ok(g1.words.includes(g1.best));
   assert.ok(g1.words.includes(g1.spine));
@@ -210,7 +220,8 @@ test('generated day files on disk are valid and consistent', () => {
     const sl = p.slagalica;
     assert.ok(sl.words.includes(sl.best), f + ' best not in words');
     for (const w of sl.words) assert.ok(canSpell(w, sl.letters), f + ' ' + w);
-    assert.ok(sl.best.length >= 9, f + ' best is too short');
+    assert.ok(letterCount(sl.best) >= 9, f + ' best is too short');
+    for (const l of sl.letters) assert.ok(/^(LJ|NJ|DŽ|[A-ZČĆŠŽĐ])$/.test(l), f + ' bad tile ' + l);
     assert.equal(sl.letters.length, 12, f);
     if (d.mojBroj) checkMojBroj(d.mojBroj, f);
     if (d.koZnaZna) {

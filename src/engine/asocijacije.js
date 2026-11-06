@@ -25,6 +25,23 @@ function accepts(entry, guess) {
   return list.includes(guess);
 }
 
+/** True when every field of every column is open; then attempts are no longer rationed. */
+export function allOpen(open) {
+  return open.every((r) => r.every(Boolean));
+}
+
+/**
+ * Check a guess against one target only, the field the player typed into:
+ * {kind:'final'} or {kind:'col', c}. Returns 'empty' | 'hit' | 'miss'.
+ * The final answer typed into a column is a miss, and vice versa.
+ */
+export function matchTarget(puzzle, target, rawGuess) {
+  const g = normalize(rawGuess);
+  if (!g) return 'empty';
+  const entry = target.kind === 'final' ? puzzle.final : puzzle.cols[target.c];
+  return accepts(entry, g) ? 'hit' : 'miss';
+}
+
 /**
  * Classify a guess against the puzzle. Returns
  *   {kind:'final'} | {kind:'column', col} | {kind:'miss'} | {kind:'empty'}
