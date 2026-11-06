@@ -39,3 +39,5 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          timeout: 1200000 # 20 min; default 10 min sometimes isn't enough when Pages is slow
