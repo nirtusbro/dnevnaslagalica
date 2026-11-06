@@ -25,6 +25,9 @@
 
 html, body { margin: 0; background: #050507; height: 100%; }
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+/* Taps never mean "double-tap to zoom": the browser fires them at once instead of waiting
+   ~300 ms for a second tap, and quick taps on letters/symbols cannot zoom the page (pinch still works) */
+html, button, input, a, [role="button"] { touch-action: manipulation; }
 button { font: inherit; cursor: pointer; color: inherit; }
 button:focus-visible, input:focus-visible { outline: 2px solid var(--yellow); outline-offset: 2px; }
 input { font: inherit; }
@@ -166,11 +169,20 @@ a:hover { color: var(--white); }
 }
 .input:focus { border-color: var(--yellow); }
 /* Asocijacije: the answer is typed inside the field itself (column solution, final) */
-.input.inline { height: 100%; min-height: 40px; border-radius: 4px; padding: 0 10px; font-size: 16px; letter-spacing: .03em; }
-.inline-ok { flex: none; width: 40px; border: none; border-radius: 4px; font-size: 18px; font-weight: 800; cursor: pointer; }
+.input.inline { height: 100%; min-height: 40px; border-radius: 4px; padding: 0 8px; font-size: 16px; letter-spacing: .03em; }
+/* Phone column cards leave the box ~80px wide: keep the placeholder short and unspaced so it fits */
+.input.inline::placeholder { text-transform: none; letter-spacing: 0; font-weight: 600; font-size: 14px; }
+.inline-ok { flex: none; width: 36px; border: none; border-radius: 4px; font-size: 18px; font-weight: 800; cursor: pointer; }
 
 /* ---------- Game chrome ---------- */
 .game-wrap { width: 100%; max-width: 680px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; padding-bottom: 28px; container-type: inline-size; }
+/* Phones: games are sized to fit one screen without scrolling (heights in the games use dvh) */
+@media (max-width: 639px) {
+  .game-wrap { gap: 10px; padding-bottom: 12px; }
+  /* Obriši · Poništi · Potvrdi on one row: text and padding shrink with the width so nothing spills out */
+  .ctl-row .btn { padding: 0 6px; font-size: clamp(12px, 3.9cqw, 14px); white-space: nowrap; }
+  .ctl-row .btn-gold { padding: 0 8px; font-size: clamp(15px, 5cqw, 18px); white-space: nowrap; }
+}
 .timer { min-width: 66px; height: 52px; padding: 0 10px; display: grid; place-items: center; }
 .timer span { font-weight: 800; font-style: italic; font-size: 30px; font-variant-numeric: tabular-nums; }
 .tbar { flex: 1; height: 10px; padding: 2px; border-radius: 2px; }

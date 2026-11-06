@@ -148,7 +148,20 @@ export default function App() {
   const fit = useCallback(() => {
     const b = fitBox.current, el = fitIn.current;
     if (!b || !el) return;
-    if (!vp.stage) { el.style.zoom = '1'; return; }
+    if (!vp.stage) {
+      el.style.zoom = '1';
+      // Phone games are laid out to fit one screen; on very short screens (or a long Ko zna zna
+      // question) shrink slightly instead of scrolling, but never so much that taps get hard.
+      if (!vp.narrow || s.screen !== 'game') return;
+      for (let n = 0; n < 3; n++) {
+        const c = b.clientHeight, sh = b.scrollHeight;
+        if (sh <= c + 1) break;
+        const z = Math.max(0.85, parseFloat(el.style.zoom) * c / sh * 0.995);
+        el.style.zoom = String(z);
+        if (z === 0.85) break;
+      }
+      return;
+    }
     el.style.zoom = '1';
     const screen = el.querySelector('[data-screen]');
     const content = screen && screen.firstElementChild;
@@ -172,7 +185,7 @@ export default function App() {
       el.style.zoom = String(z);
     }
     b.scrollTop = 0;
-  }, [vp.stage]);
+  }, [vp.stage, vp.narrow, s.screen]);
   useEffect(() => { fit(); }, [s.screen, s.gi, s.ready, vp.w, vp.h, vp.stage, fit]);
   useEffect(() => {
     if (!fitIn.current) return undefined;

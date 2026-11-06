@@ -13,6 +13,7 @@
 //   noun, common, nominative singular (or a lemma that is itself plural: makaze, vrata),
 //   verb infinitive, adjective positive masculine singular nominative (opisni i posesivni),
 //   adverb, pronoun, numeral, preposition, conjunction, particle, interjection.
+// Plus the nominative plural of every accepted common noun (rukav -> rukavi).
 // Proper nouns (Np), abbreviations (Y), foreign/residual (X), inflected forms, comparatives,
 // participles and ijekavian variants all fall out automatically (their lemma differs).
 //
@@ -82,8 +83,14 @@ const hrFile = path.join(rawDir, 'hrLex_v1.3.gz');
 if (!fs.existsSync(srFile)) { console.error('missing ' + srFile + ' (see data/README.md)'); process.exit(1); }
 
 const sr = new Map(); // form -> max corpus freq over accepted tags
+const plural = new Map(); // nominative plural form -> { lemma, freq } (rukavi -> rukav)
 const srK = await scanLex(srFile, (form, lemma, tag, freq) => {
-  if (form !== lemma || !WORD_RE.test(form) || ROMAN_RE.test(form) || !acceptTag(tag) || !lengthOk(form)) return;
+  if (!WORD_RE.test(form) || ROMAN_RE.test(form) || !lengthOk(form)) return;
+  if (form !== lemma) {
+    if (/^Nc.pn/.test(tag)) { const p = plural.get(form); if (!p || freq > p.freq) plural.set(form, { lemma, freq }); }
+    return;
+  }
+  if (!acceptTag(tag)) return;
   sr.set(form, Math.max(sr.get(form) || 0, freq));
 });
 
@@ -127,6 +134,16 @@ for (const [w, freq] of sr) {
   if (freq >= min) core.add(w);
   else if (freq >= MIN_FREQ_EXT && !(w.length in MIN_FREQ_BY_LEN)) extended.add(w);
 }
+// Nominative plural of every accepted common noun (rukav -> rukavi, ljudi for čovek), tiered by its own count.
+let plurals = 0;
+for (const [form, { lemma, freq }] of plural) {
+  if (block.has(form) || sr.has(form) || !(core.has(lemma) || extended.has(lemma))) continue;
+  const min = Math.max(MIN_FREQ_CORE, MIN_FREQ_BY_LEN[form.length] || 0);
+  if (freq >= min) core.add(form);
+  else if (freq >= MIN_FREQ_EXT && !(form.length in MIN_FREQ_BY_LEN)) extended.add(form);
+  else continue;
+  plurals++;
+}
 for (const w of allow) if (WORD_RE.test(w) && lengthOk(w)) core.add(w);
 
 // Letter frequency over alphabet letters (lj, nj, dž count as their own letter), for tile top-up.
@@ -142,6 +159,6 @@ const rel = Object.fromEntries(Object.entries(freq).sort((a, b) => b[1] - a[1]).
 fs.writeFileSync(path.join(outDir, 'letter-freq.json'), JSON.stringify(rel, null, 2) + '\n', 'utf8');
 
 const byLen = (set) => { const m = {}; for (const w of set) { const n = splitLetters(w).length; m[n] = (m[n] || 0) + 1; } return m; };
-console.log(`srLex head-words considered: ${sr.size}; dropped as Croatian-only: ${droppedHr}; dropped as ijekavian: ${droppedIje}; blocked: ${block.size}`);
+console.log(`srLex head-words considered: ${sr.size}; dropped as Croatian-only: ${droppedHr}; dropped as ijekavian: ${droppedIje}; blocked: ${block.size}; plurals added: ${plurals}`);
 console.log(`core: ${core.size} words`, byLen(core));
 console.log(`extended: ${extended.size} words`, byLen(extended));

@@ -88,16 +88,17 @@ function SkBody({ last, secret }) {
     </div>
   );
 }
+/** One compact cell per question (points only), so the reveal fits a phone screen without scrolling. */
 function KzBody({ res, qs }) {
   return (
-    <div className="col" style={{ gap: 6 }}>
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(' + qs.length + ',minmax(0,1fr))', gap: 'clamp(3px,1cqw,6px)' }}>
       {qs.map((q, i) => {
         const r = res[i]; const c = r === 1 ? Y : r === -1 ? R : SKIPC;
         return (
-          <div key={i} style={{ display: 'grid', gridTemplateColumns: '10px minmax(0,1fr) auto', gap: 12, alignItems: 'center', padding: '8px 12px', borderRadius: 4, background: 'oklch(0.25 0.117 262 / .6)', animation: 'rise .35s both', animationDelay: (200 + i * 80) + 'ms' }}>
-            <span style={{ width: 10, height: 10, borderRadius: 1, background: c }} />
-            <div className="col" style={{ gap: 2, minWidth: 0 }}><span style={{ fontSize: 13, color: I2, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{q.q}</span><span style={{ fontSize: 15, fontWeight: 800 }}>{q.o[q.a]}</span></div>
-            <span style={{ fontWeight: 800, fontStyle: 'italic', fontSize: 14, color: c }}>{r === 1 ? '+10' : r === -1 ? '−5' : '0'}</span>
+          <div key={i} className="col" title={q.q + ' — ' + q.o[q.a]}
+            style={{ height: 'clamp(44px,11cqw,56px)', borderRadius: 4, alignItems: 'center', justifyContent: 'center', gap: 2, background: c, color: N, textShadow: 'none', animation: 'pop .35s both', animationDelay: (200 + i * 60) + 'ms' }}>
+            <span style={{ fontSize: 10, fontWeight: 800, opacity: 0.6 }}>{i + 1}</span>
+            <span style={{ fontWeight: 800, fontStyle: 'italic', fontSize: 'clamp(12px,3.4cqw,16px)', lineHeight: 1 }}>{r === 1 ? '+10' : r === -1 ? '−5' : '0'}</span>
           </div>
         );
       })}

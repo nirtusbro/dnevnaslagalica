@@ -22,7 +22,10 @@ export function DayDots({ s, current }) {
 }
 
 export default function Game(props) {
-  const { s, nav, relaxed } = props;
+  const { s, nav, relaxed, vp } = props;
+  // Phones: the day dots move next to the total so the title block stays two lines and the
+  // whole game fits the screen without scrolling.
+  const narrow = vp.narrow;
   const G = GAMES[s.gi];
   const total = totalOf(s.scores);
   const crit = s.t <= Math.min(5, s.tMax * 0.3), urg = s.t <= Math.min(10, s.tMax * 0.5);
@@ -30,23 +33,24 @@ export default function Game(props) {
   const tPct = relaxed ? '100%' : Math.max(0, s.t / s.tMax * 100).toFixed(1) + '%';
 
   return (
-    <div className="game-wrap">
-      <div className="col" style={{ gap: 12, paddingTop: 12 }}>
+    <div className="game-wrap" style={narrow ? { flex: 1 } : undefined}>
+      <div className="col" style={{ gap: narrow ? 8 : 12, paddingTop: narrow ? 8 : 12 }}>
         <div style={{ display: 'grid', gridTemplateColumns: '44px minmax(0,1fr) auto', alignItems: 'center', gap: 12 }}>
           <button className="btn" onClick={nav.home} aria-label="Pauza" style={{ width: 44, height: 44, padding: 0, fontSize: 20, display: 'grid', placeItems: 'center' }}>×</button>
-          <div className="col" style={{ gap: 6, minWidth: 0 }}>
+          <div className="col" style={{ gap: narrow ? 4 : 6, minWidth: 0 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
               <span className="kicker">Igra {s.gi + 1} / 5 · {s.practice ? 'Vežba' : '#' + pad3(s.day)}</span>
-              <DayDots s={s} current />
+              {!narrow && <DayDots s={s} current />}
             </div>
             <span style={{ fontWeight: 800, fontStyle: 'italic', fontSize: 'clamp(20px,5.4cqw,26px)', lineHeight: 1, textTransform: 'uppercase', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{G.name}</span>
           </div>
-          <div className="well timer" aria-live="off">
+          <div className="well timer" aria-live="off" style={narrow ? { height: 46 } : undefined}>
             <span style={{ color: tColor, animation: crit && s.running && !relaxed ? 'tick 1s ease-in-out infinite' : 'none' }}>{relaxed ? '∞' : Math.ceil(s.t)}</span>
           </div>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           <div className="well tbar"><div><div className="fill" style={{ width: tPct, background: tColor }} /><div className="ticks" /></div></div>
+          {narrow && <DayDots s={s} current />}
           <span style={{ fontSize: 13, fontWeight: 800, fontStyle: 'italic', color: 'oklch(0.92 0.05 248)', whiteSpace: 'nowrap' }}>Ukupno <b className="mono" style={{ color: W }}>{total}</b> p</span>
         </div>
       </div>

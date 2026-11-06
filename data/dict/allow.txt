@@ -5,9 +5,10 @@ ljudi
 deca
 braća
 gospoda
-# obične reči kojih nema u srLex-u kao odrednica
+# obične reči kojih nema u srLex-u kao odrednica, ili ih vodi pod hrvatskom lemom (stolovi → stol)
 injekcija
 odžak
+stolovi
 # ijekavski filter: lažno pozitivne
 hijena
 premijera

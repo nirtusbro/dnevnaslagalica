@@ -3,8 +3,10 @@ import { QUESTIONS } from '../../engine/kozna.js';
 import { YS, UN, N, Y, R, W, I2, MUTE, SKIPC } from '../../theme.js';
 import { Btn, Panel, Kicker } from '../../components/ui.jsx';
 
-export default function KoZnaZna({ s, act }) {
+export default function KoZnaZna({ s, act, vp }) {
   const g = s.game.kz;
+  // Phones: heights follow the screen height (dvh) so the game fits without scrolling.
+  const ph = (wide, phone) => (vp.narrow ? phone : wide);
   const Q = s.puzzle.koZnaZna[g.q];
   const qa = g.q % 2 ? 'riseA' : 'riseB';
   const p = g.pick;
@@ -23,14 +25,14 @@ export default function KoZnaZna({ s, act }) {
   });
 
   return (
-    <div className="col" style={{ gap: 14, animation: 'rise .35s both' }}>
+    <div className="col" style={{ gap: ph(14, 10), flex: ph(undefined, 1), animation: 'rise .35s both' }}>
       <div style={{ display: 'flex', gap: 6 }}>
         {Array.from({ length: QUESTIONS }, (_, i) => {
           const bg = i < g.res.length ? (g.res[i] === 1 ? Y : g.res[i] === -1 ? R : SKIPC) : i === g.q ? W : MUTE;
           return <span key={i} style={{ flex: 1, height: 6, borderRadius: 1, background: bg, transition: 'background .3s' }} />;
         })}
       </div>
-      <Panel key={g.q} style={{ minHeight: 'clamp(176px,34cqw,220px)', padding: 'clamp(20px,5cqw,32px)', display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 14, animation: qa + ' .4s both' }}>
+      <Panel key={g.q} style={{ minHeight: ph('clamp(176px,34cqw,220px)', 'clamp(120px,24dvh,220px)'), padding: ph('clamp(20px,5cqw,32px)', 'clamp(14px,2.8dvh,24px)'), display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 14, flex: ph(undefined, 1), animation: qa + ' .4s both' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 10 }}>
           <Kicker y>Pitanje {g.q + 1} / {QUESTIONS}{Q.cat ? ' · ' + Q.cat : ''}</Kicker>
           <span style={{ fontSize: 13, fontWeight: 800, color: I2, whiteSpace: 'nowrap' }}>Skor <b style={{ color: W }}>{(g.score > 0 ? '+' : '') + g.score}</b></span>
@@ -40,16 +42,16 @@ export default function KoZnaZna({ s, act }) {
       <div className="col" style={{ gap: 'clamp(8px,2cqw,10px)' }}>
         {opts.map((o, i) => (
           <button key={g.q + '-' + i} onClick={() => act('KZ_ANSWER', { i })}
-            style={{ minHeight: 'clamp(58px,12.6cqw,66px)', border: 'none', borderRadius: 5, padding: '10px 16px 10px 10px', display: 'flex', alignItems: 'center', gap: 14, textAlign: 'left', background: o.bg, boxShadow: o.sh, color: o.fg, animation: o.anim, transition: 'background .25s, color .25s, box-shadow .25s', textShadow: o.fg === N ? 'none' : undefined }}>
+            style={{ minHeight: ph('clamp(58px,12.6cqw,66px)', 'clamp(50px,8.6dvh,76px)'), border: 'none', borderRadius: 5, padding: '10px 16px 10px 10px', display: 'flex', alignItems: 'center', gap: 14, textAlign: 'left', background: o.bg, boxShadow: o.sh, color: o.fg, animation: o.anim, transition: 'background .25s, color .25s, box-shadow .25s', textShadow: o.fg === N ? 'none' : undefined }}>
             <span style={{ width: 36, height: 36, borderRadius: 4, flexShrink: 0, display: 'grid', placeItems: 'center', fontWeight: 800, fontStyle: 'italic', fontSize: 16, background: o.cbg, color: o.cfg, textShadow: 'none' }}>{o.L}</span>
             <span style={{ flex: 1, minWidth: 0, fontWeight: 800, fontSize: 'clamp(16px,4.4cqw,19px)', lineHeight: 1.25, textWrap: 'pretty' }}>{o.o}</span>
             <span style={{ fontWeight: 800, fontStyle: 'italic', fontSize: 15, whiteSpace: 'nowrap' }}>{o.tag}</span>
           </button>
         ))}
       </div>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12, minHeight: 50 }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12, minHeight: ph(50, 44) }}>
         <span style={{ fontSize: 15, fontWeight: 800, fontStyle: 'italic', color: fbC }} aria-live="polite">{fb}</span>
-        <Btn onClick={() => act('KZ_ANSWER', { i: -1 })} style={{ height: 48, padding: '0 20px', opacity: p == null ? 1 : 0.4 }}>Ne znam</Btn>
+        <Btn onClick={() => act('KZ_ANSWER', { i: -1 })} style={{ height: ph(48, 44), padding: '0 20px', opacity: p == null ? 1 : 0.4 }}>Ne znam</Btn>
       </div>
       <span style={{ textAlign: 'center', fontSize: 13, color: I2 }}>Tačno +10 · Netačno −5 · Ne znam 0</span>
     </div>

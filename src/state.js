@@ -164,10 +164,15 @@ const A_OPEN_FIRST = 'Prvo otvori bar jedno polje';
 const A_LOCKED = 'Otvori novo polje pre sledećeg pokušaja';
 
 /** Can the player start a guess now? Returns an error message or null. */
-function aBlocked(A) {
+export function aBlocked(A) {
   if (!A.open.some((r) => r.some(Boolean))) return A_OPEN_FIRST;
   if (A.tried && !as.allOpen(A.open)) return A_LOCKED;
   return null;
+}
+
+/** Moving to column c closes an answer box left open in another column (only one column is ever highlighted). */
+function closeOtherCol(A, c) {
+  return A.target && A.target.kind === 'col' && A.target.c !== c ? { target: null, input: '' } : {};
 }
 
 /** Start typing into a column's solution field or the final field. */
@@ -322,11 +327,11 @@ export function reducer(s, action) {
     case 'A_OPEN': {
       if (!inGame || g.a.fin) return s;
       const { c, k } = action;
-      if (g.a.sol[c] || g.a.open[c][k]) return { ...s, game: { ...g, a: { ...g.a, act: c } } };
+      if (g.a.sol[c] || g.a.open[c][k]) return { ...s, game: { ...g, a: { ...g.a, act: c, ...closeOtherCol(g.a, c) } } };
       const open = g.a.open.map((r) => [...r]); open[c][k] = 1;
-      return { ...s, game: { ...g, a: { ...g.a, open, act: c, tried: false, msg: '', newKey: c + '-' + k } } };
+      return { ...s, game: { ...g, a: { ...g.a, open, act: c, tried: false, msg: '', newKey: c + '-' + k, ...closeOtherCol(g.a, c) } } };
     }
-    case 'A_ACT': return { ...s, game: { ...g, a: { ...g.a, act: action.c } } };
+    case 'A_ACT': return { ...s, game: { ...g, a: { ...g.a, act: action.c, ...closeOtherCol(g.a, action.c) } } };
     case 'A_EDIT': return !inGame ? s : aEdit(s, action);
     case 'A_CANCEL': return { ...s, game: { ...g, a: { ...g.a, target: null, input: '' } } };
     case 'A_INPUT': return { ...s, game: { ...g, a: { ...g.a, input: action.value, msg: '' } } };
