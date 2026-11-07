@@ -80,12 +80,12 @@ const FinalBox = ({ final, tall, worth }) => {
   );
 };
 
-/** Narrow layout: one card per column; a tap selects the column and, when a guess is allowed, opens the answer box. */
+/** Narrow layout: one card per column; the active unsolved card opens the answer box on a second tap. */
 const Card = ({ L, s, sv, open, active, onClick, editor }) => {
   const x = sv === 1 ? YS : sv === 2 ? OPEN : { bg: 'oklch(0.31 0.143 262)', sh: 'inset 0 0 0 1px oklch(0.45 0.14 258)', fg: W };
   const Tag = editor ? 'div' : 'button';
   return (
-    <Tag onClick={editor ? undefined : onClick} aria-label={editor || sv ? undefined : 'Kolona ' + L + ', upiši rešenje'}
+    <Tag onClick={editor ? undefined : onClick} aria-label={editor || sv ? undefined : (active ? 'Upiši rešenje kolone ' + L : 'Kolona ' + L)}
       style={{ minHeight: 'clamp(50px,8.4dvh,72px)', border: 'none', borderRadius: 5, padding: 'clamp(5px,1dvh,8px) 10px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: 6, textAlign: 'left', background: x.bg, boxShadow: x.sh + (active ? ', 0 0 0 2.5px ' + Y : ''), color: x.fg, transition: 'background .3s, box-shadow .2s', textShadow: sv ? 'none' : undefined, boxSizing: 'border-box' }}>
       <span style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
         <span style={{ fontWeight: 800, fontStyle: 'italic', fontSize: 13, letterSpacing: '.08em' }}>KOLONA {L}</span>
@@ -93,7 +93,7 @@ const Card = ({ L, s, sv, open, active, onClick, editor }) => {
       </span>
       {editor
         ? <div style={{ display: 'flex', width: '100%', minHeight: 44, margin: '0 -4px' }}>{editor}</div>
-        : <span style={{ fontWeight: 800, fontStyle: 'italic', fontSize: 17, letterSpacing: '.04em', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{sv ? s : '?'}</span>}
+        : <span style={{ fontWeight: 800, fontStyle: 'italic', fontSize: 17, letterSpacing: '.04em', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{sv ? s : (active ? 'Dodirni za rešenje' : '?')}</span>}
     </Tag>
   );
 };
@@ -113,10 +113,10 @@ export default function Asocijacije({ s, act, dispatch, vp }) {
     if (canEdit(t)) primeKeyboard();
     act('A_EDIT', t);
   };
-  // Phone cards: one tap opens the answer box; when a guess is not allowed (no field open yet, locked
-  // after a miss, column solved) the tap just selects the column so its clues show below.
+  // Phone cards: the first tap selects the column (its clues show below); a second tap on the
+  // selected, unsolved column opens the answer box.
   const tapCard = (c) => {
-    if (canEdit({ kind: 'col', c })) edit({ kind: 'col', c });
+    if (A.act === c && !A.sol[c]) edit({ kind: 'col', c });
     else dispatch({ type: 'A_ACT', c });
   };
   // If the box did not open after all, do not leave the keyboard up for the hidden input.
