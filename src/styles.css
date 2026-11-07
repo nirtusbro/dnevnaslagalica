@@ -172,6 +172,8 @@ a:hover { color: var(--white); }
 .input.inline { height: 100%; min-height: 40px; border-radius: 4px; padding: 0 8px; font-size: 16px; letter-spacing: .03em; }
 /* Phone column cards leave the box ~80px wide: keep the placeholder short and unspaced so it fits */
 .input.inline::placeholder { text-transform: none; letter-spacing: 0; font-weight: 600; font-size: 14px; }
+/* Phone: the selected column card shows a look-alike of the answer box; the next tap opens the real one */
+.input.inline.faux { display: flex; align-items: center; width: 100%; min-height: 34px; box-sizing: border-box; border-color: var(--yellow); color: oklch(0.78 0.06 252); text-transform: none; letter-spacing: 0; font-weight: 600; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-shadow: none; }
 .inline-ok { flex: none; width: 36px; border: none; border-radius: 4px; font-size: 18px; font-weight: 800; cursor: pointer; }
 
 /* ---------- Game chrome ---------- */

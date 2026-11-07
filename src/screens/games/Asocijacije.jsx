@@ -93,7 +93,10 @@ const Card = ({ L, s, sv, open, active, onClick, editor }) => {
       </span>
       {editor
         ? <div style={{ display: 'flex', width: '100%', minHeight: 44, margin: '0 -4px' }}>{editor}</div>
-        : <span style={{ fontWeight: 800, fontStyle: 'italic', fontSize: 17, letterSpacing: '.04em', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{sv ? s : (active ? 'Dodirni za rešenje' : '?')}</span>}
+        : active && !sv
+          // Looks like the answer box it turns into, so it is clear the answer is typed here.
+          ? <span className="input inline faux" aria-hidden="true">✎ Upiši rešenje</span>
+          : <span style={{ fontWeight: 800, fontStyle: 'italic', fontSize: 17, letterSpacing: '.04em', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{sv ? s : '?'}</span>}
     </Tag>
   );
 };
