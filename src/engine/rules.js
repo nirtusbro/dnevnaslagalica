@@ -5,7 +5,7 @@ import { letterCount } from './letters.js';
 
 export const GAMES = [
   { id: 'slagalica', name: 'Slagalica', desc: 'Najduža reč od 12 slova', time: 60, timeL: '60 s', max: 17,
-    rule: 'Od 12 ponuđenih slova složi najdužu reč koju znaš. Svako slovo vredi 1 poen. Ako je tvoja reč baš ona koju je računar zadao, dobijaš još 5 poena; za drugu reč iste dužine 10, a za dužu reč 15 poena. Na računaru možeš i da kucaš.' },
+    rule: 'Od 12 ponuđenih slova složi najdužu reč koju znaš. Priznaje se svaka srpska reč u bilo kom obliku (padeži, množina, rod, glagolski oblici), osim vlastitih imena i skraćenica. Svako slovo vredi 1 poen. Ako je tvoja reč baš ona koju je računar zadao, dobijaš još 5 poena; za drugu reč iste dužine 10, a za dužu reč 15 poena. Na računaru možeš i da kucaš.' },
   { id: 'mojBroj', name: 'Moj broj', desc: 'Dođi do traženog broja', time: 60, timeL: '60 s', max: 10,
     rule: 'Šest brojeva, četiri računske operacije i zagrade. Svaki broj se koristi najviše jednom. Tačan broj donosi 10 poena. Ako do traženog broja ne može da se dođe, 10 poena vredi najbliži mogući rezultat.' },
   { id: 'skocko', name: 'Skočko', desc: 'Otkrij tajnu kombinaciju', time: 60, timeL: '60 s', max: 20,

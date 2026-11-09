@@ -6,11 +6,13 @@
 // existing day file are preserved, and the app fills anything missing from the
 // sample puzzle. Re-running is idempotent (same day → same puzzle) unless the
 // generator changes; pass --force to overwrite sections that already exist, and
-// --only=<game>[,<game>] to touch just those sections (e.g. after a dictionary rebuild).
+// --only=<game>[,<game>] to touch just those sections, and --rewords to refresh only Slagalica's
+// accepted words and set word for the existing letters after a dictionary rebuild (published days
+// keep their tiles).
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { generateSlagalica, groupByLength } from './slagalica-gen.mjs';
+import { generateSlagalica, groupByLength, acceptedWords } from './slagalica-gen.mjs';
 import { generateMojBroj } from './mojbroj-gen.mjs';
 import { generateSkocko } from './skocko-gen.mjs';
 import { loadBank, validateBank, generateKoZnaZna, repeatHorizon } from './kozna-gen.mjs';
@@ -19,13 +21,14 @@ import { loadBank as loadAsocBank, validateBank as validateAsocBank, makeDealer 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const args = process.argv.slice(2).filter((a) => !a.startsWith('--'));
 const force = process.argv.includes('--force');
+const rewords = process.argv.includes('--rewords');
 const onlyArg = process.argv.find((a) => a.startsWith('--only='));
 const GAMES = ['slagalica', 'mojBroj', 'skocko', 'koZnaZna', 'asocijacije'];
 const only = onlyArg ? new Set(onlyArg.slice('--only='.length).split(',').filter(Boolean)) : new Set(GAMES);
 const from = parseInt(args[0], 10);
 const to = args[1] != null ? parseInt(args[1], 10) : from;
 if (!Number.isInteger(from) || !Number.isInteger(to) || to < from || [...only].some((g) => !GAMES.includes(g))) {
-  console.error('usage: node tools/gen-days.mjs <fromDay> [toDay] [--force] [--only=' + GAMES.join(',') + ']');
+  console.error('usage: node tools/gen-days.mjs <fromDay> [toDay] [--force] [--rewords] [--only=' + GAMES.join(',') + ']');
   process.exit(1);
 }
 /** Should section `game` be (re)written for this day file? */
@@ -33,7 +36,8 @@ const wants = (game, existing) => only.has(game) && (force || !existing[game]);
 
 const readList = (f) => fs.readFileSync(path.join(root, 'data', 'dict', f), 'utf8').split('\n').filter(Boolean);
 const dict = readList('core.txt');
-const extended = readList('extended.txt');
+// Accepted answers that are never the spine or set word: rare head-words and every other attested form.
+const extended = readList('extended.txt').concat(readList('forms.txt'));
 const freq = JSON.parse(fs.readFileSync(path.join(root, 'data', 'dict', 'letter-freq.json'), 'utf8'));
 const byLen = groupByLength(dict);
 const outDir = path.join(root, 'src', 'puzzles', 'days');
@@ -64,7 +68,14 @@ for (let day = from; day <= to; day++) {
   const file = path.join(outDir, pad3(day) + '.json');
   const existing = fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, 'utf8')) : {};
   const out = { day, ...existing };
-  if (wants('slagalica', out)) {
+  if (rewords && out.slagalica) {
+    const sl = out.slagalica;
+    const low = sl.letters.map((ch) => ch.toLowerCase());
+    const { words, best } = acceptedWords(low, dict, extended, sl.best.toLowerCase());
+    if (best !== sl.best) console.log(`#${pad3(day)} set word ${sl.best} -> ${best}`);
+    out.slagalica = { letters: sl.letters, words, best };
+    console.log(`#${pad3(day)} ${sl.letters.join('')}  best=${best}  words=${sl.words.length} -> ${words.length}`);
+  } else if (wants('slagalica', out)) {
     const g = generateSlagalica(day, dict, freq, { byLen, extended });
     out.slagalica = { letters: g.letters, words: g.words, best: g.best };
     console.log(`#${pad3(day)} ${g.letters.join('')}  best=${g.best} (${g.best.length})  words=${g.words.length}`);

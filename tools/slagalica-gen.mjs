@@ -112,21 +112,32 @@ export function generateSlagalica(day, words, freq, opts = {}) {
     const v = letters.filter((ch) => VOWELS.has(ch)).length;
     if (v < MIN_VOWELS || v > MAX_VOWELS) continue;
     letters = shuffle(r, letters);
-    const accepted = spellable(words, letters);
-    if (accepted.length < minWords) continue;
-    const maxLen = Math.max(...accepted.map(letterCount));
-    const longest = accepted.filter((w) => letterCount(w) === maxLen);
-    const best = longest.includes(spine) ? spine : longest.sort()[0];
-    const all = accepted.concat(spellable(extended, letters));
-    const sorted = [...new Set(all)].sort((a, b) => letterCount(b) - letterCount(a) || a.localeCompare(b));
+    if (spellable(words, letters).length < minWords) continue;
+    const { words: accepted, best } = acceptedWords(letters, words, extended, spine);
     return {
       letters: letters.map((ch) => ch.toUpperCase()),
-      words: sorted.map((w) => w.toUpperCase()),
-      best: best.toUpperCase(),
+      words: accepted,
+      best,
       spine: spine.toUpperCase(),
     };
   }
   throw new Error('could not generate a Slagalica puzzle for day ' + day);
+}
+
+/**
+ * The accepted-word list and the set word for a tile set (lowercase letters in, upper-case out).
+ * The set word is the longest core word, `prefer` when it is one of the longest (the spine, or the
+ * day's existing set word on a refresh); extended words (rare head-words, inflected forms) are
+ * accepted answers only.
+ */
+export function acceptedWords(letters, words, extended = [], prefer = null) {
+  const core = spellable(words, letters);
+  const maxLen = Math.max(...core.map(letterCount));
+  const longest = core.filter((w) => letterCount(w) === maxLen);
+  const best = prefer && longest.includes(prefer) ? prefer : longest.sort()[0];
+  const all = [...new Set(core.concat(spellable(extended, letters)))];
+  all.sort((a, b) => letterCount(b) - letterCount(a) || a.localeCompare(b));
+  return { words: all.map((w) => w.toUpperCase()), best: best.toUpperCase() };
 }
 
 /** Words grouped by letter count (LJ, NJ, DŽ count once). */

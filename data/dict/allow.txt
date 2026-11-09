@@ -9,8 +9,18 @@ gospoda
 injekcija
 odžak
 stolovi
+hiljada
+zašto
+bit
+kuna
+# zamenice koje srLex vodi pod hrvatskom lemom (netko, nitko, itko, svatko)
+neko
+niko
+iko
+svako
 # ijekavski filter: lažno pozitivne
 hijena
+premijer
 premijera
 sijelo
 opijelo
