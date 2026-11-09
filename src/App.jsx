@@ -3,7 +3,8 @@ import { reducer, initialState, progressOf } from './state.js';
 import { loadPuzzle } from './puzzles/index.js';
 import { makeStorage } from './engine/storage.js';
 import { dayNumber } from './engine/day.js';
-import { totalOf, maxesOf } from './engine/rules.js';
+import { totalOf, maxesOf, GAMES } from './engine/rules.js';
+import { track, dayProps } from './analytics.js';
 import { summarize, shareText } from './engine/stats.js';
 import { buzz } from './theme.js';
 import Header from './components/Header.jsx';
@@ -90,7 +91,21 @@ export default function App() {
     if (!s.ready || s.practice || !s.done || s.history[s.day]) return;
     const history = storage.recordDay(s.day, s.scores, totalOf(s.scores), maxesOf(s.puzzle));
     dispatch({ type: 'HISTORY', history });
+    track('day_completed', dayProps(history, s.day, totalOf(s.scores)));
   }, [s.ready, s.practice, s.done, s.day, s.scores, s.history]);
+
+  // Analytics: one event per game finished today (shows where players drop off).
+  // The first snapshot after boot is only a baseline, so restored progress is not re-sent.
+  const prevScores = useRef(null);
+  useEffect(() => {
+    if (!s.ready || s.practice) { prevScores.current = null; return; }
+    const prev = prevScores.current;
+    prevScores.current = s.scores;
+    if (!prev) return;
+    s.scores.forEach((x, i) => {
+      if (x != null && prev[i] == null) track('game_finished', { game: GAMES[i].name, score: x });
+    });
+  }, [s.ready, s.practice, s.scores]);
 
   // Wall clock for countdowns
   useEffect(() => {
