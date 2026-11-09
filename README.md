@@ -136,7 +136,7 @@ breakdown on Serbian Wikipedia), adapted for a single player:
 | Game | Rule | Max |
 |---|---|---|
 | Slagalica | 1 point per letter; +5 if the word is the day's set (longest) word, +10 for a different word of the same length, +15 for a longer one | set word + 5 (day-specific; longer answers can exceed it, shown as 100%) |
-| Moj broj | 10 points for the exact number; if the target is unreachable, 10 for the closest reachable number. Nothing for near misses | 10 |
+| Moj broj | 10 points for the exact number; if the target is unreachable, 10 for the closest reachable number. Near misses (distance beyond the best reachable): 1–2 → 8, 3–5 → 6, 6–10 → 4, 11–20 → 2 | 10 |
 | Skočko | by attempt: 1st–2nd 20, 3rd–4th 15, 5th–6th 10 | 20 |
 | Ko zna zna | 10 questions, +10 correct, −5 wrong, 0 skipped | 100 |
 | Asocijacije | column = 3 + 1 per unopened field; final = 7 + every unsolved column's value | 34 (final right after the first field) |

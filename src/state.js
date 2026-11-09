@@ -119,7 +119,8 @@ function mbSubmit(s, timeout = false) {
   if (!Number.isInteger(v)) return timeout ? fin(s, 0, null) : bad('Rezultat mora biti ceo broj');
   const d = Math.abs(P.target - v);
   const pts = mb.pointsFor(P.target, v, mbBestDiff(P));
-  const mb2 = { ...g.mb, msg: d === 0 ? 'Tačno!' : pts ? 'Najbliže moguće!' : 'Razlika ' + d, msgC: pts ? Y : I2 };
+  const msg = d === 0 ? 'Tačno!' : pts === mb.POINTS ? 'Najbliže moguće!' : pts ? 'Blizu! Razlika ' + d + ' · +' + pts : 'Razlika ' + d;
+  const mb2 = { ...g.mb, msg, msgC: pts ? Y : I2 };
   return fin({ ...s, game: { ...g, mb: mb2 }, running: false }, pts, v);
 }
 

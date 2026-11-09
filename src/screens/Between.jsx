@@ -26,8 +26,9 @@ export function revealOf(s, gi) {
     const T = P.mojBroj.target;
     const solved = P.mojBroj.solution ? { text: P.mojBroj.solution, value: T, diff: 0 } : solve(P.mojBroj.numbers, T);
     const d = rd.val != null ? Math.abs(T - rd.val) : null;
-    const note = d === 0 ? 'Tačno do broja.' : pts ? 'Traženi broj nije dostižan, a tvoj rezultat je najbliži mogući.' : d != null ? 'Razlika od traženog broja: ' + d + '. Poene donosi samo tačan broj.' : 'Izraz nije završen na vreme.';
-    const verdict = pts ? 'Tačno!' : d != null && d <= 10 ? 'Blizu, ali ne' : 'Ovog puta ne';
+    const full = pts >= 10;
+    const note = d === 0 ? 'Tačno do broja.' : full ? 'Traženi broj nije dostižan, a tvoj rezultat je najbliži mogući.' : pts ? 'Razlika od traženog broja: ' + d + '. Blizu si, pa dobijaš ' + pts + ' poena.' : d != null ? 'Razlika od traženog broja: ' + d + '. Poene donosi rezultat udaljen najviše 20.' : 'Izraz nije završen na vreme.';
+    const verdict = full ? 'Tačno!' : pts ? 'Blizu!' : 'Ovog puta ne';
     return { verdict, note, body: <MbBody expr={rd.expr} val={rd.val} sol={solved.text} target={T} solValue={solved.value} /> };
   }
   if (gi === 2) {

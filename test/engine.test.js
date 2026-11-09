@@ -101,9 +101,14 @@ test('moj broj: precedence, division, trailing operators and scoring', () => {
   assert.equal(mb.evaluate(tk(1, '+'), N), 8, 'trailing operator dropped');
   assert.equal(mb.evaluate(tk('(', '('), N), null, 'only brackets');
   assert.equal(mb.evaluate([], N), null);
-  assert.equal(mb.pointsFor(742, 740), 0, 'only the exact number scores');
+  assert.equal(mb.pointsFor(742, 741), 8, 'off by 1');
+  assert.equal(mb.pointsFor(742, 744), 8, 'off by 2');
+  assert.equal(mb.pointsFor(742, 737), 6, 'off by 5');
+  assert.equal(mb.pointsFor(742, 752), 4, 'off by 10');
+  assert.equal(mb.pointsFor(742, 722), 2, 'off by 20');
+  assert.equal(mb.pointsFor(742, 721), 0, 'off by 21');
   assert.equal(mb.pointsFor(742, 740, 2), 10, 'closest reachable when the target is unreachable');
-  assert.equal(mb.pointsFor(742, 739, 2), 0);
+  assert.equal(mb.pointsFor(742, 739, 2), 8, 'one beyond the closest reachable');
   assert.equal(mb.pointsFor(742, 700), 0);
   assert.equal(mb.pointsFor(742, 742.5), 0);
   assert.equal(mb.pointsFor(742, null), 0);

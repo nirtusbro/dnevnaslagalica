@@ -123,15 +123,23 @@ export function format(tokens, numbers) {
 export const POINTS = 10;
 
 /**
- * TV rule: a correct procedure to the exact number is worth 10. When the target is
- * not reachable at all, the best reachable number is worth 10 instead (`bestDiff` is
- * the distance of the closest reachable value, 0 when the target can be hit).
- * Anything else scores 0.
+ * Near-miss tiers: [max distance beyond the best reachable value, points].
+ * Off by 1–2 → 8, 3–5 → 6, 6–10 → 4, 11–20 → 2, more → 0.
+ */
+export const NEAR_TIERS = [[2, 8], [5, 6], [10, 4], [20, 2]];
+
+/**
+ * The exact number is worth 10. When the target is not reachable at all, the best
+ * reachable number is worth 10 instead (`bestDiff` is the distance of the closest
+ * reachable value, 0 when the target can be hit). Near misses score partial points
+ * by how far they are beyond that best value (see NEAR_TIERS).
  */
 export function pointsFor(target, value, bestDiff = 0) {
   if (value == null || !Number.isInteger(value)) return 0;
-  const d = Math.abs(target - value);
-  return d <= bestDiff ? POINTS : 0;
+  const extra = Math.abs(target - value) - bestDiff;
+  if (extra <= 0) return POINTS;
+  const tier = NEAR_TIERS.find(([max]) => extra <= max);
+  return tier ? tier[1] : 0;
 }
 
 /**
