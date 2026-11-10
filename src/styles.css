@@ -93,6 +93,14 @@ a:hover { color: var(--white); }
 .ov-vignette { z-index: 61; border-radius: 4.5% / 6%; box-shadow: 0 0 0 120px #050507, inset 0 0 0 4px oklch(0.03 0.02 270), inset 0 0 28px 6px oklch(0.03 0.03 275 / .75), inset 0 0 160px 30px oklch(0.08 0.08 275 / .22); background: radial-gradient(120% 90% at 50% 30%, oklch(1 0 0 / .06), transparent 55%); animation: crt 3.2s steps(2) infinite; }
 .ov-roll { left: 0; right: 0; top: 0; bottom: auto; height: 18vh; z-index: 62; background: linear-gradient(180deg, transparent, oklch(1 0 0 / .05), transparent); animation: roll 7s linear infinite; }
 .ov-blur { z-index: 59; backdrop-filter: blur(.8px) saturate(1.4) contrast(1.12) brightness(1.06); -webkit-backdrop-filter: blur(.8px) saturate(1.4) contrast(1.12) brightness(1.06); }
+/* Phones (touch + small side, either orientation): a much lighter CRT. On high-DPR screens the 1.5px
+   scanlines land on fractional device pixels and band, and the colour-fringe text shadow reads as blur. */
+@media (pointer: coarse) and (max-width: 600px), (pointer: coarse) and (max-height: 600px) {
+  .tv-screen { text-shadow: -.5px 0 oklch(0.65 0.25 25 / .18), .5px 0 oklch(0.8 0.14 210 / .18); }
+  .ov-scan { background: repeating-linear-gradient(0deg, oklch(0.08 0.04 270 / .07) 0 1px, transparent 1px 3px); }
+  .ov-blur, .ov-rgb, .ov-noise, .ov-roll { display: none; }
+  .ov-vignette { animation: none; }
+}
 
 /* ---------- Header ---------- */
 .hdr { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; gap: 12px; padding: clamp(24px, 3cqw, 44px) 0 clamp(10px, 2cqw, 28px); flex-shrink: 0; }

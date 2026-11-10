@@ -46,7 +46,7 @@ export default function Skocko({ s, act, vp }) {
                   );
                 })}
               </div>
-              <div className="well" style={{ borderRadius: 3, padding: 'clamp(6px,1.3cqw,8px)', display: 'grid', gridTemplateColumns: 'repeat(2,clamp(13px,3.4cqw,16px))', gap: 'clamp(4px,1cqw,6px)' }}>
+              <div style={{ padding: 'clamp(6px,1.3cqw,8px)', display: 'grid', gridTemplateColumns: 'repeat(4,clamp(13px,3.4cqw,16px))', gap: 'clamp(4px,1cqw,6px)' }}>
                 {[0, 1, 2, 3].map((k) => {
                   if (!done) return <span key={k} style={{ aspectRatio: '1', borderRadius: '50%', boxShadow: DASH }} />;
                   const c = k < done.ex ? R : k < done.ex + done.near ? Y : 'transparent';
