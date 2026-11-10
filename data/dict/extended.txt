@@ -4296,7 +4296,6 @@ leukoplast
 leukoplasti
 levačko
 levakov
-levan
 levci
 levitacije
 levovi
@@ -4552,7 +4551,6 @@ manjci
 maona
 maratonov
 marcipani
-margarete
 margaritin
 marijski
 marionetsko
@@ -10395,7 +10393,6 @@ sviralice
 sviraljka
 sviraljke
 sviranja
-svirčev
 sviter
 svlačen
 svodljivo

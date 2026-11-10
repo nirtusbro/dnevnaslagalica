@@ -685,7 +685,6 @@ alva
 alveola
 alveolarni
 alveole
-alvin
 alzaški
 alžirski
 aljina
@@ -1407,8 +1406,6 @@ aranžirati
 aranžman
 aranžmani
 aranžmanski
-arapi
-arapin
 arapski
 arbanaški
 arbitar
@@ -2769,8 +2766,6 @@ benzol
 beočug
 beočuzi
 beogradski
-beograđani
-beograđanin
 beonjača
 beonjače
 berač
@@ -3907,7 +3902,6 @@ bogzna
 boing
 boinzi
 boja
-bojan
 bojani
 bojanka
 bojanke
@@ -5027,7 +5021,6 @@ casting
 catering
 cazinski
 cedar
-cedevita
 cedilo
 cediljka
 cediljke
@@ -5247,9 +5240,7 @@ cifra
 cifre
 cigan
 ciganče
-cigani
 ciganija
-ciganin
 ciganka
 ciganke
 ciganlija
@@ -6057,6 +6048,7 @@ cvrkuti
 čiraš
 čiraši
 čirevi
+čirić
 čist
 čistac
 čistač
@@ -9709,6 +9701,8 @@ džungle
 đikan
 đipanje
 đoga
+đon
+đonovi
 đubrad
 đubre
 đubrenje
@@ -10414,8 +10408,6 @@ energija
 energije
 energijski
 engleski
-englez
-englezi
 engram
 engrami
 enigma
@@ -13319,7 +13311,6 @@ grafoskop
 grafoskopi
 grafov
 grafovi
-graham
 grahamov
 grahorica
 grahorice
@@ -17034,9 +17025,6 @@ itinereri
 itison
 itisoni
 iva
-ivan
-ivani
-ivanov
 ivanja
 ivanje
 ivanjički
@@ -18274,8 +18262,6 @@ janjičari
 janjičarski
 janjičarstvo
 jao
-japanac
-japanci
 japanka
 japanke
 japanski
@@ -20029,8 +20015,6 @@ kineskinja
 kineskinje
 kinetički
 kinetika
-kinez
-kinezi
 kinidin
 kinin
 kinolog
@@ -22147,7 +22131,6 @@ kozački
 kozak
 kozar
 kozari
-kozarov
 kozarski
 kozarstvo
 koze
@@ -22199,7 +22182,6 @@ krabe
 krabulja
 kraci
 kračun
-kračunov
 kraćen
 kraćenje
 kraden
@@ -22755,9 +22737,7 @@ krstašica
 krstašice
 krstaški
 krstaško
-krstić
 krstićev
-krstići
 krstionica
 krstionice
 krstitelj
@@ -25303,8 +25283,6 @@ makar
 makarone
 makartizam
 makaze
-makedonac
-makedonci
 makedonski
 makeover
 maker
@@ -25643,7 +25621,6 @@ maratonke
 maratonski
 marcipan
 marčanski
-margareta
 margaretin
 margarin
 margarini
@@ -30595,7 +30572,6 @@ neljudski
 neljudsko
 neljudskost
 nem
-nemac
 nemački
 nemagnetičan
 nemali
@@ -30621,7 +30597,6 @@ nemaštovito
 nemati
 nematoda
 nematode
-nemci
 nemčev
 nemedicinski
 nemenjanje
@@ -32912,8 +32887,6 @@ novorođenče
 novorođeni
 novorođeno
 novosadski
-novosađani
-novosađanin
 novosagrađen
 novost
 novostečeni
@@ -33049,6 +33022,7 @@ njuškati
 njuške
 njuškica
 njuškice
+njutn
 njutnov
 njutnovski
 oaza
@@ -36115,8 +36089,6 @@ osiromašeni
 osiromašenje
 osiromašiti
 osje
-oskar
-oskari
 oskarov
 oskarovac
 oskarovci
@@ -38108,8 +38080,6 @@ pećar
 pećari
 peći
 pećina
-pećinar
-pećinari
 pećine
 pećinski
 pećnica
@@ -53053,7 +53023,6 @@ situiranje
 situirati
 siv
 sivac
-sivčev
 sivi
 sivila
 sivilo
@@ -53824,9 +53793,7 @@ slova
 slovački
 slovca
 slovce
-slovenac
 slovenački
-slovenci
 slovenski
 slovenstva
 slovenstvo
@@ -55006,12 +54973,8 @@ srazmeri
 srazmerni
 srazmerno
 srazmernost
-srbi
-srbija
 srbijanski
-srbije
 srbijin
-srbin
 srbinov
 srbistika
 srbizacija
@@ -67957,7 +67920,6 @@ zoonoze
 zooplankton
 zooplanktoni
 zora
-zoran
 zore
 zorni
 zornica

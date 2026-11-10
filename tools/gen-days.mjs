@@ -36,8 +36,9 @@ const wants = (game, existing) => only.has(game) && (force || !existing[game]);
 
 const readList = (f) => fs.readFileSync(path.join(root, 'data', 'dict', f), 'utf8').split('\n').filter(Boolean);
 const dict = readList('core.txt');
-// Accepted answers that are never the spine or set word: rare head-words and every other attested form.
-const extended = readList('extended.txt').concat(readList('forms.txt'));
+// Accepted answers that are never the spine or set word: rare head-words, every other attested form,
+// and the Hunspell/CC0 words srLex lacks (extra.txt).
+const extended = readList('extended.txt').concat(readList('forms.txt'), readList('extra.txt'));
 const freq = JSON.parse(fs.readFileSync(path.join(root, 'data', 'dict', 'letter-freq.json'), 'utf8'));
 const byLen = groupByLength(dict);
 const outDir = path.join(root, 'src', 'puzzles', 'days');

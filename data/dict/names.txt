@@ -1,0 +1,15 @@
+# Vlastite imenice koje srLex vodi kao obične reči: nazivi naroda i stanovnika (pišu se velikim
+# slovom). Reč i svi njeni padeži se ne priznaju (nemac -> nemca, nemci). Jedna reč po redu, mala slova.
+# Ostala imena (srbija, ivan, vojvodina) hvata filter po učestalosti u build-dict.mjs.
+srbin
+hrvat
+slovenac
+nemac
+englez
+makedonac
+ciganin
+kinez
+japanac
+arapin
+beograđanin
+novosađanin

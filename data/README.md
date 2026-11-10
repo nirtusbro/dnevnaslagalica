@@ -8,6 +8,8 @@ The Slagalica dictionary has two levels:
   adverbs, pronouns, numerals and other invariable words).
 - **Accepted answers**: more lenient than TV, by decision of 2026-11-09. Every attested form of a real
   Serbian word counts (blokirane, kućama, pisao, najbolji), so the game never rejects a legitimate word.
+  Since 2026-11-10 this also takes in the Hunspell and CC0 word lists (`extra.txt`), for words srLex
+  lacks (đon) or never saw in its corpus.
 
 Never accepted: proper names, abbreviations, ijekavian or Croatian-only words.
 Built by `node tools/build-dict.mjs` (`npm run dict`).
@@ -18,13 +20,19 @@ Built by `node tools/build-dict.mjs` (`npm run dict`).
 |---|---|---|---|
 | `srLex_v1.3.gz` | [srLex 1.3](https://www.clarin.si/repository/xmlui/handle/11356/1233) (CLARIN.SI): Serbian inflectional lexicon, ~6.9M rows of form / lemma / MSD tag / srWaC frequency | CC BY-SA 4.0 | the dictionary |
 | `hrLex_v1.3.gz` | [hrLex 1.3](https://www.clarin.si/repository/xmlui/handle/11356/1232) (CLARIN.SI): the Croatian counterpart | CC BY-SA 4.0 | filter only (see below) |
+| `sr-Latn.dic` | [grakic/hunspell-sr](https://github.com/grakic/hunspell-sr) (Serbian Latin spellchecker, ~264k forms) | LGPL 2.1+ / MPL 1.1+ / GPL 2+, or CC BY-SA 3.0 | `extra.txt` |
+| `serbian-words-latin.txt` | [turanjanin/spisak-srpskih-reci](https://github.com/turanjanin/spisak-srpskih-reci) (~2.79M forms merged from many lists) | CC0-1.0 | `extra.txt` |
 
 Download:
 
 ```
 curl -L -o data/raw/srLex_v1.3.gz "https://www.clarin.si/repository/xmlui/bitstream/handle/11356/1233/srLex_v1.3.gz?sequence=3&isAllowed=y"
 curl -L -o data/raw/hrLex_v1.3.gz "https://www.clarin.si/repository/xmlui/bitstream/handle/11356/1232/hrLex_v1.3.gz?sequence=1&isAllowed=y"
+curl -L -o data/raw/sr-Latn.dic https://raw.githubusercontent.com/grakic/hunspell-sr/master/sr-Latn.dic
+curl -L -o data/raw/serbian-words-latin.txt https://raw.githubusercontent.com/turanjanin/spisak-srpskih-reci/master/serbian-words-latin.txt
 ```
+
+The build needs a bigger heap for the two lists; `npm run dict` passes `--max-old-space-size=8192`.
 
 ## How a word is selected
 
@@ -58,8 +66,25 @@ curl -L -o data/raw/hrLex_v1.3.gz "https://www.clarin.si/repository/xmlui/bitstr
    interjections and abbreviations; `data/dict/allow.txt` always adds its words to core: head-words
    srLex files under another lemma but Rečnik Matice srpske lists separately (ljudi, deca), common
    words srLex lacks (injekcija, odžak) and Serbian words the ijekavian rule would wrongly drop
-   (hijena, premijera, odeljenje, ptičje). Both are hand-kept, one word per line, `#` for comments.
-7. Length is counted in alphabet letters: LJ, NJ and DŽ are one letter (`src/engine/letters.js`), so a
+   (hijena, premijera, odeljenje, ptičje), real words the proper-noun filter would drop (vučić, novak,
+   njutn), and words srLex lacks entirely (đon). Both are hand-kept, one word per line, `#` for comments.
+7. Proper nouns are never accepted (since 2026-11-10). srLex tags names `Np` and writes them
+   capitalised, but files some as lower-case common nouns too (srbija, ivan, vojvodina). A form srLex
+   knows as a common word is dropped when srWaC has it as a proper noun at least `MAX_NAME_RATIO` (10)
+   times more often; words that are both stay (nada 5612/5099, vuk, zora, sunce), and so does a case
+   form of an accepted word (bugarskoj for bugarski, rimu for rima). A word srLex does not know as a
+   common word is dropped when any source has it as a name (srLex or hrLex `Np`, or a capitalised entry
+   in the Hunspell/CC0 lists: garibaldi, čulić). `data/dict/names.txt` lists names of peoples and
+   inhabitants, which are written capitalised (nemac, srbin, beograđanin); they and all their forms
+   are out. `--dropped` writes every dropped name to `data/raw/dropped-names.txt`.
+8. `extra.txt` takes every remaining word of the Hunspell and CC0 lists (both mix in Croatian and
+   ijekavian words: tko, tjedan, lijepo, ljeto), filtered: nothing the rules above dropped comes back,
+   nor proper names or abbreviations; a form srLex knows goes through the same Croatian and ijekavian
+   tests; a form srLex does not know is dropped as Croatian when hrWaC has it about 20 times or more,
+   and as ijekavian when turning a non-initial "ije"/"je" into "e" gives a known word (a final "ije"
+   and "je" after l/n are exempt: zelenije, zdravlje). CC0-only words of 3–4 letters (mostly
+   abbreviations) are dropped.
+9. Length is counted in alphabet letters: LJ, NJ and DŽ are one letter (`src/engine/letters.js`), so a
    word may have up to 15 characters but at most 12 letters. `letter-freq.json` counts them as letters too.
 
 ## Built dictionary (`data/dict/`, committed)
@@ -70,12 +95,16 @@ curl -L -o data/raw/hrLex_v1.3.gz "https://www.clarin.si/repository/xmlui/bitstr
 - `extended.txt`: head-words seen once or twice. ~12k words. Accepted as answers but never used as
   spine/best. Words with zero corpus occurrences (rule-generated possessives like `krletkin`) are dropped.
 - `forms.txt`: every other attested form. ~320k words. Accepted as answers, never spine/best.
+- `extra.txt`: Hunspell and CC0 words not in the files above. ~1.1M words. Accepted as answers, never
+  spine/best. The lists still carry some noise (rare loan forms, surnames written in lower case); that
+  only makes the game more lenient, it never picks them.
 - `letter-freq.json`: letter frequency over core, used to top up tile sets.
 
 The browser never loads these files. Each day's puzzle JSON (`src/puzzles/days/NNN.json`) carries only
-the words spellable from that day's 12 tiles (typically 500–2500 words). After changing the dictionary
+the words spellable from that day's 12 tiles (typically 1000–4000 words). After changing the dictionary
 run `node tools/gen-days.mjs 1 366 --rewords --only=slagalica`: it keeps every day's tiles and only
 refreshes the accepted words and the set word. `--force --only=slagalica` regenerates the tiles too,
 which changes every day's puzzle (needed only when a day's set word becomes too short; the tests catch it).
 
-Attribution: srLex and hrLex by Nikola Ljubešić et al., CLARIN.SI, CC BY-SA 4.0.
+Attribution: srLex and hrLex by Nikola Ljubešić et al., CLARIN.SI, CC BY-SA 4.0. Hunspell-derived words:
+dict-sr by Goran Rakić and contributors, CC BY-SA 3.0. The CC0 list: turanjanin/spisak-srpskih-reci.

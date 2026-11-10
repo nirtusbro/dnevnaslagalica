@@ -2663,7 +2663,6 @@ alveoli
 alveolom
 alveolu
 alvi
-alvina
 alvom
 alvu
 alzaška
@@ -5356,15 +5355,8 @@ aranžmanskoj
 aranžmanskom
 aranžmansku
 aranžmanu
-arapa
-arape
-arapima
-arapina
-arapine
-arapinom
 arapinove
 arapinovu
-arapinu
 arapska
 arapske
 arapskih
@@ -9391,7 +9383,6 @@ baražnom
 baražnu
 baražu
 barbadoška
-barbara
 barbari
 barbarinom
 barbarizma
@@ -9853,8 +9844,6 @@ baterijskoj
 baterijskom
 baterijsku
 bateriju
-batić
-batića
 batićeva
 batićeve
 batićevi
@@ -9866,7 +9855,6 @@ batićevoj
 batićevom
 batićevu
 batići
-batiću
 batika
 batike
 batikom
@@ -10736,12 +10724,6 @@ beogradskom
 beogradskome
 beogradskomu
 beogradsku
-beograđana
-beograđane
-beograđanima
-beograđanina
-beograđanine
-beograđaninu
 beonjačama
 beonjači
 beonjačom
@@ -15065,6 +15047,7 @@ bojali
 bojalo
 bojam
 bojama
+bojan
 bojana
 bojane
 bojankama
@@ -19587,8 +19570,6 @@ cazinskom
 cazinsku
 cede
 cedeći
-cedevite
-cedeviti
 cedevitina
 cedevitinih
 cedevitom
@@ -19879,7 +19860,6 @@ celzijusovog
 celzijusovoj
 celzijusovu
 celzijusu
-celja
 celje
 celji
 celjska
@@ -19893,7 +19873,6 @@ celjskoj
 celjskom
 celjskome
 celjsku
-celju
 cemenata
 cementa
 cemente
@@ -20516,16 +20495,13 @@ cigančeta
 cigančetom
 cigančetu
 cigane
+cigani
 ciganije
 ciganiji
 ciganiju
 ciganima
-ciganina
-ciganine
-ciganinom
 ciganinove
 ciganinovi
-ciganinu
 cigankama
 ciganki
 ciganko
@@ -42494,13 +42470,8 @@ engleskog
 engleskoj
 engleskom
 englesku
-engleza
-engleze
-englezima
-englezom
 englezovih
 englezovu
-englezu
 engrama
 engrame
 engramima
@@ -53781,7 +53752,6 @@ grahoricama
 grahorici
 grahoricom
 grahoricu
-grahova
 grahove
 graji
 grajina
@@ -56395,7 +56365,6 @@ halaškim
 halaškog
 halaškom
 hali
-halina
 halinu
 halita
 halite
@@ -70544,12 +70513,10 @@ itisonu
 itrija
 itriju
 ivama
-ivana
 ivančicama
-ivane
+ivani
 ivanićkom
 ivanima
-ivanom
 ivanova
 ivanovce
 ivanove
@@ -70561,7 +70528,6 @@ ivanovog
 ivanovoj
 ivanovom
 ivanovu
-ivanu
 ivanjem
 ivanjička
 ivanjičke
@@ -78367,13 +78333,7 @@ janjičarskom
 janjičarsku
 janjičarstvu
 janjičaru
-japanaca
-japanca
-japance
-japancem
-japancima
-japancu
-japanče
+japanci
 japančeva
 japančevo
 japančevom
@@ -85307,7 +85267,6 @@ kimovoj
 kimovom
 kimovu
 kimu
-kina
 kinazama
 kinazom
 kinazu
@@ -85351,17 +85310,12 @@ kinetičku
 kinetikama
 kinetikom
 kinetiku
-kineza
-kineze
-kinezima
 kineziologe
 kineziologom
 kineziološka
 kineziološke
 kineziološku
-kinezom
 kinezova
-kinezu
 kinidina
 kinidinom
 kinina
@@ -85387,7 +85341,6 @@ kinološkoj
 kinološkom
 kinološku
 kinolozima
-kinom
 kinoteci
 kinotekama
 kinotekom
@@ -90612,10 +90565,7 @@ konspiraciji
 konspiraciju
 konstantama
 konstanti
-konstantina
-konstantine
 konstantinog
-konstantinu
 konstantna
 konstantne
 konstantnih
@@ -95729,7 +95679,6 @@ krstašu
 krste
 krsteći
 krsti
-krstića
 krstiće
 krstićem
 krstićemo
@@ -95744,6 +95693,7 @@ krstićevog
 krstićevoj
 krstićevom
 krstićevu
+krstići
 krstićima
 krstiću
 krstih
@@ -101151,6 +101101,7 @@ levala
 levali
 levam
 levamo
+levan
 levana
 levano
 levanta
@@ -105993,13 +105944,6 @@ makartizmu
 makavši
 makaza
 makazama
-makedonaca
-makedonca
-makedonce
-makedoncem
-makedoncima
-makedoncu
-makedonče
 makedonska
 makedonske
 makedonskih
@@ -107257,6 +107201,7 @@ mare
 mareći
 marelicu
 margaretama
+margarete
 margaretina
 margaretine
 margaretini
@@ -133287,7 +133232,6 @@ neljudskosti
 neljudskošću
 neljudsku
 nema
-nemaca
 nemačka
 nemačke
 nemačkih
@@ -133393,12 +133337,6 @@ nematodama
 nematodi
 nematodom
 nematodu
-nemca
-nemce
-nemcem
-nemcima
-nemcu
-nemče
 nemčeva
 nemčevim
 neme
@@ -140131,10 +140069,6 @@ nijednome
 nijednu
 nijekala
 nijekale
-nijemaca
-nijemce
-nijemci
-nijemcima
 nikaba
 nikabe
 nikabima
@@ -141562,12 +141496,6 @@ novosadskoj
 novosadskom
 novosadskome
 novosadsku
-novosađana
-novosađane
-novosađanima
-novosađanina
-novosađanine
-novosađaninu
 novosezonske
 novosezonsku
 novoskladane
@@ -142165,7 +142093,6 @@ njušku
 njušna
 njušnog
 njušnu
-njutn
 njutna
 njutne
 njutni
@@ -160028,6 +159955,7 @@ osjetilnosti
 osjetilnu
 oskara
 oskare
+oskari
 oskarima
 oskarom
 oskarova
@@ -169822,6 +169750,7 @@ pećima
 pećinama
 pećinara
 pećinare
+pećinari
 pećinarima
 pećini
 pećinom
@@ -234526,7 +234455,6 @@ ribarenju
 ribaricom
 ribaricu
 ribariće
-ribariću
 ribarije
 ribarila
 ribarili
@@ -249496,7 +249424,6 @@ slovcima
 slovcu
 slove
 sloveći
-slovenaca
 slovenačka
 slovenačke
 slovenačkih
@@ -249507,11 +249434,6 @@ slovenačkoga
 slovenačkoj
 slovenačkom
 slovenačku
-slovenca
-slovence
-slovencem
-slovencima
-slovencu
 slovenizira
 slovenska
 slovenske
@@ -255458,8 +255380,6 @@ srazmerom
 srazmeru
 srazom
 srazove
-srba
-srbe
 srbijama
 srbijanska
 srbijanske
@@ -255472,7 +255392,6 @@ srbijanskoj
 srbijanskom
 srbijanskome
 srbijansku
-srbiji
 srbijina
 srbijine
 srbijini
@@ -255481,11 +255400,6 @@ srbijinog
 srbijinu
 srbijo
 srbijom
-srbiju
-srbima
-srbina
-srbine
-srbinom
 srbinova
 srbinove
 srbinovih
@@ -255495,7 +255409,6 @@ srbinovog
 srbinovoj
 srbinovom
 srbinovu
-srbinu
 srbistici
 srbistikom
 srbistiku
@@ -307451,7 +307364,6 @@ zagrebite
 zagrebla
 zagrebli
 zagreblo
-zagrebu
 zagrej
 zagreja
 zagrejaće

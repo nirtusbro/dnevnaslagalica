@@ -13,6 +13,8 @@ hiljada
 zašto
 bit
 kuna
+đon
+đonovi
 # zamenice koje srLex vodi pod hrvatskom lemom (netko, nitko, itko, svatko)
 neko
 niko
@@ -35,3 +37,14 @@ ptičje
 ptičije
 guščje
 pačje
+# prave reči koje srWaC češće ima kao ime (Vučić, Novak): filter za vlastite imenice bi ih izbacio
+vučić
+novak
+mlađan
+orlić
+popov
+kraljević
+nestor
+čirić
+cezar
+njutn

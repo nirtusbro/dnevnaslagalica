@@ -10,6 +10,8 @@
 //                            that leak into srLex (srWaC contains Croatian text); optional
 //   data/dict/allow.txt      hand-kept words that srLex files under another lemma (ljudi, deca)
 //   data/dict/block.txt      hand-kept exclusions (kroatizmi the ratio misses, junk interjections)
+//   data/raw/sr-Latn.dic               Hunspell sr-Latn word forms (optional, for extra.txt)
+//   data/raw/serbian-words-latin.txt   CC0 merged list of ~2.8M forms (optional, for extra.txt)
 //
 // A word is kept only when it is its own lemma AND its tag is one TV Slagalica accepts:
 //   noun, common, nominative singular (or a lemma that is itself plural: makaze, vrata),
@@ -26,6 +28,9 @@
 //   data/dict/extended.txt     rarer head-words (1-2 occurrences): accepted as answers, never spine/best.
 //   data/dict/forms.txt        every other attested form (padeži, rod, glagolski oblici, komparativ):
 //                              accepted as answers, never spine/best.
+//   data/dict/extra.txt        words srLex lacks or never saw in srWaC (đon, rare inflections), taken from
+//                              the Hunspell and CC0 lists through the same Croatian/ijekavian/block
+//                              filters: accepted as answers, never spine/best.
 //   data/dict/letter-freq.json relative letter frequency over core (for topping up tile sets)
 import fs from 'node:fs';
 import path from 'node:path';
@@ -48,6 +53,12 @@ export const MIN_FREQ_EXT = 1;
 export const MIN_FREQ_BY_LEN = { 3: 50, 4: 10 };
 /** Drop a word when it is this many times more frequent (per token) in hrWaC than in srWaC. */
 export const MAX_HR_RATIO = 16;
+/**
+ * Drop a lower-case form when srWaC has it as a proper noun (capitalised, tag Np) this many times
+ * more often than as a common word: srbija (218366 Np / 2249), ivan, vojvodina. Words that are both
+ * (nada 5612/5099, vuk, zora, sunce) stay. Real words over the line go in allow.txt (vučić, novak).
+ */
+export const MAX_NAME_RATIO = 10;
 
 /** Which Slagalica category an MSD tag belongs to, or null when the form is not a head-word shape. */
 export function acceptTag(tag) {
@@ -103,6 +114,29 @@ const srFile = path.join(rawDir, 'srLex_v1.3.gz');
 const hrFile = path.join(rawDir, 'hrLex_v1.3.gz');
 if (!fs.existsSync(srFile)) { console.error('missing ' + srFile + ' (see data/README.md)'); process.exit(1); }
 
+/** Extra word lists, read before the scans so hrLex counts are kept for their words too. */
+function readRaw(file, firstLine = 0) {
+  if (!fs.existsSync(file)) { console.warn('note: ' + file + ' not found, skipped for extra.txt'); return new Set(); }
+  const out = new Set();
+  for (const line of fs.readFileSync(file, 'utf8').split(/\r?\n/).slice(firstLine)) {
+    const w = line.split('/')[0].trim();
+    if (WORD_RE.test(w) && !ROMAN_RE.test(w) && lengthOk(w)) out.add(w);
+  }
+  return out;
+}
+const hunspell = readRaw(path.join(rawDir, 'sr-Latn.dic'), 1);
+const cc0 = readRaw(path.join(rawDir, 'serbian-words-latin.txt'));
+/** Lower-cased capitalised entries of both lists (Garibaldi, Čulića): names, which CC0 often repeats in lower case. */
+const capitalised = new Set();
+for (const [file, first] of [['sr-Latn.dic', 1], ['serbian-words-latin.txt', 0]]) {
+  const f = path.join(rawDir, file);
+  if (!fs.existsSync(f)) continue;
+  for (const line of fs.readFileSync(f, 'utf8').split(/\r?\n/).slice(first)) {
+    const w = line.split('/')[0].trim();
+    if (/^[A-PR-VZČĆŠŽĐ][a-pr-vzčćšžđ]+$/.test(w)) capitalised.add(w.toLowerCase());
+  }
+}
+
 const sr = new Map(); // form -> max corpus freq over accepted tags
 const plural = new Map(); // nominative plural form -> { lemma, freq } (rukavi -> rukav)
 const formLemmas = new Map(); // every lexical form -> Set of its lemmas (for forms.txt)
@@ -114,9 +148,13 @@ const comparative = new Set(); // forms with a comparative reading (lošije, top
  * total wrongly flagged obzir, žalost, minuta and tona as Croatian.
  */
 const srTotal = new Map();
+const nonLexical = new Set(); // forms with a proper-noun / abbreviation / residual reading (beograd, itd)
+const npTotal = new Map(); // lower-cased proper-noun form (Srbija -> srbija) -> its total count in srWaC
 const srK = await scanLex(srFile, (form, lemma, tag, freq) => {
+  if (tag.startsWith('Np')) { const lc = form.toLowerCase(); if (WORD_RE.test(lc)) npTotal.set(lc, (npTotal.get(lc) || 0) + freq); }
   if (!WORD_RE.test(form) || ROMAN_RE.test(form) || !lengthOk(form)) return;
   srTotal.set(form, (srTotal.get(form) || 0) + freq);
+  if (!lexicalTag(tag)) nonLexical.add(form);
   if (lexicalTag(tag)) { let s = formLemmas.get(form); if (!s) formLemmas.set(form, s = new Set()); s.add(lemma); if (/^[AR].c/.test(tag)) comparative.add(form); }
   if (form !== lemma) {
     if (/^Nc.pn/.test(tag)) { const p = plural.get(form); if (!p || freq > p.freq) plural.set(form, { lemma, freq }); }
@@ -127,9 +165,11 @@ const srK = await scanLex(srFile, (form, lemma, tag, freq) => {
 
 let hr = new Map();
 let hrK = 0;
+const hrNames = new Set(); // lower-cased hrLex proper nouns among the Hunspell/CC0 words
 if (fs.existsSync(hrFile)) {
   hrK = await scanLex(hrFile, (form, lemma, tag, freq) => {
-    if (formLemmas.has(form)) hr.set(form, (hr.get(form) || 0) + freq);
+    if (formLemmas.has(form) || hunspell.has(form) || cc0.has(form)) hr.set(form, (hr.get(form) || 0) + freq);
+    if (tag.startsWith('Np')) { const lc = form.toLowerCase(); if (hunspell.has(lc) || cc0.has(lc)) hrNames.add(lc); }
   });
 } else {
   console.warn('note: ' + hrFile + ' not found, Croatian-only words are not filtered');
@@ -160,13 +200,45 @@ const extOk = (w, f) => f >= MIN_FREQ_EXT && !shortOf(w);
 
 const allow = readList(path.join(outDir, 'allow.txt'));
 const block = readList(path.join(outDir, 'block.txt'));
+
+/**
+ * Proper nouns are never accepted. A form srLex knows as a common word is a name when srWaC uses
+ * it capitalised as a proper noun MAX_NAME_RATIO times more often (srbija, srbije, ivan). A form srLex
+ * does not know as a common word is a name when any source has it as one: srLex or hrLex proper
+ * nouns, or a capitalised entry in the Hunspell/CC0 lists (garibaldi, čulić, zagorec).
+ * allow.txt words, and forms of an allow.txt lemma (novaka for novak), are exempt.
+ */
+function properName(w) {
+  const lemmas = [...(formLemmas.get(w) || [])];
+  if (allow.has(w) || lemmas.some((l) => allow.has(l))) return false;
+  const n = npTotal.get(w) || 0;
+  if (!lemmas.length) return n > 0 || hrNames.has(w) || capitalised.has(w);
+  if (n / Math.max(srTotal.get(w) || 0, 0.5) < MAX_NAME_RATIO) return false;
+  // a case form of an accepted word stays even when the name is more frequent:
+  // bugarskoj (bugarski), kina (kino), rimu (rima), barbara (barbar)
+  return !lemmas.some((l) => l !== w && (core.has(l) || extended.has(l)));
+}
+/**
+ * names.txt: proper nouns srLex files as common words (nemac, srbin). The word and every form of it
+ * are out (nemca, nemci), unless the form also belongs to a core word.
+ */
+const nameList = readList(path.join(outDir, 'names.txt'));
+const blockedLemma = (w) => {
+  if (nameList.has(w)) return true;
+  const ls = [...(formLemmas.get(w) || [])];
+  return ls.some((l) => nameList.has(l)) && !ls.some((l) => core.has(l) && !nameList.has(l));
+};
+
 const core = new Set(), extended = new Set();
 const ijeLemmas = new Set();
+const rejected = new Set(); // dropped as Croatian, ijekavian or a name: extra.txt must not bring them back
+const names = []; // every form dropped as a proper noun, for review (--dropped)
 let droppedHr = 0, droppedIje = 0;
 for (const [w, freq] of sr) {
-  if (block.has(w)) continue;
-  if (hasEkavianTwin(w) && !allow.has(w)) { droppedIje++; ijeLemmas.add(w); continue; }
-  if (croatian(w)) { droppedHr++; continue; }
+  if (block.has(w) || nameList.has(w)) continue;
+  if (properName(w)) { rejected.add(w); names.push(w); continue; }
+  if (hasEkavianTwin(w) && !allow.has(w)) { droppedIje++; ijeLemmas.add(w); rejected.add(w); continue; }
+  if (croatian(w)) { droppedHr++; rejected.add(w); continue; }
   if (freq >= minCore(w)) core.add(w);
   else if (extOk(w, freq)) extended.add(w);
 }
@@ -174,6 +246,7 @@ for (const [w, freq] of sr) {
 let plurals = 0;
 for (const [form, { lemma, freq }] of plural) {
   if (block.has(form) || sr.has(form) || !(core.has(lemma) || extended.has(lemma))) continue;
+  if (properName(form)) { rejected.add(form); names.push(form); continue; }
   if (freq >= minCore(form)) core.add(form);
   else if (extOk(form, freq)) extended.add(form);
   else continue;
@@ -204,14 +277,58 @@ const forms = new Set();
 const dropped = []; // with --dropped: written to data/raw/dropped-forms.txt for review
 let formsHr = 0, formsIje = 0;
 for (const [w, lemmas] of formLemmas) {
-  if (core.has(w) || extended.has(w) || block.has(w)) continue;
+  if (core.has(w) || extended.has(w) || block.has(w) || blockedLemma(w)) continue;
   const f = srTotal.get(w) || 0;
   if (f < (shortOf(w) || MIN_FREQ_EXT)) continue;
-  if (ijekavianForm(w, lemmas)) { formsIje++; dropped.push(`ije\t${w}\t${f}`); continue; }
-  if (croatian(w)) { formsHr++; dropped.push(`hr\t${w}\t${f}`); continue; }
+  if (properName(w)) { rejected.add(w); names.push(w); continue; }
+  if (ijekavianForm(w, lemmas)) { formsIje++; rejected.add(w); dropped.push(`ije\t${w}\t${f}`); continue; }
+  if (croatian(w)) { formsHr++; rejected.add(w); dropped.push(`hr\t${w}\t${f}`); continue; }
   forms.add(w);
 }
-if (process.argv.includes('--dropped')) fs.writeFileSync(path.join(rawDir, 'dropped-forms.txt'), dropped.join('\n') + '\n', 'utf8');
+
+/**
+ * extra.txt: words from the Hunspell and CC0 lists that srLex lacks (đon) or never saw in srWaC
+ * (rare inflections). Both lists mix in Croatian and ijekavian words (tko, tjedan, lijepo), so:
+ *   - whatever the srLex filters rejected, the block list, and proper names / abbreviations stay out;
+ *   - a form srLex knows goes through the same ijekavian and Croatian tests as forms.txt;
+ *   - a form srLex does not know is Croatian when hrWaC uses it MAX_HR_RATIO times more often than
+ *     half an occurrence in srWaC would be (about 20 hrWaC hits), and ijekavian when turning a
+ *     non-initial "ije"/"je" into "e" gives a known form (ljepota -> lepota). "je" after l/n is
+ *     skipped (zdravlje, pisanje: lj/nj, not jat), and so is a final "ije" (comparatives: zelenije);
+ *   - proper nouns are dropped (properName: garibaldi, čulić, zagorec);
+ *   - a CC0-only form of 3–4 letters is dropped (mostly abbreviations and noise), and every word
+ *     needs a vowel or r.
+ */
+const known = (w) => formLemmas.has(w) || hunspell.has(w) || cc0.has(w);
+function ijekavianExtra(w) {
+  for (const m of w.matchAll(/ije|je/g)) {
+    const i = m.index;
+    if (i === 0) continue;
+    if (m[0] === 'je' && 'ln'.includes(w[i - 1])) continue;
+    if (m[0] === 'ije' && i + 3 === w.length) continue;
+    const alt = w.slice(0, i) + 'e' + w.slice(i + m[0].length);
+    if (!rejected.has(alt) && known(alt)) return true;
+  }
+  return false;
+}
+const croatianUnseen = (w) => !!hrK && ((hr.get(w) || 0) / hrK) / (0.5 / srK) >= MAX_HR_RATIO;
+const extra = new Set();
+let extraHr = 0, extraIje = 0;
+for (const src of [hunspell, cc0]) for (const w of src) {
+  if (extra.has(w) || core.has(w) || extended.has(w) || forms.has(w)) continue;
+  if (block.has(w) || blockedLemma(w) || rejected.has(w) || !/[aeiour]/.test(w)) continue;
+  if (nonLexical.has(w) && !formLemmas.has(w)) continue;
+  if (src === cc0 && !hunspell.has(w) && splitLetters(w).length <= 4) continue;
+  if (properName(w)) { names.push(w); continue; }
+  const lemmas = formLemmas.get(w);
+  if (lemmas ? ijekavianForm(w, lemmas) : ijekavianExtra(w)) { extraIje++; dropped.push(`ije-extra\t${w}`); continue; }
+  if (lemmas ? croatian(w) : croatianUnseen(w)) { extraHr++; dropped.push(`hr-extra\t${w}`); continue; }
+  extra.add(w);
+}
+if (process.argv.includes('--dropped')) {
+  fs.writeFileSync(path.join(rawDir, 'dropped-forms.txt'), dropped.join('\n') + '\n', 'utf8');
+  fs.writeFileSync(path.join(rawDir, 'dropped-names.txt'), names.join('\n') + '\n', 'utf8');
+}
 
 // Letter frequency over alphabet letters (lj, nj, dž count as their own letter), for tile top-up.
 const freq = {};
@@ -223,6 +340,7 @@ fs.mkdirSync(outDir, { recursive: true });
 fs.writeFileSync(path.join(outDir, 'core.txt'), [...core].sort(sortSr).join('\n') + '\n', 'utf8');
 fs.writeFileSync(path.join(outDir, 'extended.txt'), [...extended].sort(sortSr).join('\n') + '\n', 'utf8');
 fs.writeFileSync(path.join(outDir, 'forms.txt'), [...forms].sort(sortSr).join('\n') + '\n', 'utf8');
+fs.writeFileSync(path.join(outDir, 'extra.txt'), [...extra].sort(sortSr).join('\n') + '\n', 'utf8');
 const rel = Object.fromEntries(Object.entries(freq).sort((a, b) => b[1] - a[1]).map(([k, v]) => [k, +(v / total).toFixed(5)]));
 fs.writeFileSync(path.join(outDir, 'letter-freq.json'), JSON.stringify(rel, null, 2) + '\n', 'utf8');
 
@@ -231,3 +349,5 @@ console.log(`srLex head-words considered: ${sr.size}; dropped as Croatian-only: 
 console.log(`core: ${core.size} words`, byLen(core));
 console.log(`extended: ${extended.size} words`, byLen(extended));
 console.log(`forms: ${forms.size} words (dropped as Croatian: ${formsHr}, as ijekavian: ${formsIje})`);
+console.log(`dropped as proper nouns: ${names.length}`);
+console.log(`extra: ${extra.size} words from Hunspell ${hunspell.size} + CC0 ${cc0.size} (dropped as Croatian: ${extraHr}, as ijekavian: ${extraIje})`);

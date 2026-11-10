@@ -8,7 +8,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "test": "node --test test/*.test.js",
-    "dict": "node tools/build-dict.mjs",
+    "dict": "node --max-old-space-size=8192 tools/build-dict.mjs",
     "gen": "node tools/gen-days.mjs",
     "og": "node tools/og-image.mjs"
   },
