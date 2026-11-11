@@ -21,7 +21,7 @@ export const LETTERS = ['A', 'B', 'C', 'D'];
 export const MAX_CLUE_LENGTH = 14;
 export const MAX_SOLUTION_LENGTH = 12;
 /** A column solution may be reused across the bank at most this many times. */
-export const MAX_SOLUTION_REUSE = 2;
+export const MAX_SOLUTION_REUSE = 3;
 const SEED = 0xa50c;
 
 /** Upper-case Serbian Latin: letters, single spaces and hyphens only. */

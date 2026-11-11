@@ -6,7 +6,7 @@ import { generateMojBroj, MID, BIG } from '../tools/mojbroj-gen.mjs';
 import { solve } from '../src/engine/mojbroj.js';
 import { generateSkocko } from '../tools/skocko-gen.mjs';
 import { loadBank, validateBank, generateKoZnaZna, repeatHorizon, makeDealer } from '../tools/kozna-gen.mjs';
-import { loadBank as loadAsocBank, validateBank as validateAsocBank, generateAsocijacije, repeatHorizon as asocHorizon, makeDealer as makeAsocDealer, MAX_CLUE_LENGTH, MAX_SOLUTION_LENGTH } from '../tools/asocijacije-gen.mjs';
+import { loadBank as loadAsocBank, validateBank as validateAsocBank, generateAsocijacije, repeatHorizon as asocHorizon, makeDealer as makeAsocDealer, MAX_CLUE_LENGTH, MAX_SOLUTION_LENGTH, MAX_SOLUTION_REUSE } from '../tools/asocijacije-gen.mjs';
 import { matchGuess } from '../src/engine/asocijacije.js';
 import { normalize } from '../src/engine/text.js';
 import { SYMBOLS } from '../src/engine/skocko.js';
@@ -183,8 +183,8 @@ test('asocijacije bank is valid and the validator catches broken puzzles', () =>
   }
   // duplicate finals and over-reused column solutions across the bank
   assert.ok(validateAsocBank([good, clone()]).some((e) => /duplicate final solution|duplicate puzzle/.test(e)));
-  const reuse = [0, 1, 2].map((i) => { const c = clone(); c.final.s = 'FINAL' + 'ABC'[i]; c.cols[1].f[0] = 'DRUGI' + i; c.cols[0].s = 'ISTO'; return c; });
-  assert.ok(validateAsocBank(reuse).some((e) => /"ISTO" used 3 times/.test(e)));
+  const reuse = Array.from({ length: MAX_SOLUTION_REUSE + 1 }, (_, i) => { const c = clone(); c.final.s = 'FINAL' + 'ABCDEFGH'[i]; c.cols[1].f[0] = 'DRUGI' + i; c.cols[0].s = 'ISTO'; return c; });
+  assert.ok(validateAsocBank(reuse).some((e) => e.includes(`"ISTO" used ${MAX_SOLUTION_REUSE + 1} times`)));
 });
 
 test('asocijacije dealer is deterministic and has no repeats before the horizon', () => {

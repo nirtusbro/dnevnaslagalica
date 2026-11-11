@@ -97,14 +97,22 @@ up, and shuffles option order per day. `gen-days` validates everything and print
 (the smallest category). To extend: add hand questions to any file, or new SPARQL templates to the
 fetcher/builder, then `npm run gen -- 1 366 --force`.
 
-### Asocijacije (done, bank grows over time)
+### Asocijacije (done)
 
-Hand-written puzzles in `data/asocijacije/*.json` (every file is an array, files are read in name
-order). One puzzle:
+The bank in `data/asocijacije/tv-NN.json` holds 366 associations that were played on TV Slagalica
+(episodes 5611–7402), taken from the fan transcription
+[djordje34/PY-Asocijacije](https://github.com/djordje34/PY-Asocijacije). `tools/asocijacije-import.mjs`
+builds it (`--write`): it reads the clone in `data/raw/py-asocijacije/`, turns Cyrillic into Latin,
+keeps only puzzles that fit the fields (clue ≤ 14, solution ≤ 12 characters, letters only), fills
+`acc` from srLex (cases and plural of a noun, genders of an adjective, a surname alone) and picks
+the puzzles with no rare word (srWaC count under 100, unless listed in
+`data/asocijacije/familiar.txt`), with unique finals and a column solution at most three times.
+`src` is the episode and which of its two games. All usable candidates (about 2,500) go to
+`data/raw/asoc-candidates.json`. Every file is an array, files are read in name order. One puzzle:
 
 ```
 { "cols": [ { "f": ["MESEC", "TAMA", "PONOĆ", "SAN"], "s": "NOĆ", "acc": ["NOĆI"] }, ...x4 ],
-  "final": { "s": "ZVEZDA", "acc": ["ZVEZDE"] }, "d": 2, "tags": ["priroda"] }
+  "final": { "s": "ZVEZDA", "acc": ["ZVEZDE"] }, "src": "6885/1" }
 ```
 
 Columns are written in the order they appear (A–D), four clues each from the most oblique to the
@@ -118,14 +126,14 @@ and `repeatHorizon`. The validator (run by `gen-days`, which exits on the first 
 4 columns × 4 clues, clues ≤ 14 and solutions ≤ 12 characters, upper-case letters/space/hyphen
 only, no duplicate clue in a puzzle, no clue equal to any column solution, a column solution never
 appearing inside its own clues, the final never appearing inside any clue or column solution,
-unique finals and unique puzzles across the bank, a column solution reused at most twice across
+unique finals and unique puzzles across the bank, a column solution reused at most three times across
 the bank, and `acc` entries distinct from the solution (and each other) after normalisation.
 Errors name the file, index and final (`03.json[7] "TARA": clue B2 …`).
 
 The dealer shuffles the bank once with a fixed seed and deals it in that order from day 0, so no
 puzzle repeats before the whole bank is used (the repeat horizon printed by `gen-days` is the bank
-size); after that the same order cycles. To add puzzles: append to any file (or add a new one),
-run `node tools/gen-days.mjs 1 366 --force` (the shuffle changes with the bank size, so regenerate
+size); after that the same order cycles. To add puzzles: append to any file (or add a new one;
+note that `asocijacije-import.mjs --write` rewrites every `*.json` in the folder), run `node tools/gen-days.mjs 1 366 --force` (the shuffle changes with the bank size, so regenerate
 all days) and `npm test`.
 
 ## Bodovanje (TV Slagalica rules)

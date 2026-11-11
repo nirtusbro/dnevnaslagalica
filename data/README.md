@@ -23,6 +23,12 @@ Built by `node tools/build-dict.mjs` (`npm run dict`).
 | `sr-Latn.dic` | [grakic/hunspell-sr](https://github.com/grakic/hunspell-sr) (Serbian Latin spellchecker, ~264k forms) | LGPL 2.1+ / MPL 1.1+ / GPL 2+, or CC BY-SA 3.0 | `extra.txt` |
 | `serbian-words-latin.txt` | [turanjanin/spisak-srpskih-reci](https://github.com/turanjanin/spisak-srpskih-reci) (~2.79M forms merged from many lists) | CC0-1.0 | `extra.txt` |
 
+The Asocijacije bank comes from `py-asocijacije/`, a clone of
+[djordje34/PY-Asocijacije](https://github.com/djordje34/PY-Asocijacije) (no licence stated; the
+puzzles themselves were written for RTS's TV Slagalica):
+`git clone --depth 1 https://github.com/djordje34/PY-Asocijacije data/raw/py-asocijacije`, then
+`node tools/asocijacije-import.mjs --write`.
+
 Download:
 
 ```
