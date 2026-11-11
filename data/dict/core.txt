@@ -1,5 +1,6 @@
 abakus
 abakusi
+abažur
 abdest
 abdicirati
 abdikacija
@@ -127,6 +128,7 @@ advokatice
 advokatski
 advokatura
 advokature
+ađutant
 aeroban
 aerobik
 aerobika
@@ -689,6 +691,7 @@ alzaški
 alžirski
 aljina
 aljine
+aljkav
 ama
 amajlija
 amajlije
@@ -727,6 +730,7 @@ ambiciozni
 ambiciozno
 ambicioznost
 ambient
+ambijent
 ambijentalan
 ambijentalni
 ambijentalno
@@ -816,6 +820,7 @@ amputiran
 amputirani
 amputirati
 amsterdamski
+amulet
 amur
 amuri
 anabolički
@@ -1060,6 +1065,7 @@ anosmija
 anotacija
 anotacije
 anovulacija
+ansambl
 anski
 antacid
 antacidi
@@ -2009,6 +2015,7 @@ autosport
 autostop
 autostoper
 autostoperi
+autsajder
 autsajderski
 avaj
 avangarda
@@ -2209,6 +2216,7 @@ bajkovito
 bajkovitost
 bajni
 bajno
+bajonet
 bajoneta
 bajpas
 bajramski
@@ -2244,6 +2252,8 @@ bakri
 bakropis
 bakrorez
 bakrorezi
+baksuz
+bakšiš
 baktati
 baktericidan
 baktericidni
@@ -2361,6 +2371,7 @@ bandažiran
 bandažiranje
 bandažirati
 bande
+bandit
 banditizam
 banditski
 bandura
@@ -2532,6 +2543,7 @@ baštinik
 baštiniti
 baštinski
 baštinjenje
+baštovan
 baštovanski
 baštovanstvo
 bat
@@ -2941,6 +2953,7 @@ bestidnost
 bestijalan
 bestijalni
 bestijalno
+bestraga
 bestseler
 bestseleri
 bestseller
@@ -2952,6 +2965,7 @@ bešavno
 beščašće
 bešćutni
 bešćutno
+bešika
 bešuman
 bešumni
 bešumno
@@ -3150,6 +3164,7 @@ bezverje
 bezvezan
 bezvezarija
 bezvezarije
+bezveze
 bezvezni
 bezvezno
 bezveznjaci
@@ -3176,6 +3191,7 @@ bezvremenost
 bezvremenski
 bezvučni
 bezvučno
+bež
 bežanija
 bežanije
 bežanijski
@@ -3192,6 +3208,7 @@ beživotnost
 biatlon
 biatlonac
 biatlonci
+biber
 biblija
 biblije
 biblijski
@@ -3208,6 +3225,7 @@ biblioteke
 biceps
 bicepsi
 bici
+bicikl
 biciklizam
 bič
 bičalje
@@ -3499,6 +3517,8 @@ bizarno
 bizarnost
 bizarnosti
 bizmut
+biznis
+biznismen
 bizon
 bizoni
 bižuterija
@@ -3822,6 +3842,7 @@ bogaćenja
 bogaćenje
 bogalj
 bogalji
+bogami
 bogastva
 bogastvo
 bogat
@@ -4036,6 +4057,7 @@ bombardovati
 bombastičan
 bombastični
 bombastično
+bombaš
 bombaški
 bombe
 bombica
@@ -4097,6 +4119,7 @@ borci
 borčev
 bord
 bordati
+bordel
 bordo
 bordovi
 bordura
@@ -4242,6 +4265,7 @@ branjenici
 branjenik
 branjenje
 branjevina
+braon
 brašna
 brašno
 brat
@@ -4402,6 +4426,7 @@ brik
 briket
 briketi
 briketirati
+brilijantan
 briljantan
 briljanti
 briljantin
@@ -4633,6 +4658,7 @@ brzopotezni
 brzopotezno
 brzorastući
 brzovozno
+buba
 bubamara
 bubamare
 bubanj
@@ -4722,6 +4748,7 @@ budući
 budućnost
 budućnosti
 budvanski
+budžet
 budžetiranje
 budžetirati
 budžetski
@@ -4805,6 +4832,7 @@ buldozi
 buldožer
 buldožeri
 bule
+bulevar
 bulevarski
 bulimija
 bulka
@@ -4839,6 +4867,7 @@ bundesligaš
 bundesligaši
 bundeva
 bundeve
+bundevica
 bundevin
 bundica
 bundice
@@ -4890,6 +4919,7 @@ buregdžija
 buregdžinica
 buregdžinice
 burek
+burence
 burg
 burger
 burgeri
@@ -4962,6 +4992,7 @@ buvljaci
 buvljak
 buvlje
 buzara
+buzdovan
 bužimski
 cabaret
 cabernet
@@ -5312,6 +5343,7 @@ cimati
 cimbal
 cimbali
 cime
+cimer
 cimerka
 cimerke
 cimerman
@@ -5337,6 +5369,7 @@ cinizam
 cink
 cinkanje
 cinkarenje
+cinkariti
 cinkaroš
 cinkaroši
 cinkov
@@ -5621,6 +5654,7 @@ cvećar
 cvećari
 cvećarstvo
 cveće
+cvekla
 cvet
 cvetak
 cvetan
@@ -5734,6 +5768,7 @@ cvrkuti
 čarobnjaštvo
 čarolija
 čarolije
+čaršav
 čaršija
 čaršije
 čarter
@@ -5822,6 +5857,7 @@ cvrkuti
 čekirati
 čekovi
 čekovni
+čekrk
 čela
 čelendž
 čelenka
@@ -5872,6 +5908,7 @@ cvrkuti
 čerkeski
 čerupanje
 čerupati
+česma
 česnica
 česnice
 čest
@@ -5918,6 +5955,7 @@ cvrkuti
 četinarski
 četine
 četiri
+četiristo
 četka
 četkan
 četkanje
@@ -6004,6 +6042,7 @@ cvrkuti
 čini
 činidba
 činidbe
+činija
 činijica
 činijice
 činilac
@@ -6315,6 +6354,7 @@ cvrkuti
 čvrstoća
 čvrstoće
 ćaća
+ćaknut
 ćale
 ćaletov
 ćao
@@ -6363,6 +6403,7 @@ cvrkuti
 ćivoti
 ćorsokaci
 ćorsokak
+ćošak
 ćuba
 ćubasti
 ćud
@@ -6371,6 +6412,7 @@ cvrkuti
 ćudljivi
 ćudljivo
 ćudljivost
+ćufta
 ćuk
 ćukovi
 ćumurdžija
@@ -6393,6 +6435,7 @@ cvrkuti
 ćutnja
 dabar
 dablinski
+dabome
 dabrov
 dabrovi
 daća
@@ -6664,6 +6707,7 @@ dečanski
 dečarac
 dečaštvo
 dečica
+dečiji
 dečje
 dečji
 dečki
@@ -6694,6 +6738,7 @@ default
 defaultni
 defaultno
 defecirati
+defekt
 defektan
 defektni
 defektno
@@ -7324,6 +7369,7 @@ devetnaest
 devetnaesti
 devetodnevni
 devetorica
+devetsto
 devica
 device
 devičanski
@@ -7541,6 +7587,7 @@ dileri
 dilerski
 diletantizam
 diletantski
+dilovati
 dim
 dimenzija
 dimenzije
@@ -8243,6 +8290,7 @@ dok
 dokačen
 dokačiti
 dokad
+dokasno
 dokaz
 dokazan
 dokazani
@@ -9043,6 +9091,7 @@ droljasto
 drolje
 drombulja
 drombulje
+dron
 dronjak
 dronjci
 drop
@@ -9433,6 +9482,7 @@ dvanaestice
 dvanaestina
 dvaput
 dveri
+dvesta
 dvestotinak
 dvestotinjak
 dvoazbučje
@@ -9615,11 +9665,15 @@ dvoznačni
 dvoznačno
 dvoznačnost
 dvozonski
+džabe
+džak
+džakuzi
 džamija
 džamije
 džaranje
 džbunje
 džehenem
+dželat
 džem
 džemat
 džemati
@@ -9632,6 +9686,7 @@ džentlmenski
 džep
 džeparac
 džeparenje
+džeparoš
 džepić
 džepići
 džepni
@@ -9668,6 +9723,7 @@ džukci
 džukela
 džukele
 džuma
+džumbus
 džungla
 džungle
 đaci
@@ -9684,20 +9740,24 @@ džungle
 đakonstvo
 đakov
 đakuzi
+đavo
 đavol
 đavolak
 đavolasto
 đavolci
 đavoli
 đavolov
+đavolski
 đavolje
 đavolji
 đeneral
 đenerali
 đeneralov
 đenovski
+đeram
 đerdan
 đerdani
+đevrek
 đikan
 đipanje
 đoga
@@ -9713,6 +9773,7 @@ džungle
 đubriva
 đubrivo
 đubrovnik
+đule
 đumbir
 đumbirov
 đurđevača
@@ -9936,6 +9997,7 @@ ekonomistov
 ekonomizam
 ekonomski
 ekosfera
+ekosistem
 ekotipovi
 ekoturizam
 ekozona
@@ -9964,6 +10026,7 @@ ekscizija
 ekscizije
 ekselencija
 ekselencije
+ekser
 ekshumacija
 ekshumacije
 ekshumiran
@@ -10032,6 +10095,7 @@ eksplozivan
 eksplozivi
 eksplozivni
 eksplozivno
+eksponat
 eksponent
 eksponenti
 eksponiran
@@ -10627,6 +10691,7 @@ eruptivan
 eruptivni
 eruptivno
 ervejz
+escajg
 esej
 eseji
 esejist
@@ -11014,6 +11079,7 @@ falus
 falusi
 fama
 fame
+familija
 familijaran
 familijarni
 familijarno
@@ -11056,6 +11122,7 @@ fantomke
 fantomski
 fanzin
 fanzini
+far
 farad
 faraon
 faraoni
@@ -11116,6 +11183,7 @@ fascinantno
 fasciniran
 fascinirani
 fascinirati
+fašista
 fašistički
 fašističko
 fašistoidni
@@ -11169,6 +11237,7 @@ febrilni
 febrilno
 februar
 februarski
+feder
 federacija
 federacije
 federacijski
@@ -11193,6 +11262,7 @@ feldmaršal
 feldmaršali
 feler
 feleri
+felna
 feljton
 feljtoni
 feljtonist
@@ -11236,6 +11306,7 @@ fenotip
 fenotipski
 fensi
 fentanil
+fenjer
 fenjeraš
 fenjeraši
 fer
@@ -11343,6 +11414,7 @@ fijasko
 fijat
 fijati
 fijatov
+fijoka
 fijuci
 fijuk
 fikcija
@@ -11526,6 +11598,7 @@ fisure
 fišing
 fitilj
 fitilji
+fitnes
 fitness
 fitoplankton
 fitosterol
@@ -11576,6 +11649,8 @@ flankiran
 flashback
 flaster
 flasteri
+flaša
+flašica
 flaširan
 flaširani
 flaširano
@@ -11650,6 +11725,7 @@ fluor
 fluorid
 fluoridi
 fluorit
+foaje
 fobija
 fobije
 fočanski
@@ -11677,6 +11753,7 @@ folikularni
 folikule
 folikuli
 folio
+folirant
 foliranja
 foliranje
 folirati
@@ -11726,6 +11803,7 @@ fontane
 fontovi
 food
 football
+fora
 forca
 force
 forceps
@@ -11879,6 +11957,7 @@ fragmentarni
 fragmentarno
 fragmenti
 fragmentiran
+frajer
 frajerski
 frak
 frakcija
@@ -11997,6 +12076,7 @@ frknuti
 frktanje
 frktati
 frojdizam
+front
 fronta
 frontalan
 frontalni
@@ -12076,6 +12156,7 @@ fusion
 fusnota
 fusnote
 futoški
+futrola
 futsal
 futur
 futuri
@@ -12122,6 +12203,7 @@ gafovi
 gagauski
 gagrica
 gaj
+gajba
 gajbica
 gajbice
 gajdaš
@@ -12960,6 +13042,7 @@ golicanje
 golicati
 golicavi
 golicavo
+golman
 golmanski
 golo
 golobrad
@@ -13280,6 +13363,7 @@ građen
 građeni
 građenje
 građevina
+građevinac
 građevinar
 građevinari
 građevine
@@ -13872,6 +13956,7 @@ gutljaji
 gutural
 guverener
 guvernadur
+guvernanta
 guverner
 guverneri
 guvernerka
@@ -13954,6 +14039,7 @@ hakerski
 hakiran
 hakovanja
 hakovanje
+hakovati
 hala
 halacion
 halacioni
@@ -14070,6 +14156,7 @@ haški
 hatib
 hatibi
 hattrick
+hauba
 haubica
 haubice
 hauzmajstor
@@ -14098,6 +14185,7 @@ hedonisti
 hedonistički
 hedonističko
 hedonizam
+heftalica
 hegelovac
 hegelovci
 hegemonija
@@ -14121,6 +14209,7 @@ hektar
 hektari
 hektolitar
 hektolitri
+helanke
 helebarda
 helenistički
 helenizam
@@ -14562,6 +14651,7 @@ hladnjačar
 hladnjačari
 hladnjače
 hladnjak
+hladnjikav
 hladovina
 hladovine
 hladovito
@@ -14881,12 +14971,14 @@ huk
 huka
 hukati
 huktanje
+huligan
 huliganizam
 huliganski
 huliganstvo
 hulitelj
 hulitelji
 huliti
+hulja
 huljenje
 hum
 humak
@@ -15123,6 +15215,7 @@ igumanski
 ihtiolog
 ihtiologija
 ihtiolozi
+ijedan
 ijekavac
 ijekavci
 ijekavica
@@ -15664,6 +15757,7 @@ inkluzije
 inkluzivan
 inkluzivni
 inkluzivno
+inkognito
 inkoherentan
 inkorporiran
 inkriminisan
@@ -16051,6 +16145,7 @@ injektiranje
 injektirati
 injektor
 injektori
+iole
 ion
 ionako
 ioni
@@ -17039,6 +17134,7 @@ iverje
 ivica
 ivice
 ivicin
+ivičnjak
 ivin
 iza
 izabiran
@@ -17330,6 +17426,7 @@ izgledni
 izgledno
 izgnan
 izgnani
+izgnanik
 izgnanstva
 izgnanstvo
 izgnati
@@ -17518,6 +17615,7 @@ izlučiti
 izlučivanje
 izlučivati
 izlučni
+izludeti
 izluđen
 izluđivanje
 izluđivati
@@ -17890,6 +17988,7 @@ izučiti
 izudaran
 izudarati
 izum
+izumeti
 izumi
 izumiranja
 izumiranje
@@ -18035,6 +18134,7 @@ izvodi
 izvoditi
 izvodiv
 izvodivo
+izvodljiv
 izvodljivost
 izvodljivosti
 izvodni
@@ -18731,6 +18831,7 @@ juani
 jubilaran
 jubilarni
 jubilarno
+jubilej
 juče
 jučerašnje
 jučerašnji
@@ -18936,6 +19037,7 @@ kaftan
 kaftani
 kaganat
 kairski
+kaiš
 kajaci
 kajak
 kajakaš
@@ -18966,6 +19068,7 @@ kaki
 kakiti
 kako
 kakofonija
+kakogod
 kaktus
 kaktusi
 kala
@@ -18985,6 +19088,7 @@ kalcijumov
 kalcit
 kaldejski
 kaldera
+kaldrma
 kale
 kaleidoskop
 kalem
@@ -19377,6 +19481,7 @@ kaptolski
 kapucin
 kapucini
 kapučino
+kapućino
 kapuljača
 kapuljače
 kaput
@@ -19478,6 +19583,7 @@ karijeristi
 karijerizam
 karijerni
 karijerno
+karijes
 kariji
 karika
 karikatura
@@ -19860,6 +19966,7 @@ keksić
 keksići
 kelner
 kelneri
+kelnerica
 kelnski
 keloid
 keloidi
@@ -20045,6 +20152,7 @@ kiretaža
 kiretaže
 kirgiski
 kirgistanski
+kirija
 kiropraktika
 kirvaj
 kiseli
@@ -20093,6 +20201,7 @@ kitolovac
 kitolovci
 kitov
 kitovi
+kivan
 kivi
 kiviji
 kjaroskuro
@@ -20266,6 +20375,7 @@ klika
 klikanje
 klikati
 klike
+kliker
 kliknuti
 klikovi
 kliktanje
@@ -20287,6 +20397,7 @@ klimavost
 klime
 klimnuti
 klin
+klinac
 klinast
 klinasti
 klinasto
@@ -20374,6 +20485,7 @@ kloniti
 klonovi
 klonulost
 klonuti
+klopa
 klopanje
 klopka
 klopke
@@ -20517,6 +20629,7 @@ koautorski
 koautorstvo
 kob
 kobac
+kobajagi
 kobalt
 kobaltno
 koban
@@ -20601,12 +20714,15 @@ kodon
 kodoni
 kodovi
 koeficient
+koeficijent
 koenzim
 koenzimi
+kofa
 kofaktor
 kofaktori
 kofein
 kofeinski
+kofer
 kogeneracija
 kogeneracije
 kognicija
@@ -20629,6 +20745,7 @@ kohezivno
 koincidirati
 koitus
 kojekakav
+koješta
 koještarija
 koještarije
 koji
@@ -21123,6 +21240,7 @@ kompozitan
 kompoziti
 kompozitni
 kompozitno
+kompozitor
 kompozitorka
 kompozitorke
 kompresa
@@ -21199,6 +21317,7 @@ koncentrati
 koncentrator
 koncentrični
 koncentrično
+koncentrisan
 koncenzus
 koncepcija
 koncepcije
@@ -21487,6 +21606,7 @@ kontinuiteti
 kontinuum
 kontni
 konto
+kontra
 kontrabas
 kontrabasi
 kontraceptiv
@@ -22029,6 +22149,7 @@ košgeterski
 koškanja
 koškanje
 koškati
+košmar
 košmaran
 košmarni
 košmarno
@@ -22123,7 +22244,9 @@ kovitlaci
 kovitlanje
 kovitlati
 kovni
+kovnica
 kovrdža
+kovrdžav
 kovrdže
 koza
 kozaci
@@ -22313,6 +22436,7 @@ krcati
 krcato
 krckanje
 krckati
+krčag
 krčanje
 krčenje
 krčevina
@@ -22479,6 +22603,7 @@ krhotina
 krhotine
 krici
 kričanje
+krigla
 krijumčar
 krijumčaren
 krijumčarenje
@@ -22686,6 +22811,7 @@ krokodilski
 krom
 krompir
 krompiri
+krompirić
 krompirov
 kros
 kroše
@@ -22857,6 +22983,7 @@ krvoločni
 krvoločno
 krvoločnost
 krvolok
+krvopija
 krvoprolića
 krvoproliće
 krvoslednik
@@ -23155,6 +23282,7 @@ kupinjak
 kupiti
 kupka
 kupke
+kupleraj
 kupleti
 kupljen
 kupljeni
@@ -23253,6 +23381,7 @@ kustosi
 kustoski
 kustoskinja
 kustoskinje
+kusur
 kuš
 kušač
 kušačev
@@ -23351,6 +23480,7 @@ kvarljivo
 kvarni
 kvarno
 kvarovi
+kvart
 kvarta
 kvartal
 kvartali
@@ -23488,6 +23618,7 @@ lajkovi
 lajna
 lajne
 lajpciški
+lajsna
 lajtmotiv
 lajtmotivi
 lak
@@ -23570,6 +23701,7 @@ laminat
 laminati
 laminiran
 laminirati
+lampa
 lamperija
 lamperije
 lampica
@@ -23700,6 +23832,7 @@ laureati
 laureatkinja
 lav
 lava
+lavabo
 lavanda
 lavande
 lavandin
@@ -24029,6 +24162,8 @@ letelica
 letelice
 letenja
 letenje
+leteti
+letilica
 letimičan
 letimični
 letimično
@@ -24777,6 +24912,7 @@ lud
 luda
 ludački
 ludačko
+ludak
 ludara
 lude
 ludeti
@@ -24862,6 +24998,7 @@ lupetalo
 lupetanja
 lupetanje
 lupetati
+lupež
 lupina
 luping
 lupinzi
@@ -24928,6 +25065,7 @@ ljiljan
 ljiljani
 ljiljci
 ljosnuti
+ljubak
 ljubakanje
 ljubav
 ljubavi
@@ -25043,6 +25181,7 @@ mačevanje
 mačevaoci
 mačevati
 mačevi
+mačiji
 mačistički
 mačizam
 mačje
@@ -25273,6 +25412,7 @@ majstorov
 majstorski
 majstorsko
 majstorstvo
+majušan
 mak
 makac
 makadam
@@ -25281,6 +25421,7 @@ makadamski
 makaki
 makar
 makarone
+makaroni
 makartizam
 makaze
 makedonski
@@ -25361,6 +25502,7 @@ malinari
 maline
 malinjaci
 malinjak
+mališa
 mališan
 mališani
 mališanov
@@ -25444,6 +25586,7 @@ mamica
 mamice
 mamin
 mamiti
+mamlaz
 mamljenje
 mamograf
 mamografi
@@ -25558,6 +25701,7 @@ mansardni
 manšeta
 mantija
 mantije
+mantil
 mantisa
 mantra
 mantrati
@@ -25578,6 +25722,7 @@ manuskript
 manuskripti
 manuti
 manžeta
+manžetna
 manjak
 manjić
 manjina
@@ -25761,6 +25906,7 @@ maskare
 maske
 maskembal
 maskembali
+maskenbal
 maskerada
 maskerata
 maskiran
@@ -25823,6 +25969,7 @@ masti
 mastif
 mastifi
 mastika
+mastilo
 mastionica
 mastionice
 mastiti
@@ -25899,6 +26046,7 @@ materije
 materin
 materinski
 materinstvo
+maternji
 matica
 matice
 matičan
@@ -26218,6 +26366,7 @@ mekano
 meke
 meketanje
 meki
+mekika
 mekinje
 meko
 mekoća
@@ -26315,6 +26464,7 @@ menedžeri
 menedžment
 menhir
 menhiri
+meni
 menica
 menice
 menični
@@ -26367,6 +26517,7 @@ meraklije
 mercedes
 mercedesi
 merčepovci
+merdevine
 mere
 meren
 mereni
@@ -26446,6 +26597,7 @@ mesno
 meso
 mesojed
 mesojedi
+mesožder
 mesožderka
 mesožderke
 mesta
@@ -26617,6 +26769,7 @@ metropolis
 metropolski
 metvica
 mezanin
+meze
 mezheb
 mezimac
 mezimci
@@ -26820,6 +26973,7 @@ mimoze
 mina
 minaret
 minareti
+minđuša
 mine
 minej
 mineji
@@ -27098,6 +27252,7 @@ mitra
 mitraizam
 mitralni
 mitraljeski
+mitraljez
 mitre
 mitrin
 mitropolija
@@ -27124,6 +27279,7 @@ mjanmarski
 mjaukanje
 mjaukati
 mjehovi
+mjuzikl
 mlaćenica
 mlaćenje
 mlad
@@ -27404,6 +27560,7 @@ moher
 moj
 moka
 mokar
+mokasine
 mokraća
 mokraće
 mokraćni
@@ -27672,6 +27829,7 @@ mornarički
 mornaričko
 mornarski
 mornarsko
+moron
 morovićki
 morski
 mortadela
@@ -27726,6 +27884,7 @@ motivski
 motka
 motke
 moto
+motocikl
 motociklizam
 motokros
 motonautika
@@ -27757,6 +27916,7 @@ mozaički
 mozaični
 mozaično
 mozaik
+mozak
 mozgalica
 mozgalice
 mozganje
@@ -27898,6 +28058,7 @@ mrvičasto
 mrviti
 mrvljenje
 mrzak
+mrzeti
 mrzitelj
 mrzitelji
 mrziteljski
@@ -28119,6 +28280,7 @@ muškost
 muškosti
 mušmula
 mušmule
+mušterija
 mutacija
 mutacije
 mutagen
@@ -28128,6 +28290,7 @@ mutant
 mutanta
 mutanti
 mutantski
+mutav
 mutavac
 mutavci
 mutiran
@@ -28470,6 +28633,7 @@ nadoknađivan
 nadolazak
 nadolazeći
 nadolaziti
+nadole
 nadolje
 nadomak
 nadomestak
@@ -28786,6 +28950,7 @@ najmoprimac
 najmoprimci
 najmovi
 najpre
+najradije
 najuren
 najuriti
 najviše
@@ -29025,6 +29190,7 @@ namrgođeno
 namrgođenost
 namrštenost
 namrštiti
+namrtvo
 namučen
 namučeni
 namučiti
@@ -29257,6 +29423,7 @@ napunjen
 napunjeni
 napunjenost
 napustiti
+napušen
 napušiti
 napuštan
 napuštanja
@@ -29275,6 +29442,7 @@ naramak
 naramci
 naramenica
 naramenice
+narandža
 narandžast
 narandžasti
 narandžasto
@@ -29326,6 +29494,7 @@ naredbodavni
 naredbodavno
 narediti
 naredni
+narednica
 narednici
 narednik
 naredno
@@ -29539,6 +29708,7 @@ nasmešeni
 nasmešiti
 nasmijan
 nasmijani
+nasmrt
 naspavati
 naspram
 nasprejati
@@ -29779,6 +29949,7 @@ navaljen
 navaljivanje
 navaljivati
 navarivanje
+naveče
 naveden
 navedeni
 navedeno
@@ -29878,6 +30049,7 @@ nazaustavljiv
 nazdraviti
 nazdravljanje
 nazdravljati
+nazdravlje
 nazeb
 nazebi
 nazimica
@@ -30246,6 +30418,7 @@ nego
 negodovanja
 negodovanje
 negodovati
+negoli
 negostoljubiv
 negotinski
 negovan
@@ -30691,6 +30864,7 @@ nenametljivi
 nenametljivo
 nenamiren
 nenamireni
+nenaoružan
 nenapadan
 nenapadanje
 nenapadno
@@ -31879,6 +32053,7 @@ nestašan
 nestašica
 nestašice
 nestaško
+nestašluk
 nestašni
 nestašno
 nestašnost
@@ -32098,6 +32273,7 @@ neupitni
 neupitno
 neuplaćeni
 neuplaćivanje
+neuporediv
 neupotrebljen
 neupotrebljiv
 neupravljiv
@@ -32631,6 +32807,7 @@ niz
 nizak
 nizan
 nizanje
+nizašta
 nizašto
 nizati
 nizbrdica
@@ -33027,8 +33204,10 @@ njutnov
 njutnovski
 oaza
 oaze
+oba
 obadov
 obadva
+obadvoje
 obala
 obale
 obaliti
@@ -33038,6 +33217,7 @@ obaloutvrde
 obalski
 obamirati
 obamrlost
+obarač
 obaran
 obaranja
 obaranje
@@ -33065,6 +33245,7 @@ obaveštavan
 obaveštavanja
 obaveštavanje
 obaveštavati
+obavešten
 obaveštenost
 obaveštenja
 obaveštenje
@@ -33977,6 +34158,7 @@ odjavljen
 odjavljivati
 odjavni
 odjeci
+odjedanput
 odjednom
 odjedriti
 odjek
@@ -34128,6 +34310,7 @@ odnarođivanje
 odnedavna
 odnedavni
 odnedavno
+odnekud
 odnemoći
 odnesen
 odnet
@@ -34516,6 +34699,7 @@ oficijalno
 oficijelan
 oficijelni
 oficijelno
+oficir
 ofis
 oformiti
 oformljavanje
@@ -34808,6 +34992,7 @@ okovan
 okovani
 okovati
 okovi
+okovratnik
 okrajak
 okrajci
 okrečen
@@ -34970,6 +35155,7 @@ okvirni
 okvirno
 olabaviti
 olabavljen
+oladiti
 olajavanje
 olajavati
 olak
@@ -35113,6 +35299,7 @@ omiljeni
 omiljeno
 omiljenost
 omirisati
+omladina
 omladinski
 omladinsko
 omlet
@@ -35820,6 +36007,7 @@ ordiniran
 ordiniranje
 ordinirati
 oregonski
+oreol
 orezan
 orezati
 orezivanje
@@ -35872,6 +36060,7 @@ originalnost
 orijaš
 orijaški
 orijent
+orijentacija
 orijentalac
 orijentalan
 orijentalci
@@ -36013,6 +36202,7 @@ osamostaliti
 osamostaljen
 osamostaljeni
 osamostaljenje
+osamsto
 osavremeniti
 osavremenjen
 osavremenjeni
@@ -36119,6 +36309,7 @@ osladiti
 oslanjanja
 oslanjanje
 oslanjati
+oslepeti
 oslepiti
 oslepljen
 oslepljeni
@@ -36801,6 +36992,7 @@ otpornosti
 otporov
 otposlan
 otposlati
+otpozadi
 otpraćen
 otprašiti
 otpratiti
@@ -36929,6 +37121,7 @@ ovaploćeni
 ovaploćenje
 ovaploćivati
 ovaplotiti
+ovas
 ovca
 ovce
 ovčar
@@ -37197,6 +37390,7 @@ pahulje
 pahuljica
 pahuljice
 paintball
+pajac
 pajasen
 pajser
 pajseri
@@ -37355,6 +37549,8 @@ pande
 pandemija
 pandemije
 pandemijski
+pandur
+pandurka
 panegirici
 panegiričari
 panegirik
@@ -37670,6 +37866,7 @@ parketi
 parkić
 parkići
 parkin
+parking
 parkirališta
 parkiralište
 parkiran
@@ -37785,6 +37982,7 @@ pasaž
 pasaža
 pasaže
 pasaži
+pasha
 pashalni
 pashalno
 pasiflora
@@ -37898,6 +38096,7 @@ patetičnost
 patetika
 patetike
 patetisati
+patika
 patina
 patine
 patiniran
@@ -38045,6 +38244,7 @@ peani
 pecanje
 pecara
 pecare
+pecaroš
 pecati
 peciva
 pecivo
@@ -38091,6 +38291,7 @@ pedagogov
 pedagoški
 pedagoško
 pedagozi
+pedala
 pedalina
 pedaline
 pedalj
@@ -38149,6 +38350,7 @@ pehar
 pehari
 peharnik
 pehovi
+pejdžer
 pejorativno
 pejsaž
 pejsaži
@@ -38224,6 +38426,7 @@ penicilinski
 penis
 penisi
 peniti
+penkalo
 penologija
 pentagram
 pentagrami
@@ -38240,6 +38443,7 @@ penušavo
 penzija
 penzije
 penzijski
+penzioner
 penzionerka
 penzionerke
 penzionerski
@@ -38598,6 +38802,7 @@ petrologija
 petrovača
 petrovače
 petrovački
+petsto
 petstoti
 petunija
 petunije
@@ -38661,6 +38866,7 @@ pigmentno
 pih
 pihtija
 pihtije
+pijaca
 pijaće
 pijan
 pijanac
@@ -39034,6 +39240,7 @@ plaćenički
 plaćenik
 plaćeništvo
 plaćenost
+plafon
 plafonski
 plagijat
 plagijati
@@ -39053,6 +39260,7 @@ plahte
 plak
 plakanja
 plakanje
+plakar
 plakat
 plakati
 plakatiranje
@@ -39265,6 +39473,7 @@ plemenitost
 plemenitosti
 plemenski
 plemensko
+plemić
 plemićki
 plemićko
 plemkinja
@@ -39443,6 +39652,7 @@ plutati
 plute
 pluto
 plutokratski
+plutonijum
 plutov
 pluženje
 plužni
@@ -39666,6 +39876,7 @@ podaničko
 podanik
 podaništvo
 podanstvo
+podao
 podaren
 podariti
 podastrt
@@ -39911,6 +40122,7 @@ podobnosti
 pododbor
 pododbori
 pododsek
+podoficir
 podoj
 podojen
 podoji
@@ -40690,6 +40902,7 @@ polaganje
 polagati
 polako
 polakomiti
+polakše
 polaritet
 polariteti
 polarizacija
@@ -40697,6 +40910,7 @@ polarizacije
 polarni
 polarno
 polarnost
+polaroid
 polasci
 polaskan
 polaskani
@@ -41244,6 +41458,7 @@ ponavljani
 ponavljanja
 ponavljanje
 ponavljati
+pončo
 ponder
 ponderi
 ponedeljak
@@ -41834,6 +42049,7 @@ poslepodne
 poslepodneva
 posleratni
 posleratno
+posletku
 posli
 poslić
 poslići
@@ -42482,6 +42698,7 @@ potresi
 potresni
 potresno
 potresti
+potrešen
 potrošač
 potrošači
 potrošačice
@@ -42842,6 +43059,7 @@ poznat
 poznati
 poznato
 poznatost
+poznavalac
 poznavan
 poznavanja
 poznavanje
@@ -43240,6 +43458,7 @@ preblag
 preblagi
 preblaženi
 prebledi
+preblizu
 prebogat
 prebogati
 preboj
@@ -43583,6 +43802,7 @@ preduzimati
 preduzimljiv
 preduzimljivi
 preduzimljivo
+predveče
 predvečerja
 predvečerje
 predvečernji
@@ -44519,6 +44739,7 @@ prestiž
 prestižan
 prestižni
 prestižno
+presto
 prestol
 prestoli
 prestolni
@@ -44783,6 +45004,7 @@ prevaljivanje
 prevaljivati
 prevara
 prevaran
+prevarant
 prevarantski
 prevare
 prevaren
@@ -44857,6 +45079,7 @@ prevlažan
 prevod
 prevoden
 prevodi
+prevodilac
 prevodilački
 prevoditi
 prevodiv
@@ -44927,6 +45150,7 @@ prezaštićen
 prezaštićeno
 prezati
 prezatvoren
+prezauzet
 prezauzetost
 prezbiopija
 prezdrav
@@ -45377,6 +45601,7 @@ primaći
 primadona
 primadone
 primaknuti
+primalac
 primamiti
 primamljen
 primamljiv
@@ -45789,6 +46014,7 @@ prišt
 prištedeti
 prištevi
 prištinski
+pritajen
 pritajiti
 priteći
 pritegnut
@@ -46212,6 +46438,7 @@ produžni
 produžno
 prođen
 proevropski
+profajler
 profaktura
 profakture
 profan
@@ -46631,6 +46858,7 @@ pronađen
 pronađeni
 pronađeno
 pronalasci
+pronalazač
 pronalazački
 pronalazak
 pronalaziti
@@ -46661,6 +46889,7 @@ propadanja
 propadanje
 propadati
 propadljivost
+propaganda
 propagandist
 propagandni
 propagandno
@@ -46805,6 +47034,7 @@ prosed
 prosedi
 prosejan
 prosejati
+prosek
 proseka
 proseke
 prosektor
@@ -47092,6 +47322,7 @@ prototipski
 protozoa
 protozoe
 protraćen
+protraćiti
 protrčati
 protresti
 protrljati
@@ -47635,6 +47866,7 @@ pultovi
 puma
 pume
 pumin
+pumpa
 pumpan
 pumpanje
 pumpati
@@ -47712,6 +47944,7 @@ pupčanik
 pupoljak
 pupoljci
 pura
+puran
 pure
 purgativ
 purgativi
@@ -47725,6 +47958,7 @@ purpur
 purpuran
 purpurni
 purpurno
+pusa
 puslica
 puslice
 pust
@@ -48091,6 +48325,7 @@ rakursi
 rala
 ralo
 ralje
+ram
 ramazan
 ramazanski
 rame
@@ -48109,6 +48344,7 @@ ranč
 rančer
 rančeri
 rančevi
+randevu
 rane
 rang
 rangiran
@@ -48152,6 +48388,7 @@ rapidni
 rapidno
 raport
 raporti
+raportirati
 rapsodija
 rapsodije
 raritet
@@ -49680,6 +49917,7 @@ regresivan
 regresivni
 regresivno
 regresno
+regrut
 regrutacija
 regrutacije
 regrutni
@@ -49920,6 +50158,7 @@ rentabilnost
 rentanje
 rentati
 rente
+rentgen
 rentgenski
 rentijer
 rentijeri
@@ -50067,6 +50306,7 @@ resorpcije
 resort
 resorti
 respect
+respekt
 respektivan
 respektivno
 respektovan
@@ -50530,6 +50770,7 @@ rituali
 ritualizam
 ritualni
 ritualno
+rival
 rivalitet
 rivaliteti
 rivalka
@@ -50627,6 +50868,7 @@ rodbinski
 rodbinsko
 rodbinstvo
 rode
+rodeo
 rodica
 rodice
 rodin
@@ -50729,6 +50971,7 @@ roletne
 roll
 rolna
 rolne
+rolnica
 roman
 romančić
 romaneskni
@@ -51087,6 +51330,7 @@ rutinirano
 rutinski
 rutiranje
 rutvica
+ruzmarin
 ruž
 ruža
 ružan
@@ -51109,6 +51353,7 @@ rvač
 rvači
 rvački
 rvanje
+rvati
 rzanje
 rzati
 rzav
@@ -51187,6 +51432,7 @@ sačinjavati
 sačinjen
 sačinjeni
 sačma
+sačmara
 sačmarica
 sačmarice
 sačme
@@ -51303,6 +51549,7 @@ sajamsko
 sajber
 sajdžija
 sajdžije
+sajla
 sajmišta
 sajmište
 sajmovi
@@ -51822,6 +52069,7 @@ satenski
 sateran
 saterani
 saterano
+saterati
 sati
 satir
 satira
@@ -51976,6 +52224,7 @@ sazvučje
 sažaliti
 sažaljenja
 sažaljenje
+sažaljevati
 sažaljiv
 sažaljivo
 sažeci
@@ -52065,6 +52314,7 @@ sedamdesete
 sedamdeseti
 sedamnaest
 sedamnaesti
+sedamsto
 sedan
 sedani
 sedanje
@@ -52285,6 +52535,7 @@ selišta
 selište
 seliti
 selo
+selotejp
 selski
 seljaci
 seljačina
@@ -52314,6 +52565,7 @@ semantički
 semantičko
 semantika
 semantike
+seme
 semenarstvo
 semeni
 semenici
@@ -52504,6 +52756,7 @@ sestra
 sestre
 sestrica
 sestrice
+sestričina
 sestrić
 sestrići
 sestrin
@@ -52940,6 +53193,7 @@ siromaštva
 siromaštvo
 sirot
 sirota
+sirotan
 sirote
 siroti
 sirotica
@@ -52988,6 +53242,7 @@ sitan
 sitcom
 sitematski
 siti
+sitkom
 sitnarije
 sitnež
 sitni
@@ -53133,6 +53388,7 @@ skazaljke
 skeč
 skečevi
 skejt
+skejtbord
 skejter
 skejteri
 skejtovi
@@ -53910,6 +54166,7 @@ smanjivan
 smanjivanja
 smanjivanje
 smanjivati
+smarač
 smaragd
 smaragdi
 smaragdni
@@ -53967,6 +54224,7 @@ smenjivost
 smeo
 smer
 smeran
+smerati
 smerni
 smernica
 smernice
@@ -54082,6 +54340,7 @@ smotuljak
 smotuljci
 smožden
 smožditi
+smrad
 smradan
 smradni
 smradno
@@ -54170,6 +54429,7 @@ snagatori
 snage
 snaha
 snahe
+snaja
 snajka
 snajke
 snajper
@@ -54208,6 +54468,7 @@ sni
 sniježnica
 snimač
 snimači
+snimak
 sniman
 snimani
 snimanja
@@ -54283,6 +54544,7 @@ sociologije
 sociološki
 sociološko
 sociolozi
+sociopata
 sociopatski
 socket
 socketi
@@ -54330,6 +54592,7 @@ sokače
 sokić
 sokići
 sokl
+soko
 sokol
 sokolana
 sokolar
@@ -54405,6 +54668,7 @@ somić
 somići
 sommelier
 sommelieri
+somot
 somovi
 somovina
 somun
@@ -54427,6 +54691,7 @@ soneti
 sonetni
 song
 songovi
+sonični
 sonoran
 sonorni
 sonorno
@@ -54523,6 +54788,7 @@ spaseni
 spasenja
 spasenje
 spasenjski
+spasilac
 spasilački
 spasilačko
 spasitelj
@@ -54653,6 +54919,7 @@ spiroheta
 spirohete
 spirometrija
 spis
+spisak
 spisatelj
 spisatelji
 spisateljica
@@ -54834,6 +55101,7 @@ spoznati
 spoznatljiv
 spoznavanje
 spoznavati
+spram
 spran
 sprat
 sprati
@@ -54852,6 +55120,7 @@ spravljati
 spravljen
 sprdanje
 sprdati
+sprdnja
 spreadsheet
 sprečavan
 sprečavanja
@@ -56296,6 +56565,7 @@ sudnica
 sudnice
 sudnji
 sudoku
+sudoper
 sudopera
 sudopere
 sudovanje
@@ -56325,6 +56595,7 @@ sufiks
 sufiksi
 sufinansiran
 sufizam
+sufle
 sufliranje
 suflirati
 sufragan
@@ -56416,6 +56687,7 @@ sulfidi
 sulfonamidi
 sulice
 suložnica
+sultan
 sultanat
 sultanija
 sultanije
@@ -56554,6 +56826,7 @@ superligaški
 superlige
 supermama
 supermame
+supermarket
 supermen
 supermeni
 supermenov
@@ -57345,6 +57618,7 @@ svugde
 šančevi
 šangajski
 šank
+šanker
 šankovi
 šansa
 šanse
@@ -57380,6 +57654,7 @@ svugde
 šaranje
 šarati
 šarci
+šardone
 šare
 šaren
 šarengradski
@@ -57495,6 +57770,7 @@ svugde
 šerifov
 šerijat
 šerijatski
+šerpa
 šerpica
 šerpice
 šesnaest
@@ -57779,6 +58055,7 @@ svugde
 šleski
 šlic
 šlicevi
+šlog
 šljahta
 šljakati
 šljaker
@@ -57878,6 +58155,7 @@ svugde
 šopski
 šorc
 šorcevi
+šorts
 šou
 šoubiznis
 šovinista
@@ -57928,20 +58206,26 @@ svugde
 špil
 špilovi
 špirit
+šporet
 špric
 šprican
 špricanje
 špricati
+špricer
 špricevi
+šraf
+šrafciger
 šrapnel
 šrapneli
 šta
 štab
+štabni
 štabovi
 štafeta
 štafete
 štafetni
 štafetno
+štagod
 štajerski
 štala
 štale
@@ -57974,6 +58258,7 @@ svugde
 štapina
 štapini
 štapovi
+štaviše
 štaviti
 štavljenje
 štedeti
@@ -58023,6 +58308,7 @@ svugde
 štićenje
 štiglic
 štiglici
+štikla
 štiklica
 štiklice
 štimati
@@ -58049,6 +58335,7 @@ svugde
 štivo
 što
 štofara
+štogod
 štokavci
 štokavica
 štokavski
@@ -58076,12 +58363,14 @@ svugde
 štrcnuti
 štrčati
 štrebanje
+štreber
 štrecanje
 štrecati
 štrecnuti
 štrkljast
 štroker
 štropot
+štruca
 štrudla
 štrudle
 štucanje
@@ -58137,6 +58426,7 @@ svugde
 šunjati
 šupa
 šupak
+šupalj
 šupci
 šupe
 šuplje
@@ -58184,11 +58474,13 @@ svugde
 švapski
 švedski
 šverc
+švercer
 švercerski
 švercovan
 švercovati
 švicarac
 švicarci
+švorc
 švrljanje
 švrljati
 tabaci
@@ -58235,6 +58527,7 @@ tabun
 tabure
 taburei
 taca
+tacna
 tačan
 tačdaun
 tačka
@@ -58325,6 +58618,7 @@ takovo
 takovski
 takozvani
 takozvano
+taksa
 taksi
 taksiji
 taksimetar
@@ -58508,6 +58802,7 @@ tapetari
 tapetarija
 tapetarski
 tapete
+tapija
 tapioka
 tapir
 tapiri
@@ -58546,6 +58841,7 @@ tartar
 tartuf
 tartufi
 tarzalni
+tas
 tasmanijski
 tast
 tastatura
@@ -58553,6 +58849,7 @@ tastature
 taster
 tasteri
 tastovi
+tašna
 tašner
 tašt
 tašti
@@ -58903,6 +59200,7 @@ tercijar
 tercijarni
 terećen
 teren
+terenac
 tereni
 terenski
 teret
@@ -58963,6 +59261,7 @@ termovizija
 teror
 terori
 terorisanje
+terorisati
 teroristički
 teroristkinja
 terorizam
@@ -58991,6 +59290,7 @@ tesni
 tesno
 test
 testa
+testament
 testator
 testenina
 testenine
@@ -59235,6 +59535,7 @@ titanijum
 titanov
 titanski
 titar
+titl
 titlovan
 titlovani
 titlovano
@@ -59295,6 +59596,7 @@ tmine
 tmuran
 tmurni
 tmurno
+toalet
 toaleta
 toalete
 toaletni
@@ -59306,6 +59608,7 @@ tobolac
 tobože
 tobožnje
 tobožnji
+točak
 točen
 točenje
 točionica
@@ -60061,6 +60364,8 @@ trirema
 trireme
 triskelion
 trisomija
+trista
+tristo
 trivijalan
 trivijalni
 trivijalno
@@ -60260,6 +60565,7 @@ troškovno
 trošni
 trošno
 trošnost
+trotoar
 trougao
 trougaonik
 trouglast
@@ -60401,6 +60707,7 @@ tuberkulozni
 tuberoza
 tubularni
 tubuli
+tubus
 tucan
 tucanički
 tucanik
@@ -60452,6 +60759,7 @@ tularemija
 tulipan
 tulipani
 tuliti
+tulum
 tumač
 tumačen
 tumačenja
@@ -60492,6 +60800,7 @@ tuniški
 tunjevina
 tunjevine
 tup
+tupan
 tupav
 tupavci
 tupavi
@@ -61304,6 +61613,7 @@ ujednačiti
 ujedno
 ujesen
 ujesti
+ujka
 ujna
 ujne
 ujutro
@@ -61811,6 +62121,7 @@ unakaženi
 unakaženost
 unakrsni
 unakrsno
+unaokolo
 unapred
 unaprediti
 unapređen
@@ -61831,6 +62142,7 @@ unca
 undulatus
 unerediti
 uneređen
+unervoziti
 unesen
 uneseni
 unesrećen
@@ -62420,6 +62732,7 @@ urlikati
 urliknuti
 urna
 urne
+urnebes
 urnebesan
 urnebesni
 urnebesno
@@ -62782,6 +63095,7 @@ usrećivanje
 usrećivati
 usred
 usredsrediti
+usredsređen
 usta
 ustajali
 ustajalo
@@ -63236,6 +63550,7 @@ uvlačen
 uvlačenja
 uvlačenje
 uvlačiti
+uvo
 uvod
 uvodi
 uvoditelj
@@ -63334,6 +63649,7 @@ uzbuđenja
 uzbuđenje
 uzbuđivanje
 uzbuđivati
+uzbuđujući
 uzbuna
 uzbune
 uzbuniti
@@ -63370,6 +63686,7 @@ uzdisati
 uzdizan
 uzdizanje
 uzdizati
+uzdravlje
 uzdrhtalo
 uzdrhtati
 uzdrman
@@ -63814,6 +64131,7 @@ varnica
 varnice
 varničenja
 varničenje
+varoš
 varšavski
 varvari
 varvarin
@@ -63857,6 +64175,7 @@ vaspitavati
 vaspitni
 vaspitno
 vaš
+vašar
 vašarišta
 vašarište
 vašarski
@@ -64493,6 +64812,7 @@ viking
 vikingov
 vikinški
 vikinzi
+vikler
 viknuti
 vikontesa
 vikunja
@@ -64776,6 +65096,7 @@ vizitacija
 vizitacije
 vizite
 vizitka
+vizitkarta
 vizitke
 vizni
 vizno
@@ -65236,6 +65557,7 @@ vrećica
 vrećice
 vredan
 vredeće
+vredeti
 vrediti
 vredni
 vredno
@@ -65581,6 +65903,7 @@ zabuljen
 zabuna
 zabune
 zabuniti
+zabušant
 zabušavanje
 zabušavati
 zacariti
@@ -67059,6 +67382,8 @@ zatečenost
 zateći
 zatega
 zatege
+zategnut
+zategnuti
 zategnutost
 zategnutosti
 zateturati
@@ -67240,6 +67565,7 @@ zavičajni
 zavičajno
 zavičajnost
 zavidan
+zavideti
 zavidljivac
 zavidljivci
 zavidni
@@ -67273,6 +67599,7 @@ zavisti
 zaviti
 zavitlan
 zavitlati
+zavitlavati
 zavlačenje
 zavlačiti
 zavladati
@@ -67493,6 +67820,7 @@ zeko
 zelembać
 zelembaći
 zelen
+zelenaš
 zelenašenje
 zelenaški
 zelenaštvo
@@ -67523,6 +67851,7 @@ zemaljsko
 zeman
 zemani
 zemanov
+zemička
 zemlja
 zemljaci
 zemljak
@@ -67556,6 +67885,7 @@ zemunica
 zemunice
 zemunski
 zen
+zenica
 zenički
 zenit
 zenitno
@@ -67884,6 +68214,7 @@ znatni
 znatno
 znoj
 znojan
+znojav
 znojenja
 znojenje
 znojiti
@@ -68023,6 +68354,7 @@ zurka
 zurke
 zvan
 zvani
+zvanica
 zvaničan
 zvanični
 zvaničnici
@@ -68175,6 +68507,7 @@ zvukovno
 žaluzine
 žaljenja
 žaljenje
+žamor
 žandar
 žandari
 žandarm
@@ -68188,6 +68521,7 @@ zvukovno
 žapci
 žar
 žara
+žarač
 žardinijera
 žardinijere
 žardinjera
@@ -68365,6 +68699,7 @@ zvukovno
 žilavo
 žilavost
 žile
+žilet
 žilica
 žilice
 žiličast
@@ -68591,6 +68926,7 @@ zvukovno
 žutokljuni
 žutosmeđe
 žutozeleni
+žvaka
 žvakač
 žvakači
 žvakanje

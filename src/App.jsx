@@ -7,6 +7,7 @@ import { totalOf, maxesOf, GAMES } from './engine/rules.js';
 import { track, dayProps } from './analytics.js';
 import { summarize, shareText } from './engine/stats.js';
 import { buzz } from './theme.js';
+import { playCue, cueFor } from './sound.js';
 import Header from './components/Header.jsx';
 import Home from './screens/Home.jsx';
 import Game from './screens/Game.jsx';
@@ -65,6 +66,16 @@ export default function App() {
     }, 200);
     return () => clearInterval(iv);
   }, [s.screen, s.running, s.locked, relaxed]);
+
+  // Timer cues: a quiet note at half time and in the last seconds
+  const prevT = useRef(null);
+  useEffect(() => {
+    const prev = prevT.current;
+    prevT.current = s.t;
+    if (prev == null || relaxed || s.screen !== 'game' || !s.running) return;
+    const cue = cueFor(prev, s.t, s.tMax);
+    if (cue) playCue(cue);
+  }, [s.t, s.tMax, s.screen, s.running, relaxed]);
 
   // Result commit after the short "Tačno!" beat
   useEffect(() => {

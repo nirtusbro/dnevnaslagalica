@@ -200,6 +200,22 @@ const extOk = (w, f) => f >= MIN_FREQ_EXT && !shortOf(w);
 
 const allow = readList(path.join(outDir, 'allow.txt'));
 const block = readList(path.join(outDir, 'block.txt'));
+/**
+ * Case forms of the allow.txt words srLex has no entry for (pijaca -> pijace, pijacom; klinac ->
+ * klinca, klinci; dečiji -> dečijeg). srLex cannot tie them to their lemma, and the sources that
+ * know Pijaca or Lampa as a name would drop them with it, so they are spelled out here: the word,
+ * the word without its final vowel, or without its fleeting a, plus a case ending. Only forms the
+ * Hunspell/CC0 lists have are ever looked up, so a wrong guess here adds nothing.
+ */
+const CASE_ENDINGS = ['', 'a', 'e', 'i', 'o', 'u', 'om', 'em', 'ama', 'ima', 'ovi', 'ova', 'ove', 'ovima', 'evi', 'eva', 'eve', 'evima', 'og', 'eg', 'im', 'ih', 'oj'];
+const allowForms = new Set();
+for (const a of allow) {
+  if (formLemmas.has(a)) continue;
+  const stems = new Set([a, a.replace(/[aeiou]$/, '')]);
+  const fleeting = a.match(/^(.+)a([^aeiou])$/);
+  if (fleeting) stems.add(fleeting[1] + fleeting[2]);
+  for (const s of stems) if (s.length >= 3) for (const e of CASE_ENDINGS) allowForms.add(s + e);
+}
 
 /**
  * Proper nouns are never accepted. A form srLex knows as a common word is a name when srWaC uses
@@ -212,7 +228,7 @@ function properName(w) {
   const lemmas = [...(formLemmas.get(w) || [])];
   if (allow.has(w) || lemmas.some((l) => allow.has(l))) return false;
   const n = npTotal.get(w) || 0;
-  if (!lemmas.length) return n > 0 || hrNames.has(w) || capitalised.has(w);
+  if (!lemmas.length) return !allowForms.has(w) && (n > 0 || hrNames.has(w) || capitalised.has(w));
   if (n / Math.max(srTotal.get(w) || 0, 0.5) < MAX_NAME_RATIO) return false;
   // a case form of an accepted word stays even when the name is more frequent:
   // bugarskoj (bugarski), kina (kino), rimu (rima), barbara (barbar)

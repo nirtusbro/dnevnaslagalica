@@ -18018,7 +18018,6 @@ bržima
 bržoj
 bržom
 bržu
-buba
 bubaj
 bubajte
 bubaju
@@ -107985,7 +107984,6 @@ mastiku
 mastila
 mastile
 mastili
-mastilo
 mastim
 mastima
 mastio
@@ -109830,7 +109828,6 @@ menedžmentom
 menedžmentu
 menhira
 menhire
-meni
 menicama
 menici
 menicom
@@ -176535,7 +176532,6 @@ podankom
 podanog
 podanstva
 podanstvu
-podao
 podare
 podarena
 podarene
@@ -220751,7 +220747,6 @@ puminog
 puminoj
 puminu
 pumom
-pumpa
 pumpaće
 pumpaćemo
 pumpaćete
@@ -295459,7 +295454,6 @@ uzbuđuješ
 uzbuđujete
 uzbuđujte
 uzbuđuju
-uzbuđujući
 uzbunama
 uzbuni
 uzbuniće

@@ -71,9 +71,9 @@ test('timeouts: slagalica empty, moj broj incomplete, skocko, asocijacije', () =
   let s = run(boot(), 'PRIMARY', { type: 'TICK', dt: 61 });
   assert.equal(s.pending.pts, 0); assert.equal(s.pending.reveal.timeout, true);
   s = commitPending(s);
-  s = run(s, 'NEXT', { type: 'MB_PUSH', tok: { n: 0 } }, { type: 'MB_PUSH', tok: { o: '+' } }, { type: 'TICK', dt: 60 });
+  s = run(s, 'NEXT', { type: 'MB_PUSH', tok: { n: 0 } }, { type: 'MB_PUSH', tok: { o: '+' } }, { type: 'TICK', dt: 90 });
   assert.equal(s.pending.pts, 0); assert.equal(s.pending.reveal.val, 3, 'trailing operator dropped'); s = commitPending(s);
-  s = run(s, 'NEXT', { type: 'TICK', dt: 60 });
+  s = run(s, 'NEXT', { type: 'TICK', dt: 120 });
   assert.equal(s.pending.reveal.won, false); s = commitPending(s);
   s = run(s, 'NEXT'); for (let i = 0; i < 10; i++) { s = run(s, { type: 'TICK', dt: 10 }); s = fireLater(s); }
   assert.equal(s.pending.pts, 0); s = commitPending(s);
@@ -84,8 +84,8 @@ test('timeouts: slagalica empty, moj broj incomplete, skocko, asocijacije', () =
 /** Time out the first four games to land in Asocijacije. */
 function toAsocijacije() {
   let s = run(boot(), 'PRIMARY', { type: 'TICK', dt: 61 }); s = commitPending(s);
-  s = run(s, 'NEXT', { type: 'TICK', dt: 60 }); s = commitPending(s);
-  s = run(s, 'NEXT', { type: 'TICK', dt: 60 }); s = commitPending(s);
+  s = run(s, 'NEXT', { type: 'TICK', dt: 90 }); s = commitPending(s);
+  s = run(s, 'NEXT', { type: 'TICK', dt: 120 }); s = commitPending(s);
   s = run(s, 'NEXT'); for (let i = 0; i < 10; i++) { s = run(s, { type: 'TICK', dt: 10 }); s = fireLater(s); }
   s = commitPending(s);
   s = run(s, 'NEXT'); assert.equal(s.gi, 4);

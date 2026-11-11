@@ -6,9 +6,9 @@ import { letterCount } from './letters.js';
 export const GAMES = [
   { id: 'slagalica', name: 'Slagalica', desc: 'Najduža reč od 12 slova', time: 60, timeL: '60 s', max: 17,
     rule: 'Od 12 ponuđenih slova složi najdužu reč koju znaš. Priznaje se svaka srpska reč u bilo kom obliku (padeži, množina, rod, glagolski oblici), osim vlastitih imena i skraćenica. Svako slovo vredi 1 poen. Ako je tvoja reč baš ona koju je računar zadao, dobijaš još 5 poena; za drugu reč iste dužine 10, a za dužu reč 15 poena. Na računaru možeš i da kucaš.' },
-  { id: 'mojBroj', name: 'Moj broj', desc: 'Dođi do traženog broja', time: 60, timeL: '60 s', max: 10,
+  { id: 'mojBroj', name: 'Moj broj', desc: 'Dođi do traženog broja', time: 90, timeL: '90 s', max: 10,
     rule: 'Šest brojeva, četiri računske operacije i zagrade. Svaki broj se koristi najviše jednom. Tačan broj donosi 10 poena. Ako do traženog broja ne može da se dođe, 10 poena vredi najbliži mogući rezultat. Poeni i kad si blizu: razlika 1–2 donosi 8, 3–5 donosi 6, 6–10 donosi 4, a 11–20 donosi 2 poena.' },
-  { id: 'skocko', name: 'Skočko', desc: 'Otkrij tajnu kombinaciju', time: 60, timeL: '60 s', max: 20,
+  { id: 'skocko', name: 'Skočko', desc: 'Otkrij tajnu kombinaciju', time: 120, timeL: '120 s', max: 20,
     rule: 'Pogodi niz od četiri znaka u šest pokušaja. Crvena tačka: znak je na pravom mestu. Žuta: znak postoji, ali na drugom mestu. Iz 1. ili 2. pokušaja 20 p, iz 3. ili 4. 15 p, iz 5. ili 6. 10 p.' },
   { id: 'koZnaZna', name: 'Ko zna zna', desc: 'Deset brzih pitanja', time: 10, timeL: '10 × 10 s', max: 100,
     rule: 'Deset pitanja, po 10 sekundi i tri ponuđena odgovora. Tačno +10, netačno −5. Ako nisi siguran, izaberi „Ne znam“.' },

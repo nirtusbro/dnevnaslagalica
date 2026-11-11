@@ -23,6 +23,14 @@ Built by `node tools/build-dict.mjs` (`npm run dict`).
 | `sr-Latn.dic` | [grakic/hunspell-sr](https://github.com/grakic/hunspell-sr) (Serbian Latin spellchecker, ~264k forms) | LGPL 2.1+ / MPL 1.1+ / GPL 2+, or CC BY-SA 3.0 | `extra.txt` |
 | `serbian-words-latin.txt` | [turanjanin/spisak-srpskih-reci](https://github.com/turanjanin/spisak-srpskih-reci) (~2.79M forms merged from many lists) | CC0-1.0 | `extra.txt` |
 
+srLex has gaps: it has no entry at all for many everyday Serbian words (snimak, kofer, bulevar,
+leteti, mozak has one but no corpus count) and knows some only as a name (Pijaca, Lampa), so they
+were never a set word and a few were rejected outright. `allow.txt` lists the ones found on
+2026-11-11 by taking the words of the OpenSubtitles frequency list
+([hermitdave/FrequencyWords](https://github.com/hermitdave/FrequencyWords), `2018/sr/sr_full.txt`,
+count ≥ 120) that srLex lacks and reviewing them by hand; that list is too mixed with Croatian,
+names and typos to be used automatically. Words below that count are still missing from core.
+
 The Asocijacije bank comes from `py-asocijacije/`, a clone of
 [djordje34/PY-Asocijacije](https://github.com/djordje34/PY-Asocijacije) (no licence stated; the
 puzzles themselves were written for RTS's TV Slagalica):
