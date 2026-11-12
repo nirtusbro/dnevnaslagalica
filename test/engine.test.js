@@ -212,7 +212,7 @@ test('stats: streaks, histogram, per-game averages', () => {
   const txt = stats.shareText(58, [14, 7, 15, 35, 13], 84, 7, 'https://x.y', [18, 10, 20, 100, 26]);
   assert.ok(stats.shareText(1, [20, 10, 20, 100, 25], 175, 1, 'u', [20, 10, 20, 100, 25]).includes('🟩🟩🟩🟩🟩'));
   assert.ok(txt.startsWith('Dnevna Slagalica #058'));
-  assert.ok(txt.includes('🟨🟨🟨🟧🟨'), 'Ko zna zna 35/100 is the orange tier');
+  assert.ok(txt.includes('🔤🔢🙂❓🧩\n🟨🟨🟨🟧🟨\n'), 'game icons sit above the squares; Ko zna zna 35/100 is the orange tier');
   assert.ok(txt.includes('7 dana'));
 });
 

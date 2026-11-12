@@ -71,11 +71,14 @@ export function recentDays(history, today, n = 14) {
   });
 }
 
+/** One emoji per game, in GAMES order; printed as a header row above the grade squares. */
+const SHARE_ICONS = ['🔤', '🔢', '🙂', '❓', '🧩'];
+
 /** Share card text. */
 export function shareText(day, scores, total, streak, url, maxes = GAMES.map((g) => g.max)) {
   const sq = scores.map((x, i) => (x == null ? '⬜' : ['🟩', '🟨', '🟧', '🟥'][grade(i, x, maxes[i])])).join('');
   const dani = streak % 10 === 1 && streak % 100 !== 11 ? 'dan' : 'dana';
-  return `Dnevna Slagalica #${String(day).padStart(3, '0')}\n\n${sq}\n${total} poena\n🔥 ${streak} ${dani}\n\n${url}`;
+  return `Dnevna Slagalica #${String(day).padStart(3, '0')}\n\n${SHARE_ICONS.join('')}\n${sq}\n${total} poena\n🔥 ${streak} ${dani}\n\n${url}`;
 }
 
 export { MAX_TOTAL };
