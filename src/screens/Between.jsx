@@ -3,7 +3,8 @@ import { GAMES, grade, gameMax, percent } from '../engine/rules.js';
 import { bestWord, bonusFor, letterCount, BONUS_SAME_WORD, BONUS_SAME_LENGTH, BONUS_LONGER } from '../engine/slagalica.js';
 import { solve } from '../engine/mojbroj.js';
 import { QUESTIONS } from '../engine/kozna.js';
-import { GRADE_COLORS, MUTE, YS, UN, OPEN, N, Y, R, I2, SKIPC } from '../theme.js';
+import { feedback } from '../engine/skocko.js';
+import { GRADE_COLORS, MUTE, YS, UN, OPEN, DASH, N, Y, R, I2, SKIPC } from '../theme.js';
 import { Btn, Gold, Panel, Kicker, Sym, GameArt, CountUp } from '../components/ui.jsx';
 import { DayDots } from './Game.jsx';
 
@@ -33,7 +34,7 @@ export function revealOf(s, gi) {
   }
   if (gi === 2) {
     const note = rd.won ? 'Pogođeno iz ' + rd.n + '. pokušaja.' : 'Kombinacija nije pogođena.';
-    return { verdict: rd.won ? 'Pogođeno!' : 'Tajna otkrivena', note, body: <SkBody last={rd.last || []} secret={P.skocko.secret} /> };
+    return { verdict: rd.won ? 'Pogođeno!' : 'Tajna otkrivena', note, body: <SkBody rows={rd.rows || (rd.last && rd.last.length ? [{ g: rd.last }] : [])} secret={P.skocko.secret} /> };
   }
   if (gi === 3) {
     const res = rd.res || [];
@@ -44,9 +45,9 @@ export function revealOf(s, gi) {
   }
   const sol = rd.sol || [0, 0, 0, 0];
   const n = sol.filter((x) => x === 1).length;
-  const note = (rd.fin === 1 ? 'Pogodio si konačno rešenje' : 'Konačno rešenje nije pogođeno') + ' · samostalno rešenih kolona: ' + n + ' od 4. Žuto = tvoja rešenja.';
+  const note = (rd.fin === 1 ? 'Pogodio si konačno rešenje' : 'Konačno rešenje nije pogođeno') + ' · samostalno rešenih kolona: ' + n + ' od 4. Žuto = tvoja rešenja' + (rd.open ? ', tamna polja nisi otvorio.' : '.');
   const verdict = rd.fin === 1 ? 'Rešeno!' : pts > 0 ? 'Delimično' : 'Bez poena';
-  return { verdict, note, body: <AsBody sol={sol} fin={rd.fin} A={P.asocijacije} /> };
+  return { verdict, note, body: <AsBody sol={sol} fin={rd.fin} open={rd.open} A={P.asocijacije} /> };
 }
 
 const Letter = ({ l, st, delay }) => (
@@ -80,12 +81,35 @@ function MbBody({ expr, val, sol, target, solValue }) {
     </div>
   );
 }
-function SkBody({ last, secret }) {
-  const cell = (i, k, reveal) => <div key={k} className="well" style={{ width: 50, height: 50, display: 'grid', placeItems: 'center', boxShadow: reveal ? 'inset 0 0 0 1.5px oklch(0.87 0.17 92 / .7)' : undefined }}>{i != null && <Sym i={i} size={28} anim={reveal ? 'flipIn .45s both' : undefined} delay={reveal ? 300 + k * 140 : 0} />}</div>;
+/** Every attempt with its feedback pegs, then the secret, so the whole game can be reviewed. */
+function SkBody({ rows, secret }) {
+  const S = 'clamp(34px,9cqw,44px)';
+  const cell = (i, k, reveal) => <div key={k} className="well" style={{ width: S, height: S, display: 'grid', placeItems: 'center', boxShadow: reveal ? 'inset 0 0 0 1.5px oklch(0.87 0.17 92 / .7)' : undefined }}>{i != null && <Sym i={i} size="clamp(20px,5.4cqw,26px)" anim={reveal ? 'flipIn .45s both' : undefined} delay={reveal ? 300 + k * 140 : 0} />}</div>;
+  const line = { display: 'grid', gridTemplateColumns: '14px auto auto', justifyContent: 'start', alignItems: 'center', gap: 'clamp(8px,2.4cqw,14px)' };
+  const cells = { display: 'flex', gap: 'clamp(4px,1.2cqw,6px)' };
   return (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 20 }}>
-      <div className="col" style={{ gap: 8 }}><Kicker>Tvoj poslednji pokušaj</Kicker><div style={{ display: 'flex', gap: 6 }}>{[0, 1, 2, 3].map((k) => cell(last[k], k, false))}</div></div>
-      <div className="col" style={{ gap: 8 }}><Kicker y>Tajna kombinacija</Kicker><div style={{ display: 'flex', gap: 6 }}>{secret.map((x, k) => cell(x, k, true))}</div></div>
+    <div className="col" style={{ gap: 14 }}>
+      <div className="col" style={{ gap: 8 }}><Kicker>Tvoji pokušaji</Kicker>
+        {rows.length ? (
+          <div className="col" style={{ gap: 'clamp(4px,1.2cqw,6px)' }}>
+            {rows.map((row, r) => {
+              const f = feedback(row.g, secret);
+              return (
+                <div key={r} style={line}>
+                  <span style={{ fontWeight: 800, fontSize: 13, textAlign: 'center', color: I2 }}>{r + 1}</span>
+                  <div style={cells}>{[0, 1, 2, 3].map((k) => cell(row.g[k], k, false))}</div>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,clamp(11px,3cqw,14px))', gap: 'clamp(3px,1cqw,5px)' }}>
+                    {[0, 1, 2, 3].map((k) => { const c = k < f.exact ? R : k < f.exact + f.near ? Y : 'transparent'; return <span key={k} style={{ aspectRatio: '1', borderRadius: '50%', background: c, boxShadow: c === 'transparent' ? DASH : 'none' }} />; })}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        ) : <span style={{ fontSize: 16, fontWeight: 800, fontStyle: 'italic', color: I2 }}>Nisi potvrdio nijedan pokušaj</span>}
+      </div>
+      <div className="col" style={{ gap: 8 }}><Kicker y>Tajna kombinacija</Kicker>
+        <div style={line}><span /><div style={cells}>{secret.map((x, k) => cell(x, k, true))}</div></div>
+      </div>
     </div>
   );
 }
@@ -106,15 +130,25 @@ function KzBody({ res, qs }) {
     </div>
   );
 }
-function AsBody({ sol, fin, A }) {
+/** The whole board as on TV: columns A, B above the final, C, D below it, each with its four fields. */
+function AsBody({ sol, fin, open, A }) {
+  const clip = { whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis', padding: '0 6px', minWidth: 0 };
+  const col = (i, rev) => {
+    const C = A.cols[i];
+    const st = sol[i] === 1 ? YS : OPEN;
+    const fields = C.f.map((w, k) => {
+      const seen = !open || open[i][k];
+      return <span key={k} title={w} style={{ ...clip, height: 'clamp(26px,6.6cqw,32px)', lineHeight: 'clamp(26px,6.6cqw,32px)', borderRadius: 3, textAlign: 'center', fontWeight: 800, fontSize: 'clamp(11px,3.1cqw,14px)', background: seen ? OPEN.bg : UN.bg, boxShadow: seen ? OPEN.sh : UN.sh, color: seen ? N : I2, textShadow: 'none' }}>{w}</span>;
+    });
+    const head = <span key="s" title={C.s} style={{ ...clip, height: 'clamp(32px,8cqw,40px)', lineHeight: 'clamp(32px,8cqw,40px)', borderRadius: 4, textAlign: 'center', fontWeight: 800, fontStyle: 'italic', fontSize: 'clamp(12px,3.4cqw,16px)', letterSpacing: '.04em', background: st.bg, boxShadow: st.sh, color: N, textShadow: 'none' }}>{C.L} · {C.s}</span>;
+    return <div key={i} className="col" style={{ gap: 4, minWidth: 0 }}>{rev ? [head, ...[...fields].reverse()] : [...fields, head]}</div>;
+  };
+  const st = fin === 1 ? YS : OPEN;
   return (
-    <div className="col" style={{ gap: 8 }}>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,minmax(0,1fr))', gap: 6 }}>
-        {A.cols.map((C, i) => { const st = sol[i] === 1 ? YS : OPEN; return (
-          <div key={i} className="col" style={{ gap: 4, alignItems: 'center' }}><span style={{ fontSize: 11, fontWeight: 800, color: I2 }}>Kolona {C.L}</span><span style={{ width: '100%', height: 42, borderRadius: 4, display: 'grid', placeItems: 'center', fontWeight: 800, fontStyle: 'italic', fontSize: 'clamp(12px,3.4cqw,15px)', background: st.bg, boxShadow: st.sh, color: N, textShadow: 'none' }}>{C.s}</span></div>
-        ); })}
-      </div>
-      {(() => { const st = fin === 1 ? YS : OPEN; return <div style={{ height: 54, borderRadius: 5, display: 'grid', placeItems: 'center', fontWeight: 800, fontStyle: 'italic', fontSize: 24, letterSpacing: '.05em', background: st.bg, boxShadow: st.sh, color: N, textShadow: 'none', animation: 'pop .5s .3s both' }}>{A.final.s}</div>; })()}
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2,minmax(0,1fr))', columnGap: 10, rowGap: 8 }}>
+      {col(0)}{col(1)}
+      <div style={{ gridColumn: 'span 2', height: 50, borderRadius: 5, display: 'grid', placeItems: 'center', fontWeight: 800, fontStyle: 'italic', fontSize: 22, letterSpacing: '.05em', background: st.bg, boxShadow: st.sh, color: N, textShadow: 'none', animation: 'pop .5s .3s both' }}>{A.final.s}</div>
+      {col(2, true)}{col(3, true)}
     </div>
   );
 }

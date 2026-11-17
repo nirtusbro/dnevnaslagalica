@@ -67,7 +67,7 @@ function timeUp(s) {
     case 2: {
       const last = (g.sk.rows[g.sk.rows.length - 1] || {}).g || [];
       const sk2 = { ...g.sk, done: true, msg: 'Vreme je isteklo', msgC: R };
-      return finish({ ...s, running: false, game: { ...g, sk: sk2 } }, 0, { won: false, last }, 1600);
+      return finish({ ...s, running: false, game: { ...g, sk: sk2 } }, 0, { won: false, last, rows: g.sk.rows }, 1600);
     }
     case 3: return kzAnswer({ ...s, running: false }, -1, true);
     case 4: return aGiveUp({ ...s, running: false }, true);
@@ -134,10 +134,10 @@ function skSubmit(s) {
   const rows = [...g.sk.rows, { g: guess, ex: exact, near }];
   if (exact === 4) {
     const n = rows.length; const pts = sk.pointsFor(n);
-    return finish({ ...s, game: { ...g, sk: { ...g.sk, rows, cur: [], done: true, msg: 'Pogođeno! +' + pts, msgC: Y } } }, pts, { won: true, n, last: guess }, 1500);
+    return finish({ ...s, game: { ...g, sk: { ...g.sk, rows, cur: [], done: true, msg: 'Pogođeno! +' + pts, msgC: Y } } }, pts, { won: true, n, last: guess, rows }, 1500);
   }
   if (rows.length >= sk.MAX_ATTEMPTS) {
-    return finish({ ...s, game: { ...g, sk: { ...g.sk, rows, cur: [], done: true, msg: 'Nema više pokušaja', msgC: R } } }, 0, { won: false, last: guess }, 1700);
+    return finish({ ...s, game: { ...g, sk: { ...g.sk, rows, cur: [], done: true, msg: 'Nema više pokušaja', msgC: R } } }, 0, { won: false, last: guess, rows }, 1700);
   }
   return { ...s, game: { ...g, sk: { ...g.sk, rows, cur: [], msg: '' } } };
 }
@@ -210,7 +210,7 @@ function aGuess(s) {
     const pts = A.earn + w;
     const sol = A.sol.map((x) => x || 2);
     const a2 = { ...A, fin: 1, sol, open: A.open.map((row) => row.map(() => 1)), target: null, input: '', msg: 'Konačno rešenje! +' + w, msgC: Y };
-    return finish({ ...s, game: { ...g, a: a2 } }, pts, { sol, fin: 1, earn: pts }, 1800);
+    return finish({ ...s, game: { ...g, a: a2 } }, pts, { sol, fin: 1, earn: pts, open: A.open }, 1800);
   }
   const c = A.target.c; const v = as.columnValue(A.open[c]);
   const sol = [...A.sol]; sol[c] = 1;
@@ -222,7 +222,7 @@ function aGiveUp(s, timeout = false) {
   const g = s.game; const A = g.a;
   if (s.locked || A.fin) return s;
   const a2 = { ...A, fin: 2, sol: A.sol.map((x) => x || 2), open: A.open.map((r) => r.map(() => 1)), msg: timeout ? 'Vreme je isteklo' : 'Rešenje je otkriveno', msgC: O };
-  return finish({ ...s, game: { ...g, a: a2 } }, A.earn, { sol: [...A.sol], fin: 2, earn: A.earn, timeout }, 1900);
+  return finish({ ...s, game: { ...g, a: a2 } }, A.earn, { sol: [...A.sol], fin: 2, earn: A.earn, timeout, open: A.open }, 1900);
 }
 
 // ---------- reducer ----------
