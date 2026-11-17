@@ -58,6 +58,8 @@ a:hover { color: var(--white); }
 /* ---------- TV stage ---------- */
 .tv-outer { position: relative; inset: 0; min-height: 100vh; min-height: 100dvh; background: #050507; overflow: hidden; }
 .tv-outer.stage { position: fixed; }
+/* Home: the stage stays in the page flow so the text block under the game (index.html #o-igri) can be scrolled to */
+html[data-screen="home"] .tv-outer.stage { position: relative; height: 100vh; height: 100dvh; }
 .tv-screen {
   position: relative; overflow: hidden; container-type: inline-size;
   min-height: 100dvh;

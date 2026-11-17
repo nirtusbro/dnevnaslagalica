@@ -14,6 +14,18 @@ npm run build     # static site in dist/
 
 Dev shortcuts (query string): `?game=3` opens game 3 in practice mode (does not touch the real day), `?relaxed` disables timers.
 
+## Search pages
+
+`npm run build` runs `tools/seo-pages.mjs` after Vite. It writes plain HTML pages into `dist/`
+(styled by `public/pages.css`, no React): one guide per game (`/slagalica/`, `/moj-broj/`, `/skocko/`,
+`/ko-zna-zna/`, `/asocijacije/`), `/pravila/`, the archive `/arhiva/` with one solutions page per
+finished challenge (`/arhiva/NNN/`), and `sitemap.xml`. Only challenges before today (Belgrade time)
+are published; the deploy workflow rebuilds every night so the day that just ended gets its page.
+These pages do not exist under `npm run dev`; use `npm run build && npm run preview`.
+The home page carries its own static text in `index.html` (`#o-igri`), shown under the game on the
+home screen only. The pages link into the game with `/?igra=skocko` (one game, practice on a random
+past day) and `/?dan=7` (replay challenge #7 as practice). `SEO_TODAY=40` overrides today's number.
+
 ## Layout
 
 ```

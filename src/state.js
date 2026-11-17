@@ -245,7 +245,7 @@ export function reducer(s, action) {
     case 'GO': return { ...s, screen: action.screen, prev: s.screen };
     case 'BACK': return { ...s, screen: s.prev === 'results' ? 'results' : 'home', prev: s.screen };
     case 'HOME': {
-      if (s.practice) return { ...initialState(), ready: true, day: s.day, puzzle: s.puzzle, history: s.history, dictionary: s.dictionary, scores: s.saved?.scores || Array(5).fill(null), reveals: s.saved?.reveals || Array(5).fill(null), done: !!s.saved?.done };
+      if (s.practice) return { ...initialState(), ready: true, day: s.day, puzzle: s.puzzle, history: s.history, dictionary: s.dictionary, scores: s.saved?.scores || Array(5).fill(null), reveals: s.saved?.reveals || Array(5).fill(null), done: !!s.saved?.done, ...(s.saved?.inGame || {}) };
       const pausing = s.screen === 'game' && !s.locked;
       return { ...s, screen: 'home', prev: s.screen, running: false, paused: pausing || s.paused, later: pausing ? null : s.later };
     }
@@ -265,7 +265,8 @@ export function reducer(s, action) {
       return { ...s, screen: 'results', done: true };
     }
     case 'PRACTICE': {
-      const saved = s.practice ? s.saved : { scores: s.scores, reveals: s.reveals, done: s.done };
+      // A game of today's challenge that is paused mid-way is kept too, so leaving practice resumes it instead of restarting it.
+      const saved = s.practice ? s.saved : { scores: s.scores, reveals: s.reveals, done: s.done, inGame: s.paused ? { gi: s.gi, game: s.game, t: s.t, tMax: s.tMax, paused: true } : null };
       return startGame({ ...s, practice: true, saved, scores: Array(5).fill(null), reveals: Array(5).fill(null), done: false, paused: false, puzzle: action.puzzle || s.puzzle, practiceDay: action.day }, 0);
     }
     case 'TICK': {

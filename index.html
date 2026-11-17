@@ -2,20 +2,21 @@
 <html lang="sr-Latn">
 <head>
   <meta charset="utf-8" />
-  <title>Dnevna Slagalica</title>
+  <title>Dnevna Slagalica – slagalica online, nova svakog dana</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#141b6e" />
+  <meta name="description" content="Igraj slagalicu online, besplatno i bez registracije. Svakog dana novi izazov od pet igara: Slagalica, Moj broj, Skočko, Ko zna zna i Asocijacije." />
+  <link rel="canonical" href="https://dnevnaslagalica.rs/" />
   <link rel="icon" href="./favicon.ico" sizes="any" />
   <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16.png" />
   <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
   <link rel="manifest" href="./site.webmanifest" />
-  <meta name="description" content="Pet igara dnevno: Slagalica, Moj broj, Skočko, Ko zna zna i Asocijacije." />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Dnevna Slagalica" />
-  <meta property="og:title" content="Dnevna Slagalica" />
-  <meta property="og:description" content="Pet igara dnevno: Slagalica, Moj broj, Skočko, Ko zna zna i Asocijacije." />
+  <meta property="og:title" content="Dnevna Slagalica – slagalica online, nova svakog dana" />
+  <meta property="og:description" content="Pet igara dnevno: Slagalica, Moj broj, Skočko, Ko zna zna i Asocijacije. Besplatno i bez registracije." />
   <meta property="og:url" content="https://dnevnaslagalica.rs/" />
   <meta property="og:image" content="https://dnevnaslagalica.rs/og-image.png" />
   <meta property="og:image:width" content="1200" />
@@ -23,17 +24,108 @@
   <meta property="og:image:alt" content="Dnevna Slagalica" />
   <meta property="og:locale" content="sr_RS" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Dnevna Slagalica" />
-  <meta name="twitter:description" content="Pet igara dnevno: Slagalica, Moj broj, Skočko, Ko zna zna i Asocijacije." />
+  <meta name="twitter:title" content="Dnevna Slagalica – slagalica online, nova svakog dana" />
+  <meta name="twitter:description" content="Pet igara dnevno: Slagalica, Moj broj, Skočko, Ko zna zna i Asocijacije. Besplatno i bez registracije." />
   <meta name="twitter:image" content="https://dnevnaslagalica.rs/og-image.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,400..900;1,62..125,400..900&family=Tinos:ital,wght@1,700&display=swap&subset=latin-ext" rel="stylesheet" />
+  <!-- Fonts are served from this site (public/fonts): no third-party request before first paint. -->
+  <link rel="preload" href="/fonts/archivo-italic-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/fonts/fonts.css" />
+  <link rel="stylesheet" href="/pages.css" />
+  <!-- The game fills the first screen; the text block below it shows only on the home screen
+       (App.jsx sets data-screen on <html>). The reserved height keeps that block from flashing
+       at the top while the game loads. The page scrollbar is hidden so the TV stage, which is
+       sized from the window width, never shifts when the text block appears or disappears. -->
+  <style>
+    html { scrollbar-width: none; }
+    html::-webkit-scrollbar { display: none; }
+    #root { min-height: 100vh; min-height: 100dvh; }
+    html[data-screen]:not([data-screen="home"]) #o-igri { display: none; }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://dnevnaslagalica.rs/#website",
+        "url": "https://dnevnaslagalica.rs/",
+        "name": "Dnevna Slagalica",
+        "alternateName": ["Slagalica online", "Дневна Слагалица"],
+        "inLanguage": "sr-Latn",
+        "description": "Besplatna online slagalica: svakog dana novi izazov od pet igara."
+      },
+      {
+        "@type": ["WebApplication", "VideoGame"],
+        "@id": "https://dnevnaslagalica.rs/#game",
+        "url": "https://dnevnaslagalica.rs/",
+        "name": "Dnevna Slagalica",
+        "description": "Dnevna igra od pet rundi: Slagalica, Moj broj, Skočko, Ko zna zna i Asocijacije.",
+        "applicationCategory": "GameApplication",
+        "genre": ["Kviz", "Igra sa rečima", "Logička igra"],
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires JavaScript",
+        "inLanguage": "sr-Latn",
+        "isAccessibleForFree": true,
+        "image": "https://dnevnaslagalica.rs/og-image.png",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "RSD" }
+      }
+    ]
+  }
+  </script>
   <!-- Cookieless analytics (Umami). data-domains keeps localhost/dev traffic out of the stats. -->
   <script defer src="https://cloud.umami.is/script.js" data-website-id="31a99482-d088-4e31-a468-4fb9070d9819" data-domains="dnevnaslagalica.rs,www.dnevnaslagalica.rs"></script>
 </head>
 <body>
   <div id="root"></div>
+  <!-- Static text for visitors who scroll past the game and for search engines.
+       The same games are described at length on their own pages (tools/seo-pages.mjs). -->
+  <section id="o-igri" class="pg-about">
+    <div class="pg-wrap pg-main">
+      <h1>Dnevna Slagalica – slagalica online, svakog dana nova</h1>
+      <p class="pg-lead">Dnevna Slagalica je besplatna online igra po uzoru na omiljeni TV kviz. Svakog dana u ponoć stiže novi izazov od pet igara, isti za sve igrače. Igra se u pregledaču, na telefonu ili računaru, bez registracije i bez instalacije.</p>
+
+      <h2>Pet igara svakog dana</h2>
+      <ul class="pg-games">
+        <li><a href="/slagalica/">Slagalica</a><span>Od 12 slova složi najdužu reč koju znaš.</span></li>
+        <li><a href="/moj-broj/">Moj broj</a><span>Pomoću šest brojeva dođi do traženog broja.</span></li>
+        <li><a href="/skocko/">Skočko</a><span>Otkrij tajnu kombinaciju od četiri znaka.</span></li>
+        <li><a href="/ko-zna-zna/">Ko zna zna</a><span>Deset brzih pitanja iz opšteg znanja.</span></li>
+        <li><a href="/asocijacije/">Asocijacije</a><span>Četiri kolone pojmova i jedno konačno rešenje.</span></li>
+      </ul>
+
+      <h2>Kako se igra</h2>
+      <p>Igre se igraju redom i svaka samo jednom dnevno, uz ograničeno vreme kao u kvizu. Na kraju dobijaš ukupan broj poena i ocenu za svaku igru, a rezultat možeš da podeliš sa prijateljima bez otkrivanja rešenja. Ko igra svakog dana, gradi niz uzastopnih dana.</p>
+      <p>Detaljna objašnjenja i bodovanje za svaku igru nalaze se na stranici <a href="/pravila/">Pravila i bodovanje</a>.</p>
+
+      <h2>Arhiva i rešenja</h2>
+      <p>Propustio si neki dan? U <a href="/arhiva/">arhivi izazova</a> su svi prethodni dani sa rešenjima: zadata reč u Slagalici, put do broja u igri Moj broj, Skočkova kombinacija, tačni odgovori iz kviza i rešenja asocijacija. Svaki stari izazov možeš da odigraš i kao vežbu, bez uticaja na niz.</p>
+
+      <h2>Česta pitanja</h2>
+      <h3>Da li je Dnevna Slagalica besplatna?</h3>
+      <p>Da. Igra je potpuno besplatna, bez registracije i bez preuzimanja aplikacije. Napredak se čuva na tvom uređaju, bez naloga.</p>
+      <h3>Kada stiže novi izazov?</h3>
+      <p>Svakog dana u ponoć. Svi igrači tog dana dobijaju ista slova, iste brojeve, ista pitanja i iste asocijacije, pa možeš da uporediš rezultat sa prijateljima.</p>
+      <h3>Koje reči se priznaju u Slagalici?</h3>
+      <p>Sve reči srpskog jezika u bilo kom obliku, osim vlastitih imena i skraćenica. LJ, NJ i DŽ se računaju kao po jedno slovo.</p>
+      <h3>Da li je ovo zvanična igra TV kviza?</h3>
+      <p>Ne. Dnevna Slagalica je nezavisan projekat ljubitelja kviza i nije povezana sa Radio-televizijom Srbije niti sa TV emisijom „Slagalica“.</p>
+
+      <p class="pg-note" lang="sr-Cyrl">Дневна Слагалица – слагалица онлајн: сваког дана нови изазов од пет игара (Слагалица, Мој број, Скочко, Ко зна зна и Асоцијације), бесплатно и без регистрације.</p>
+    </div>
+    <footer class="pg-wrap pg-foot">
+      <nav aria-label="Stranice">
+        <a href="/slagalica/">Slagalica</a>
+        <a href="/moj-broj/">Moj broj</a>
+        <a href="/skocko/">Skočko</a>
+        <a href="/ko-zna-zna/">Ko zna zna</a>
+        <a href="/asocijacije/">Asocijacije</a>
+        <a href="/pravila/">Pravila</a>
+        <a href="/arhiva/">Arhiva</a>
+      </nav>
+      <p>Dnevna Slagalica je nezavisan projekat i nije povezana sa Radio-televizijom Srbije niti sa TV emisijom „Slagalica“.</p>
+    </footer>
+  </section>
   <script type="module" src="/src/main.jsx"></script>
 </body>
 </html>

@@ -78,7 +78,7 @@ function HomeWide({ m, nav }) {
         </div>
         <div className="panel col" style={{ gap: 'clamp(16px,2cqw,24px)', padding: 'clamp(18px,2.4cqw,32px) clamp(16px,3cqw,40px) clamp(18px,2.4cqw,30px)' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
-            <h1 style={{ margin: 0, fontWeight: 900, fontStyle: 'italic', fontSize: 'clamp(26px,4cqw,52px)', lineHeight: 1, textTransform: 'uppercase', letterSpacing: '-.01em', WebkitTextStroke: '2.5px oklch(0.12 0.06 270)', paintOrder: 'stroke fill', textShadow: '3px 4px 0 oklch(0.1 0.06 272)' }}>Današnji izazov</h1>
+            <h2 style={{ margin: 0, fontWeight: 900, fontStyle: 'italic', fontSize: 'clamp(26px,4cqw,52px)', lineHeight: 1, textTransform: 'uppercase', letterSpacing: '-.01em', WebkitTextStroke: '2.5px oklch(0.12 0.06 270)', paintOrder: 'stroke fill', textShadow: '3px 4px 0 oklch(0.1 0.06 272)' }}>Današnji izazov</h2>
             <div style={{ display: 'flex', alignItems: 'center', gap: 8, fontWeight: 900, fontSize: 'clamp(15px,1.8cqw,22px)', textTransform: 'uppercase', textShadow: '2px 2px 0 oklch(0.1 0.06 272)' }}>
               <span style={{ minWidth: 'clamp(36px,4cqw,48px)', height: 'clamp(34px,3.8cqw,46px)', padding: '0 6px', display: 'grid', placeItems: 'center', borderRadius: 4, background: STREAK_BG, boxShadow: STREAK_SH, fontSize: 'clamp(20px,2.6cqw,32px)', lineHeight: 1, WebkitTextStroke: '1.5px oklch(0.12 0.06 270)', paintOrder: 'stroke fill' }}>{m.streak}</span>
               <span>{m.streakWord}</span>
@@ -131,7 +131,7 @@ function HomePhone({ m, nav }) {
         <div className="panel col home-phone-card">
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 10 }}>
             <div className="col" style={{ gap: 5, minWidth: 0 }}>
-              <h1 style={{ margin: 0, fontWeight: 900, fontStyle: 'italic', fontSize: 'clamp(20px,6.4cqw,28px)', lineHeight: 1, textTransform: 'uppercase', letterSpacing: '-.01em', whiteSpace: 'nowrap', ...STROKE }}>Današnji izazov</h1>
+              <h2 style={{ margin: 0, fontWeight: 900, fontStyle: 'italic', fontSize: 'clamp(20px,6.4cqw,28px)', lineHeight: 1, textTransform: 'uppercase', letterSpacing: '-.01em', whiteSpace: 'nowrap', ...STROKE }}>Današnji izazov</h2>
               <span style={{ fontWeight: 800, fontSize: 13, color: 'oklch(0.9 0.05 248)', textShadow: '1px 1px 0 oklch(0.1 0.06 272)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{m.dateLabel}</span>
             </div>
             <div className="col" style={{ flexShrink: 0, alignItems: 'center', gap: 3 }}>

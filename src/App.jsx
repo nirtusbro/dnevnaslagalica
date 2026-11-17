@@ -48,13 +48,31 @@ export default function App() {
   // Boot: today's puzzle + saved progress + history
   useEffect(() => {
     const day = dayNumber();
-    loadPuzzle(day).then((puzzle) => {
+    // Links from the static pages: ?dan=N replays a past challenge as practice (archive pages),
+    // ?igra=skocko opens one game straight away (game guide pages). Practice never touches today's
+    // challenge; without ?dan a random past day is used so today's puzzle is not given away.
+    const q = new URLSearchParams(location.search);
+    const linkGi = GAMES.findIndex((g) => g.id.toLowerCase() === (q.get('igra') || '').toLowerCase());
+    const asked = q.has('dan') ? parseInt(q.get('dan'), 10) : null;
+    const past = day < 2 ? 0
+      : asked != null ? (asked >= 1 && asked < day ? asked : 0)
+      : linkGi >= 0 ? 1 + Math.floor(Math.random() * (day - 1)) : 0;
+    // The practice puzzle is loaded before the first render, so the real game cannot be started in between.
+    Promise.all([loadPuzzle(day), past ? loadPuzzle(past) : null]).then(([puzzle, old]) => {
       dispatch({ type: 'INIT', day, puzzle, progress: storage.loadProgress(day), history: storage.loadHistory() });
       // Dev shortcut: ?game=N opens game N (1–5) in practice mode without touching the real day.
       const m = /[?&]game=([1-5])/.exec(location.search);
-      if (m) { dispatch({ type: 'PRACTICE', day, puzzle }); dispatch({ type: 'START_GAME', gi: +m[1] - 1 }); }
+      if (m) { dispatch({ type: 'PRACTICE', day, puzzle }); dispatch({ type: 'START_GAME', gi: +m[1] - 1 }); return; }
+      if (!old) return;
+      dispatch({ type: 'PRACTICE', day: past, puzzle: old });
+      if (linkGi > 0) dispatch({ type: 'START_GAME', gi: linkGi });
+      track('practice_link', { game: linkGi < 0 ? 'all' : GAMES[linkGi].name });
+      try { history.replaceState(null, '', location.pathname); } catch (e) { /* ignore */ }
     });
   }, []);
+
+  // The static text under the game (index.html #o-igri) is shown on the home screen only.
+  useEffect(() => { document.documentElement.dataset.screen = s.screen; }, [s.screen]);
 
   // Timer: real elapsed time, 200 ms resolution
   useEffect(() => {
