@@ -37,8 +37,8 @@ export const PATTERN = [1, 2, 3, 2, 3, 1, 2, 3, 2, 3];
 export const YEAR_EVERY = 3;
 /** Days the bank is paced for (one year of puzzles). */
 export const HORIZON = 366;
-/** Last day published before the current bank (2026-11-17); these day files are kept as they are. */
-export const FROZEN_THROUGH = 12;
+/** Last day published before the current bank (2026-11-16); these day files are kept as they are. */
+export const FROZEN_THROUGH = 11;
 
 const LABELS = { knjizevnost: 'književnost', 'muzika-film': 'muzika i film', 'opsta-kultura': 'opšta kultura' };
 const keyOf = (file) => file.replace(/^\d+-/, '').replace(/\.json$/, '');
