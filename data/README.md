@@ -122,3 +122,21 @@ which changes every day's puzzle (needed only when a day's set word becomes too 
 
 Attribution: srLex and hrLex by Nikola Ljubešić et al., CLARIN.SI, CC BY-SA 4.0. Hunspell-derived words:
 dict-sr by Goran Rakić and contributors, CC BY-SA 3.0. The CC0 list: turanjanin/spisak-srpskih-reci.
+
+## OZ Eval (Ko zna zna exam questions)
+
+`data/raw/kozna-src/oz-eval/all.json` holds the 1,003 rows of the Hugging Face dataset `DjMel/oz-eval`
+(Apache-2.0), fetched through the datasets-server rows API
+(`https://datasets-server.huggingface.co/rows?dataset=DjMel%2Foz-eval&config=default&split=test&offset=N&length=100`,
+the `row` objects concatenated). The `class-*.jsonl` files next to it are the per-question review used by
+`tools/kozna-import-oz.mjs`. Both are git-ignored; the built bank in `data/kozna/oz/` is tracked.
+
+## Open Trivia DB (Ko zna zna translated questions)
+
+`data/raw/kozna-src/opentdb/pre.json` holds the multiple-choice questions of Open Trivia DB
+(https://opentdb.com, CC BY-SA 4.0) minus video games, anime, comics, cartoons, board games and
+celebrities, fetched category by category through its API (`api.php?amount=50&category=N&token=…`,
+one request per 5 s). `tr-*.jsonl` is the Serbian translation and review of every question
+(`BRIEF.md` in the same folder is the instruction it was made with), used by
+`tools/kozna-import-opentdb.mjs`. Both are git-ignored; the built bank in `data/kozna/opentdb/` is
+tracked and, being a translation of CC BY-SA material, stays under CC BY-SA 4.0.

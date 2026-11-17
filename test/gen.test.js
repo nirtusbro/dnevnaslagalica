@@ -5,7 +5,7 @@ import { generateSlagalica, spellable, rng } from '../tools/slagalica-gen.mjs';
 import { generateMojBroj, MID, BIG } from '../tools/mojbroj-gen.mjs';
 import { solve } from '../src/engine/mojbroj.js';
 import { generateSkocko } from '../tools/skocko-gen.mjs';
-import { loadBank, validateBank, generateKoZnaZna, repeatHorizon, makeDealer } from '../tools/kozna-gen.mjs';
+import { loadBank, validateBank, generateKoZnaZna, repeatHorizon, makeDealer, isYearQuestion, YEAR_EVERY, FROZEN_THROUGH, HORIZON } from '../tools/kozna-gen.mjs';
 import { loadBank as loadAsocBank, validateBank as validateAsocBank, generateAsocijacije, repeatHorizon as asocHorizon, makeDealer as makeAsocDealer, MAX_CLUE_LENGTH, MAX_SOLUTION_LENGTH, MAX_SOLUTION_REUSE } from '../tools/asocijacije-gen.mjs';
 import { matchGuess } from '../src/engine/asocijacije.js';
 import { normalize } from '../src/engine/text.js';
@@ -99,40 +99,49 @@ test('skočko generator is deterministic and uses the symbol range', () => {
   assert.equal(seen.size, SYMBOLS.length, 'every symbol appears over many days');
 });
 
-test('ko zna zna bank is valid and the dealer mixes difficulty without repeats', () => {
+test('ko zna zna bank is valid and the dealer rations year questions without repeats', () => {
   const bank = loadBank();
   assert.deepEqual(validateBank(bank), []);
   assert.equal(bank.length, 10);
-  const horizon = repeatHorizon(bank);
-  assert.ok(horizon >= 60, 'repeat horizon is at least 60 days, got ' + horizon);
-  assert.deepEqual(generateKoZnaZna(4, bank), generateKoZnaZna(4, bank));
+  assert.ok(repeatHorizon(bank) >= HORIZON, 'the bank lasts a year without repeats, got ' + repeatHorizon(bank));
+  const first = FROZEN_THROUGH + 1;
+  assert.deepEqual(generateKoZnaZna(first + 3, bank), generateKoZnaZna(first + 3, bank));
   const dealer = makeDealer(bank);
+  const categories = new Set(bank.map((c) => c.cat));
   const seen = new Set();
   const answerPos = [0, 0, 0];
   const diffCount = { 1: 0, 2: 0, 3: 0 };
-  const days = Math.min(horizon, 120);
-  for (let d = 0; d < days; d++) {
+  let years = 0;
+  for (let d = 0; d <= HORIZON; d++) {
     const qs = dealer.deal(d);
     assert.equal(qs.length, 10);
-    assert.equal(qs[0].cat, 'jezik'); assert.equal(qs[9].cat, 'sport');
+    for (const q of qs) { assert.ok(!seen.has(q.q), 'repeated within a year: ' + q.q); seen.add(q.q); }
+    if (d < first) continue; // published days come back as stored
+    const yearsToday = qs.filter(isYearQuestion).length;
+    years += yearsToday;
+    assert.ok(yearsToday <= (d % YEAR_EVERY === 0 ? 1 : 0), 'day ' + d + ' has ' + yearsToday + ' year questions');
+    const perCat = {};
     for (const q of qs) {
+      assert.ok(categories.has(q.cat));
+      perCat[q.cat] = (perCat[q.cat] || 0) + 1;
+      assert.ok(perCat[q.cat] <= 2, 'day ' + d + ' has three questions from ' + q.cat);
       assert.equal(q.o.length, 3);
       assert.ok(q.a >= 0 && q.a <= 2);
-      assert.ok(!seen.has(q.q), 'repeated before horizon: ' + q.q);
-      seen.add(q.q);
       answerPos[q.a]++;
       diffCount[q.d]++;
     }
   }
-  const total = answerPos.reduce((a, b) => a + b, 0);
+  assert.equal(dealer.repeats, 0);
+  assert.ok(years > 0 && years <= Math.ceil(HORIZON / YEAR_EVERY), 'year questions are occasional: ' + years);
+  const total = answerPos.reduce((x, y) => x + y, 0);
   for (const n of answerPos) assert.ok(n > total * 0.25, 'answers are spread over A/B/C: ' + answerPos);
-  assert.ok(diffCount[3] + diffCount[2] > diffCount[1] * 2, 'most questions are medium or hard: ' + JSON.stringify(diffCount));
+  assert.ok(diffCount[3] + diffCount[2] > diffCount[1], 'most questions are medium or hard: ' + JSON.stringify(diffCount));
   // the shuffled options still contain the original correct answer
-  const q0 = generateKoZnaZna(0, bank)[2];
-  const src = bank[2].questions.find((s) => s.q === q0.q);
+  const q0 = generateKoZnaZna(first, bank)[2];
+  const src = bank.flatMap((c) => c.questions).find((x) => x.q === q0.q);
   assert.equal(q0.o[q0.a], src.o[src.a]);
-  // every generated (Wikidata) question is auditable
-  for (const c of bank) for (const q of c.questions) if (!q.hand) assert.match(q.src, /^Q\d+$/, c.file);
+  // every imported question is auditable: OZ Eval row or Wikidata item
+  for (const c of bank) for (const q of c.questions) if (!q.hand) assert.match(q.src, q.exam ? /^oz:\d+$/ : q.trivia ? /^otdb:\d+$/ : /^Q\d+$/, c.file);
 });
 
 /** Strip diacritics the way a player typing on a plain keyboard would (Đ → DJ, Č → C…). */

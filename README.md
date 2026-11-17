@@ -77,20 +77,43 @@ numbers, and stores the solution expression.
 
 ### Ko zna zna (done, bank grows over time)
 
-Two sources feed ten categories in TV order (jezik, književnost, istorija, geografija, nauka,
+Four sources feed ten categories in TV order (jezik, književnost, istorija, geografija, nauka,
 umetnost, muzika i film, priroda, opšta kultura, sport):
+
+- **Open Trivia DB**: `data/kozna/opentdb/<category>.json`, about 1,400 questions from opentdb.com
+  (CC BY-SA 4.0) translated into Serbian; questions too local to the US/UK, dependent on English,
+  time-sensitive or wrongly keyed were dropped (about half). `node tools/kozna-import-opentdb.mjs
+  --write` rebuilds them from `data/raw/kozna-src/opentdb/`. The translated questions remain CC BY-SA.
+
+- **Entrance-exam questions**: `data/kozna/oz/<category>.json`, 600 questions from the OZ Eval dataset
+  (DjMel/oz-eval on Hugging Face, Apache-2.0; University of Belgrade entrance exams 2003–2024).
+  `node tools/kozna-import-oz.mjs --write` rebuilds them from the raw rows and the per-question review
+  in `data/raw/kozna-src/oz-eval/` (category, difficulty, the two distractors kept out of four, and
+  the questions dropped as time-sensitive, wrongly keyed, jargon or too slow for 10 seconds).
 
 - **Hand-written**: `data/kozna/NN-<category>.json`, entries `{q, o:[3], a?, d?}`. `a` is the index of
   the correct option (default 0, so author with the answer first); `d` is difficulty 1–3 (default 1).
-- **Wikidata-derived**: `node tools/wikidata-fetch.mjs` pulls structured facts (capitals, rivers,
-  battle years, birth years by occupation, authors, painters, directors, element symbols, currencies,
-  languages, founders, athletes' countries and sports, Olympic hosts, World Cup winners…) into
-  `data/kozna/wikidata/`, keeping only rows with Serbian labels (Cyrillic transliterated).
-  `node tools/wikidata-questions.mjs` turns them into `data/kozna/generated/<category>.json`, with
-  same-type distractors (region-aware for countries), a `src` Wikidata id on every question so answers
-  are auditable, and difficulty from the item's sitelink count (famous = easy, obscure = hard).
+- **Wikidata-derived**: `node tools/wikidata-fetch.mjs` pulls structured facts (capitals, authors, painters,
+  directors, dynasties, element symbols, currencies, Nobel fields, athletes, Olympic hosts…) into
+  `data/kozna/wikidata/`, keeping only rows with Serbian labels. `node tools/wikidata-questions.mjs`
+  turns them into `data/kozna/generated/<category>.json` with a `src` Wikidata id. The templates are
+  mechanical and about nine in ten raw questions need a correction (random wrong options, obscure
+  subjects, untranscribed names), so **only proofread questions are written**:
+  `data/kozna/wikidata-review.json` maps each generated question text to `true` (fine), `false` (left
+  out) or `{q?, o?, d?}` (replacement). `--all` also writes the unread ones, only to pick the next
+  batch to proofread.
 
-`tools/kozna-gen.mjs` merges both per category (hand questions win on duplicate text), keeps a seeded
+Proofreading of the exam and trivia questions is kept in `data/kozna/fixes.json` (`src` → `false` or
+`{q?, o?, d?, cat?}`), applied by the two import scripts; hand-written files are edited directly.
+
+Year questions (all three options are years) are rationed by `tools/kozna-gen.mjs`: at most one a
+day, only on every third day (`YEAR_EVERY`). Hand-written and exam questions are preferred and paced
+to last the year; a category short of non-year questions lends some of its slots to a well-stocked
+one, so a day can have two questions from one category. Days up to `FROZEN_THROUGH` were published
+before the current bank and are never regenerated; after a bank change run
+`node tools/gen-days.mjs <tomorrow> 366 --force --only=koZnaZna` and raise `FROZEN_THROUGH` to today.
+
+`tools/kozna-gen.mjs` merges all three per category (hand questions win on duplicate text), keeps a seeded
 deal order per (category, difficulty) pool, follows a daily difficulty pattern (2 easy, 4 medium,
 4 hard, rotated so every category sees every level), spills into neighbouring pools when one is used
 up, and shuffles option order per day. `gen-days` validates everything and prints the repeat horizon

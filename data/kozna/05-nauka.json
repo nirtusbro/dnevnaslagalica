@@ -73,7 +73,7 @@
 {"q":"Koliko je 2 na peti stepen?","o":["32","25","16"]},
 {"q":"Decimalni brojevni sistem ima osnovu:","o":["10","2","16"]},
 {"q":"Binarni sistem koristi cifre:","o":["0 i 1","0 do 9","1 i 2"]},
-{"q":"Ko se smatra ocem računarstva zbog „Tjuringove mašine“?","o":["Alan Tjuring","Čarls Bebidž","Džon fon Nojman"]},
+{"q":"Koji britanski matematičar je u Drugom svetskom ratu predvodio razbijanje nemačke šifre „Enigma“?","o":["Alan Tjuring","Čarls Bebidž","Džon fon Nojman"]},
 {"q":"Elektron ima naelektrisanje:","o":["negativno","pozitivno","neutralno"]},
 {"q":"Jezgro atoma čine:","o":["protoni i neutroni","elektroni i protoni","elektroni i neutroni"]},
 {"q":"Zvuk se ne prostire kroz:","o":["vakuum","vodu","vazduh"]},
@@ -116,7 +116,7 @@
 {"q":"Faktorijel broja 5 (5!) iznosi:","o":["120","60","25"],"d":2},
 {"q":"Koliko bitova ima jedan bajt?","o":["8","4","16"],"d":2},
 {"q":"Dekadni logaritam broja 1000 je:","o":["3","10","100"],"d":2},
-{"q":"Teoreme o nepotpunosti dokazao je:","o":["Kurt Gedel","Alan Tjuring","Dejvid Hilbert"],"d":3},
+{"q":"Teoreme o nepotpunosti dokazao je:","o":["Kurt Gedel","Alan Tjuring","David Hilbert"],"d":3},
 {"q":"Enzim u pljuvački koji razlaže skrob je:","o":["amilaza","lipaza","pepsin"],"d":3},
 {"q":"Žuč stvara:","o":["jetra","žučna kesa","gušterača"],"d":3},
 {"q":"Najveća žlezda u ljudskom telu je:","o":["jetra","gušterača","štitna žlezda"],"d":2},
@@ -125,7 +125,7 @@
 {"q":"Koliko pršljenova ima kičma čoveka (uključujući krsne i trtične)?","o":["33","24","40"],"d":3},
 {"q":"Najmanja kost u ljudskom telu nalazi se u:","o":["uhu","prstu","nosu"],"d":2},
 {"q":"Krvne grupe otkrio je:","o":["Karl Landštajner","Luj Paster","Robert Koh"],"d":3},
-{"q":"Vakcinu protiv velikih boginja uveo je:","o":["Edvard Džener","Luj Paster","Jonas Salk"],"d":3},
-{"q":"Vakcinu protiv dečje paralize razvio je:","o":["Jonas Salk","Edvard Džener","Aleksandar Fleming"],"d":3},
+{"q":"Vakcinu protiv velikih boginja uveo je:","o":["Edvard Džener","Luj Paster","Džonas Solk"],"d":3},
+{"q":"Vakcinu protiv dečje paralize razvio je:","o":["Džonas Solk","Edvard Džener","Aleksandar Fleming"],"d":3},
 {"q":"Strukturu DNK (dvostruki heliks) otkrili su:","o":["Votson i Krik","Mendel i Darvin","Kiri i Bekerel"],"d":2}
 ]

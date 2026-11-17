@@ -65,7 +65,7 @@
 {"q":"Hari Poter je lik iz knjiga:","o":["Džoan Rouling","Roalda Dala","Filipa Pulmana"]},
 {"q":"„Pipi Duga Čarapa“ delo je:","o":["Astrid Lindgren","Tuve Janson","Hansa Kristijana Andersena"]},
 {"q":"„Malu sirenu“ i „Ružno pače“ napisao je:","o":["Hans Kristijan Andersen","Braća Grim","Šarl Pero"]},
-{"q":"Bajku „Snežana i sedam patuljaka“ zapisali su:","o":["Braća Grim","Šarl Pero","Hans Kristijan Andersen"]},
+{"q":"Bajka „Snežana i sedam patuljaka“ nalazi se u zbirci bajki:","o":["braće Grim","Šarla Peroa","Hansa Kristijana Andersena"]},
 {"q":"„Put oko sveta za 80 dana“ napisao je:","o":["Žil Vern","Herbert Džordž Vels","Danijel Defo"]},
 {"q":"„Robinzon Kruso“ je roman:","o":["Danijela Defoa","Džonatana Svifta","Roberta Luisa Stivensona"]},
 {"q":"„Guliverova putovanja“ napisao je:","o":["Džonatan Svift","Danijel Defo","Čarls Dikens"]},
@@ -141,5 +141,6 @@
 {"q":"Pesnik zbirke „Cveće zla“ je:","o":["Šarl Bodler","Artur Rembo","Pol Verlen"],"d":2},
 {"q":"„Pijani brod“ je pesma:","o":["Artura Remboa","Šarla Bodlera","Stefana Malarmea"],"d":3},
 {"q":"„Pusta zemlja“ je poema:","o":["Tomasa Sternsa Eliota","Ezre Paunda","Vilijama Batlera Jejtsa"],"d":3},
-{"q":"„Vlati trave“ napisao je:","o":["Volt Vitmen","Edgar Alan Po","Robert Frost"],"d":3}
+{"q":"„Vlati trave“ napisao je:","o":["Volt Vitmen","Edgar Alan Po","Robert Frost"],"d":3},
+{"q":"Pesma od 14 stihova naziva se:","o":["sonet","balada","elegija"]}
 ]

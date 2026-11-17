@@ -15,7 +15,7 @@ import { fileURLToPath } from 'node:url';
 import { generateSlagalica, groupByLength, acceptedWords } from './slagalica-gen.mjs';
 import { generateMojBroj } from './mojbroj-gen.mjs';
 import { generateSkocko } from './skocko-gen.mjs';
-import { loadBank, validateBank, generateKoZnaZna, repeatHorizon } from './kozna-gen.mjs';
+import { loadBank, validateBank, makeDealer, repeatHorizon, FROZEN_THROUGH } from './kozna-gen.mjs';
 import { loadBank as loadAsocBank, validateBank as validateAsocBank, makeDealer as makeAsocDealer, repeatHorizon as asocHorizon } from './asocijacije-gen.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -51,7 +51,8 @@ if (bankErrors.length) {
   process.exit(1);
 }
 const horizon = repeatHorizon(bank);
-if (to >= horizon) console.warn(`note: Ko zna zna questions start repeating after day ${horizon - 1} (smallest category has ${horizon} questions)`);
+if (to >= horizon) console.warn(`note: Ko zna zna questions start repeating around day ${horizon} (the bank is that many days deep)`);
+const kozDealer = makeDealer(bank);
 
 const asocBank = loadAsocBank();
 const asocErrors = validateAsocBank(asocBank);
@@ -91,7 +92,8 @@ for (let day = from; day <= to; day++) {
     console.log(`#${pad3(day)} skočko: ${out.skocko.secret.join(' ')}`);
   }
   if (wants('koZnaZna', out)) {
-    out.koZnaZna = generateKoZnaZna(day, bank);
+    // days published before the bank was rebuilt come back unchanged from the dealer
+    out.koZnaZna = kozDealer.deal(day);
     console.log(`#${pad3(day)} ko zna zna: ${out.koZnaZna.map((q) => 'ABC'[q.a]).join('')}  "${out.koZnaZna[0].q}"`);
   }
   if (wants('asocijacije', out)) {
